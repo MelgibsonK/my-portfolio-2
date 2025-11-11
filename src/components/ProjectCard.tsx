@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
@@ -19,7 +19,6 @@ interface ProjectCardProps {
 // Wrap the component with React.memo. This prevents the component from re-rendering
 // if its props (project and index) have not shallowly changed.
 const ProjectCard: React.FC<ProjectCardProps> = React.memo(({ project, index }) => {
-  const [imageError, setImageError] = useState(false);
   
   // Determine the layout pattern based on the index (0, 1, 2, 3 repeats)
   const pattern = index % 4;
@@ -128,7 +127,7 @@ const ProjectCard: React.FC<ProjectCardProps> = React.memo(({ project, index }) 
                 width={600}
                 height={400}
                 className="object-cover w-full h-full"
-                onError={() => setImageError(true)}
+                onError={() => {}}
                 loading="lazy"
               />
               {/* Vintage overlay effect */}

@@ -4,7 +4,6 @@
 
 import React, { Suspense } from 'react';
 import BlurText from '@/blocks/TextAnimations/BlurText/BlurText';
-import Link from 'next/link';
 
 export default function Resume() {
   const handleDownload = () => {
@@ -99,7 +98,7 @@ export default function Resume() {
                   <span style={{ color: '#1F1F1C' }}>2024 – Present</span>
                 </div>
                 <ul className="list-disc list-inside space-y-1 text-sm md:text-base ml-4" style={{ color: '#1F1F1C' }}>
-                  <li>Lead the company's entire technology ecosystem, including infrastructure, product development, and digital strategy.</li>
+                  <li>Lead the company&apos;s entire technology ecosystem, including infrastructure, product development, and digital strategy.</li>
                   <li>Architected and deployed high-availability systems powering customer and partner platforms.</li>
                   <li>Implemented automation and analytics frameworks, improving operational efficiency by over 40%.</li>
                   <li>Supervised engineering and product teams to align technology with business growth and customer experience goals.</li>
@@ -175,7 +174,7 @@ export default function Resume() {
               <div className="mb-6">
                 <h3 className="text-lg md:text-xl font-bold mb-2" style={{ color: '#1F1F1C' }}>Emoh Links Digital Infrastructure Modernization</h3>
                 <p className="text-sm md:text-base leading-relaxed" style={{ color: '#1F1F1C' }}>
-                  Architected and led modernization of Emoh Links' service management systems — implementing automated billing, monitoring, and real-time reporting dashboards. Resulted in improved scalability, data accuracy, and user experience.
+                  Architected and led modernization of Emoh Links&apos; service management systems — implementing automated billing, monitoring, and real-time reporting dashboards. Resulted in improved scalability, data accuracy, and user experience.
                 </p>
               </div>
 

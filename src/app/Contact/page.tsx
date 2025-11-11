@@ -376,7 +376,7 @@ export default function Contact() {
         />
           </Suspense>
           <p className="mt-3 text-antique-linen/60 text-sm md:text-base max-w-xl mx-auto">
-            Let's create something amazing together.
+            Let&apos;s create something amazing together.
           </p>
       </div>
 

@@ -3,7 +3,6 @@
 "use client"
 
 import React, { lazy, Suspense } from "react";
-import Image from "next/image";
 
 // Lazy load heavy components for better performance
 const BlurText = lazy(() => import("@/blocks/TextAnimations/BlurText/BlurText"));
@@ -214,22 +213,22 @@ export default function Home() {
                 <div className="mb-8 md:mb-10 relative">
                   <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-burnt-brass to-burnt-brass/30 hidden md:block"></div>
                   <p className="text-burnt-brass text-lg md:text-2xl font-semibold italic pl-6 md:pl-8 leading-relaxed">
-                    "technology should empower, not complicate"
+                    &quot;technology should empower, not complicate&quot;
                   </p>
                 </div>
 
                 {/* Main Paragraph */}
                 <div className="space-y-6 md:space-y-8">
                   <p className="text-antique-linen/90 text-base md:text-lg leading-relaxed">
-                    As the <span className="text-burnt-brass font-semibold">Chief Technology Officer</span> at <span className="text-burnt-brass font-semibold">Emoh Links Ltd</span> and <span className="text-burnt-brass font-semibold">Founder</span> of <span className="text-burnt-brass font-semibold">Tayari Careers</span>, I combine hands-on engineering with strategic leadership, turning ideas into scalable, people-centered solutions. My work spans software architecture, product innovation, and organizational growth, driven by a simple belief, <span className="text-burnt-brass italic">"technology should empower, not complicate"</span>.
+                    As the <span className="text-burnt-brass font-semibold">Chief Technology Officer</span> at <span className="text-burnt-brass font-semibold">Emoh Links Ltd</span> and <span className="text-burnt-brass font-semibold">Founder</span> of <span className="text-burnt-brass font-semibold">Tayari Careers</span>, I combine hands-on engineering with strategic leadership, turning ideas into scalable, people-centered solutions. My work spans software architecture, product innovation, and organizational growth, driven by a simple belief, <span className="text-burnt-brass italic">&quot;technology should empower, not complicate&quot;</span>.
                   </p>
 
                   <p className="text-antique-linen/90 text-base md:text-lg leading-relaxed">
-                    Beyond code, I'm deeply interested in how <span className="text-burnt-brass font-semibold">design</span>, <span className="text-burnt-brass font-semibold">data</span>, and <span className="text-burnt-brass font-semibold">empathy</span> shape better digital experiences. I thrive in environments where creativity meets execution whether it's leading a development team, mentoring young innovators, or building something entirely new from the ground up.
+                    Beyond code, I&apos;m deeply interested in how <span className="text-burnt-brass font-semibold">design</span>, <span className="text-burnt-brass font-semibold">data</span>, and <span className="text-burnt-brass font-semibold">empathy</span> shape better digital experiences. I thrive in environments where creativity meets execution whether it&apos;s leading a development team, mentoring young innovators, or building something entirely new from the ground up.
                   </p>
 
                   <p className="text-antique-linen/90 text-base md:text-lg leading-relaxed">
-                    When I'm not working, I enjoy exploring emerging tech, learning from communities, and pushing the boundaries of what's possible in <span className="text-burnt-brass font-semibold">Africa's growing tech ecosystem</span>.
+                    When I&apos;m not working, I enjoy exploring emerging tech, learning from communities, and pushing the boundaries of what&apos;s possible in <span className="text-burnt-brass font-semibold">Africa&apos;s growing tech ecosystem</span>.
                   </p>
                 </div>
 

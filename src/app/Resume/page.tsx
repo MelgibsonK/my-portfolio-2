@@ -34,7 +34,7 @@ export default function Resume() {
               "name": "Tayari Careers",
               "url": "https://tayaricareers.africa"
             },
-            "url": "https://melgibsonkennedy.com/Resume",
+            "url": "https://melgibsonkennedy.vercel.app/Resume",
             "sameAs": [
               "https://www.linkedin.com/in/melgibson-kennedy",
               "https://github.com/MelgibsonK"
@@ -98,8 +98,8 @@ export default function Resume() {
                   linkedin.com/in/melgibson-kennedy
                 </a>
                 <span className="text-burnt-brass">|</span>
-                <a href="https://melgibsonkennedy.com" target="_blank" rel="noopener noreferrer" className="hover:text-burnt-brass transition-colors">
-                  melgibsonkennedy.com
+                <a href="https://melgibsonkennedy.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-burnt-brass transition-colors">
+                  melgibsonkennedy.vercel.app
                 </a>
               </div>
             </div>
@@ -153,7 +153,7 @@ export default function Resume() {
                 <div className="flex flex-wrap items-baseline gap-2 mb-2">
                   <h3 className="text-lg md:text-xl font-bold" style={{ color: '#1F1F1C' }}>Freelance Software Developer & Consultant</h3>
                   <span className="text-burnt-brass">|</span>
-                  <a href="https://melgibsonkennedy.com" target="_blank" rel="noopener noreferrer" className="text-burnt-brass hover:underline">Self-Employed</a>
+                  <a href="https://melgibsonkennedy.vercel.app" target="_blank" rel="noopener noreferrer" className="text-burnt-brass hover:underline">Self-Employed</a>
                   <span className="text-burnt-brass">|</span>
                   <span style={{ color: '#1F1F1C' }}>2022 – 2023</span>
                 </div>
@@ -214,7 +214,7 @@ export default function Resume() {
 
               <div className="mb-6">
                 <h3 className="text-lg md:text-xl font-bold mb-2" style={{ color: '#1F1F1C' }}>
-                  Personal Portfolio & Tech Ecosystem — <a href="https://melgibsonkennedy.com" target="_blank" rel="noopener noreferrer" className="text-burnt-brass hover:underline">melgibsonkennedy.com</a>
+                  Personal Portfolio & Tech Ecosystem — <a href="https://melgibsonkennedy.vercel.app" target="_blank" rel="noopener noreferrer" className="text-burnt-brass hover:underline">melgibsonkennedy.vercel.app</a>
                 </h3>
                 <p className="text-sm md:text-base leading-relaxed" style={{ color: '#1F1F1C' }}>
                   Showcases professional projects, leadership work, and community contributions. Includes web and AI-driven tools demonstrating technical innovation and product strategy insight.

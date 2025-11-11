@@ -88,7 +88,7 @@ export default function Hackathons() {
   return (
     <>
       {/* Main content area for Hackathons */}
-      <main className="flex-grow flex flex-col items-center h-full relative pt-20">
+      <main className="flex-grow flex flex-col items-center h-full relative pt-12 bg-deep-charcoal">
       { /* Make this hidden on mobile */ }
       {/* Added responsive hidden class */}
         <div className="hidden md:block" style={{ width: '100%', height: '600px', position: 'absolute', top: '0', zIndex: -1, opacity: 0.5 }}>
@@ -107,7 +107,7 @@ export default function Hackathons() {
             animateBy="letters"
             direction="top"
             onAnimationComplete={handleAnimationComplete}
-            className="text-3xl md:text-7xl font-extrabold text-center"
+            className="text-3xl md:text-7xl font-extrabold text-center text-antique-linen"
           />
         </div>
 
@@ -168,8 +168,8 @@ export default function Hackathons() {
       </main>
 
       {/* Footer Section */}
-      <footer className="flex w-full items-center justify-center p-4 border-t border-white/[.15] text-white/50 text-sm font-light mt-20">
-        <p>&copy; {new Date().getFullYear()} Lauvigne Lumeda. All rights reserved.</p>
+      <footer className="flex w-full items-center justify-center p-4 border-t border-burnt-brass/20 text-antique-linen/60 text-sm font-light mt-20">
+        <p>&copy; {new Date().getFullYear()} Melgibson Kennedy. All rights reserved.</p>
       </footer>
     </>
   );

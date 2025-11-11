@@ -35,14 +35,18 @@ const TrueFocus: React.FC<TrueFocusProps> = ({
     const [focusRect, setFocusRect] = useState<FocusRect>({ x: 0, y: 0, width: 0, height: 0 });
 
     useEffect(() => {
-        if (!manualMode) {
-            const interval = setInterval(() => {
-                setCurrentIndex((prev) => (prev + 1) % words.length);
-            }, (animationDuration + pauseBetweenAnimations) * 1000);
+        // Always auto-rotate, but allow hover to override temporarily
+        const interval = setInterval(() => {
+            setCurrentIndex((prev) => (prev + 1) % words.length);
+        }, (animationDuration + pauseBetweenAnimations) * 1000);
 
-            return () => clearInterval(interval);
-        }
-    }, [manualMode, animationDuration, pauseBetweenAnimations, words.length]);
+        return () => {
+            clearInterval(interval);
+            if (hoverTimeoutRef.current) {
+                clearTimeout(hoverTimeoutRef.current);
+            }
+        };
+    }, [animationDuration, pauseBetweenAnimations, words.length]);
 
     useEffect(() => {
         if (currentIndex === null || currentIndex === -1) return;
@@ -59,17 +63,25 @@ const TrueFocus: React.FC<TrueFocusProps> = ({
         });
     }, [currentIndex, words.length]);
 
+    const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
     const handleMouseEnter = (index: number) => {
-        if (manualMode) {
-            setLastActiveIndex(index);
-            setCurrentIndex(index);
+        // Store the current index before hover
+        setLastActiveIndex(currentIndex);
+        setCurrentIndex(index);
+        // Clear any pending auto-rotation
+        if (hoverTimeoutRef.current) {
+            clearTimeout(hoverTimeoutRef.current);
         }
     };
 
     const handleMouseLeave = () => {
-        if (manualMode) {
-            setCurrentIndex(lastActiveIndex!);
-        }
+        // Resume auto-rotation after a brief delay
+        hoverTimeoutRef.current = setTimeout(() => {
+            if (lastActiveIndex !== null) {
+                setCurrentIndex(lastActiveIndex);
+            }
+        }, 500);
     };
 
     return (
@@ -85,13 +97,7 @@ const TrueFocus: React.FC<TrueFocusProps> = ({
                         ref={(el) => {wordRefs.current[index] = el}}
                         className="relative lg:text-[2rem] md:text-[1.7rem] sm:text[1.2rem] xs:text[1rem]"
                         style={{
-                            filter: manualMode
-                                ? isActive
-                                    ? `blur(0px)`
-                                    : `blur(${blurAmount}px)`
-                                : isActive
-                                    ? `blur(0px)`
-                                    : `blur(${blurAmount}px)`,
+                            filter: isActive ? `blur(0px)` : `blur(${blurAmount}px)`,
                             transition: `filter ${animationDuration}s ease`,
                         } as React.CSSProperties}
                         onMouseEnter={() => handleMouseEnter(index)}

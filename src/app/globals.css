@@ -8,8 +8,16 @@
   Set the dark mode colors as the default in :root.
 */
 :root {
-  --background: #0a0a0a; /* Dark background color */
-  --foreground: #ededed; /* Light foreground color */
+  --background: #1F1F1C; /* Deep Charcoal - Primary Dark */
+  --foreground: #F2E8DC; /* Antique Linen - Background Base */
+  --primary-accent: #B08D57; /* Burnt Brass */
+  --emotive-accent: #7C3F36; /* Oxblood */
+  --modern-neutral: #D9D9D6; /* Mist Gray */
+  --calming-neutral: #7E846B; /* Dusty Olive */
+  --cool-modern: #355E63; /* Midnight Teal */
+  --soft-white: #FAF9F6;
+  --graphite: #3C3C3C;
+  --highlight-gold: #E6C87E;
 }
 
 /* Keep your theme rule */
@@ -54,20 +62,22 @@
   z-index: 1; /* Ensure corner is above the content if needed */
 }
 
-/* Styles for the Top-Left corner piece (using ::before) */
+/* Styles for the Top-Left corner piece (using ::before) - Vintage Theme */
 .custom-corner-border::before {
   top: 0;
   left: 0;
-  border-top-width: 2px; /* Thick top border */
-  border-left-width: 2px; /* Thick left border */
+  border-top-width: 2px;
+  border-left-width: 2px;
+  border-color: #B08D57; /* Burnt Brass */
 }
 
-/* Styles for the Bottom-Right corner piece (using ::after) */
+/* Styles for the Bottom-Right corner piece (using ::after) - Vintage Theme */
 .custom-corner-border::after {
   bottom: 0;
   right: 0;
-  border-bottom-width: 2px; /* Thick bottom border */
-  border-right-width: 2px; /* Thick right border */
+  border-bottom-width: 2px;
+  border-right-width: 2px;
+  border-color: #B08D57; /* Burnt Brass */
 }
 
 /*
@@ -87,11 +97,12 @@
 
 /* Keep your existing body styles and add position relative */
 body {
-  /* These will now use the dark colors defined in :root */
+  /* These will now use the vintage colors defined in :root */
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-gilroy), Arial, Helvetica, sans-serif;
   position: relative; /* Added for positioning context if needed */
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 

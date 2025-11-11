@@ -182,11 +182,11 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             z-index: 1;
           }
           .effect.text {
-            color: white;
+            color: #F2E8DC;
             transition: color 0.3s ease;
           }
           .effect.text.active {
-            color: black;
+            color: #1F1F1C;
           }
           .effect.filter {
             filter: blur(7px) contrast(100) blur(0);
@@ -203,7 +203,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             content: "";
             position: absolute;
             inset: 0;
-            background: white;
+            background: #B08D57;
             transform: scale(0);
             opacity: 0;
             z-index: -1;
@@ -285,7 +285,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             }
           }
           li.active {
-            color: black;
+            color: #1F1F1C;
             text-shadow: none;
           }
           li.active::after {
@@ -297,7 +297,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             position: absolute;
             inset: 0;
             border-radius: 8px;
-            background: white;
+            background: #B08D57;
             opacity: 0;
             transform: scale(0);
             transition: all 0.3s ease;
@@ -314,15 +314,15 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
 						ref={navRef}
 						className="flex gap-8 list-none p-0 px-4 m-0 relative z-[3]"
 						style={{
-							color: "white",
-							textShadow: "0 1px 1px hsl(205deg 30% 10% / 0.2)",
+							color: "#F2E8DC",
+							textShadow: "0 1px 1px rgba(31, 31, 28, 0.3)",
 						}}
 					>
 						{items.map((item, index) => (
 							<li
 								key={index}
-								className={`py-[0.6em] px-[1em] rounded-full relative transition-[background-color_color_box-shadow] duration-300 ease shadow-[0_0_0.5px_1.5px_transparent] text-white ${
-									activeIndex === index ? "active" : ""
+								className={`py-[0.6em] px-[1em] rounded-full relative transition-[background-color_color_box-shadow] duration-300 ease shadow-[0_0_0.5px_1.5px_transparent] text-antique-linen/80 hover:text-burnt-brass ${
+									activeIndex === index ? "active text-burnt-brass" : ""
 								}`}
 								onClick={(e) => handleClick(e, index)}
 							>

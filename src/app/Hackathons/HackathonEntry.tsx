@@ -40,11 +40,9 @@ const HackathonEntry: React.FC<HackathonEntryProps> = ({
   return (
     // Main container: flex-col on mobile, flex-row on medium screens and up
     // Added responsive padding: smaller on mobile, larger on medium+
-    <div className="flex flex-col md:flex-row items-start w-full border-b border-white/[.15] py-6 md:py-10 last:border-b-0">
-      {/* Entry Number - Displays the sequential number for the hackathon entry */}
-      {/* Adjusted text size for different breakpoints */}
-      {/* Adjusted margin for different breakpoints */}
-      <div className="text-4xl sm:text-5xl md:text-6xl font-extrabold mr-0 md:mr-8 mb-4 md:mb-0 flex-shrink-0 w-full md:w-auto text-center md:text-left">
+    <div className="flex flex-col md:flex-row items-start w-full border-b border-burnt-brass/20 py-6 md:py-10 last:border-b-0">
+      {/* Entry Number */}
+      <div className="text-4xl sm:text-5xl md:text-6xl font-extrabold mr-0 md:mr-8 mb-4 md:mb-0 flex-shrink-0 w-full md:w-auto text-center md:text-left text-burnt-brass/40">
         {entryNumber}
       </div>
 
@@ -78,15 +76,14 @@ const HackathonEntry: React.FC<HackathonEntryProps> = ({
               />
             )
           ) : (
-            // Display placeholder text if no image source is provided
-            <span className="text-gray-500 text-sm sm:text-base">Project Image</span>
+            <span className="text-antique-linen/50 text-sm sm:text-base">Project Image</span>
           )}
         </div>
 
-        {/* Text Content - Contains the award, title, and description */}
+        {/* Text Content */}
         <div className="flex-1">
-          {/* Award Section - Displays the trophy icon and the award text */}
-          <div className="flex items-center text-white/80 text-sm mb-2">
+          {/* Award Section */}
+          <div className="flex items-center text-antique-linen/80 text-sm mb-2">
             {/* Trophy Image - Renders the appropriate trophy PNG based on trophyType */}
             {trophyImagePath && ( // Render image only if a path is found
                 <Image
@@ -101,9 +98,8 @@ const HackathonEntry: React.FC<HackathonEntryProps> = ({
             <span>{award}</span>
           </div>
 
-          {/* Title - Displays the title of the hackathon entry */}
-          {/* Adjusted text size for different breakpoints */}
-          <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 md:mb-4">{title}</h3>
+          {/* Title */}
+          <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 md:mb-4 text-burnt-brass">{title}</h3>
 
           {/* Tech Stack Icons */}
           {techStackIcons && techStackIcons.length > 0 && (
@@ -122,9 +118,8 @@ const HackathonEntry: React.FC<HackathonEntryProps> = ({
           )}
 
 
-          {/* Description - Displays the description of the hackathon entry */}
-          {/* Adjusted text size for different breakpoints */}
-          <p className="text-sm sm:text-base text-white/70 leading-relaxed">
+          {/* Description */}
+          <p className="text-sm sm:text-base text-antique-linen/70 leading-relaxed">
             {description}
           </p>
         </div>

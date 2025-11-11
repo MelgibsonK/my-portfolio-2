@@ -199,7 +199,21 @@ const Threads: React.FC<ThreadsProps> = ({
 			container.addEventListener("mouseleave", handleMouseLeave);
 		}
 
+		let lastFrameTime = 0;
+		const targetFPS = 30; // Reduce to 30 FPS for better performance
+		const frameInterval = 1000 / targetFPS;
+
 		function update(t: number) {
+			const elapsed = t - lastFrameTime;
+			
+			// Throttle to target FPS
+			if (elapsed < frameInterval) {
+				animationFrameId.current = requestAnimationFrame(update);
+				return;
+			}
+			
+			lastFrameTime = t - (elapsed % frameInterval);
+
 			if (enableMouseInteraction) {
 				const smoothing = 0.05;
 				currentMouse[0] += smoothing * (targetMouse[0] - currentMouse[0]);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
@@ -10,7 +10,8 @@ interface ProjectCardProps {
     description: string;
     techstack: string[];
     imageSrc: string; 
-    link: string; 
+    link: string;
+    previewUrl?: string;
   };
   index: number; 
 }
@@ -19,6 +20,9 @@ interface ProjectCardProps {
 // Wrap the component with React.memo. This prevents the component from re-rendering
 // if its props (project and index) have not shallowly changed.
 const ProjectCard: React.FC<ProjectCardProps> = React.memo(({ project, index }) => {
+  const [showPreview, setShowPreview] = useState(false);
+  const [imageError, setImageError] = useState(false);
+  
   // Determine the layout pattern based on the index (0, 1, 2, 3 repeats)
   const pattern = index % 4;
 
@@ -61,8 +65,17 @@ const ProjectCard: React.FC<ProjectCardProps> = React.memo(({ project, index }) 
   // Handle click to redirect
   const handleImageClick = () => {
     if (project.link) {
-      window.open(project.link, '_blank'); // Open link in a new tab
+      window.open(project.link, '_blank');
     }
+  };
+
+  // Generate screenshot URL using a screenshot service (using api.screenshotone.com as example)
+  const getScreenshotUrl = (url: string) => {
+    if (!url) return project.imageSrc;
+    // Using screenshotone.com API (free tier available)
+    // You can also use other services like api.screenshotmachine.com, etc.
+    const encodedUrl = encodeURIComponent(url);
+    return `https://api.screenshotone.com/take?access_key=YOUR_API_KEY&url=${encodedUrl}&viewport_width=1280&viewport_height=720&device_scale_factor=1&format=png&image_quality=80&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=true&block_trackers=true&delay=2&timeout=10`;
   };
 
   return (
@@ -72,12 +85,14 @@ const ProjectCard: React.FC<ProjectCardProps> = React.memo(({ project, index }) 
     // Use flex-col to stack content vertically, justify-between to space text and image
     // Removed aspect-square to allow height to be determined by content
     <motion.div
-      className="relative flex flex-col justify-between py-6 px-15 md:m-0 m-5 border border-white border-opacity-20 bg-transparent overflow-hidden h-full"
-      // Optional: Add Framer Motion initial/animate/whileHover props here (for the whole card)
-      // For example: initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+      className="relative flex flex-col justify-between py-6 px-6 md:px-8 border border-burnt-brass/30 bg-mist-gray/5 overflow-hidden h-full group hover:border-burnt-brass/60 transition-all duration-300"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.5 }}
     >
-      {/* Large Project Number - Absolutely Positioned */}
-      <div className={`absolute md:text-6xl text-3xl p-6 font-bold text-white text-opacity-10 ${numberPositionClasses}`}>
+      {/* Large Project Number - Absolutely Positioned with vintage style */}
+      <div className={`absolute md:text-7xl text-4xl p-6 font-bold text-burnt-brass/10 ${numberPositionClasses} font-serif`}>
         {project.number}
       </div>
 
@@ -85,42 +100,76 @@ const ProjectCard: React.FC<ProjectCardProps> = React.memo(({ project, index }) 
       <div className="flex flex-col justify-between h-full">
 
         {/* Text Content Block (Title, Category, Description) */}
-        <div className={`flex flex-col ${contentAlignmentClasses} ${textOrderClass} z-10 p-6`}>
+        <div className={`flex flex-col ${contentAlignmentClasses} ${textOrderClass} z-10 p-4`}>
             {/* Title and Category */}
             <div>
-              <h3 className="md:text-xl text-md font-semibold text-white">{project.title}</h3>
-              <p className="md:text-sm text-xs text-gray-400">{project.description}</p>
+              <h3 className="md:text-2xl text-lg font-bold text-burnt-brass mb-2 group-hover:text-highlight-gold transition-colors">{project.title}</h3>
+              <p className="md:text-sm text-xs text-antique-linen/70 mb-3">{project.description}</p>
             </div>
-            {/* Description */}
-            <div className="mt-2">
-              {/* make the techstack mapped as images */}
-              <div className="flex space-x-2">
-                {project.techstack.map((icon, index) => (
-                  <Image key={index} src={icon} alt={`Tech stack icon ${index}`} width={24} height={24} />
-                ))}
-              </div>
+            {/* Tech Stack Icons */}
+            <div className="mt-2 flex flex-wrap gap-2">
+              {project.techstack.map((icon, idx) => (
+                <div key={idx} className="w-6 h-6 relative opacity-70 hover:opacity-100 transition-opacity">
+                  <Image 
+                    src={icon} 
+                    alt={`Tech stack icon ${idx}`} 
+                    width={24} 
+                    height={24}
+                    className="object-contain"
+                  />
+                </div>
+              ))}
             </div>
         </div>
 
-        {/* Project Image Block - Now a motion.div to handle animations and clicks */}
-        {/* Added flex-grow to help manage space within the flex container */}
-        {/* Added initial opacity, hover effects, transition, and onClick handler */}
+        {/* Project Preview Block - Website Preview with Vintage Theme */}
         <motion.div
-            className={`relative w-full flex-grow rounded-xl overflow-hidden z-10 ${imageOrderClass}`} // Added cursor-pointer
-            initial={{ opacity: 0.7 }} // Changed initial opacity to 70%
-            whileHover={{ opacity: 1, scale: 1.05 }} // Hover effects: opacity 100%, scale 10% (1.05 is 5%)
-            transition={{ duration: 0.3 }} // Smooth transition for hover effects
-            onClick={handleImageClick} // Handle click to redirect
+            className={`relative w-full flex-grow rounded-lg overflow-hidden z-10 ${imageOrderClass} border border-burnt-brass/20 group-hover:border-burnt-brass/50 transition-all duration-300`}
+            initial={{ opacity: 0.8 }}
+            whileHover={{ opacity: 1, scale: 1.02 }}
+            transition={{ duration: 0.3 }}
+            onClick={handleImageClick}
+            onMouseEnter={() => setShowPreview(true)}
+            onMouseLeave={() => setShowPreview(false)}
         >
-            {/* Use the Image component here - Using explicit width/height */}
-            {/* Make sure these width/height are representative of the display size */}
-            {/* Also, ensure your source images are reasonably sized, not huge files */}
-            <Image
-              src={project.imageSrc}
-              alt={`${project.title} image`}
-              width={500} // Using the explicit width
-              height={500} // Using the explicit height
-            />
+            {/* Website Preview using iframe or screenshot */}
+            {project.previewUrl && !imageError ? (
+              <div className="relative w-full h-full min-h-[300px] bg-deep-charcoal">
+                <iframe
+                  src={project.previewUrl}
+                  className="w-full h-full border-0"
+                  style={{ 
+                    transform: 'scale(0.5)',
+                    transformOrigin: 'top left',
+                    width: '200%',
+                    height: '200%',
+                    pointerEvents: 'none'
+                  }}
+                  loading="lazy"
+                  onError={() => setImageError(true)}
+                />
+                {/* Overlay for better vintage look */}
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-deep-charcoal/20 pointer-events-none" />
+              </div>
+            ) : (
+              <div className="relative w-full h-full min-h-[300px] bg-mist-gray/10 flex items-center justify-center">
+                <Image
+                  src={project.imageSrc}
+                  alt={`${project.title} preview`}
+                  width={600}
+                  height={400}
+                  className="object-cover w-full h-full"
+                  onError={() => setImageError(true)}
+                  loading="lazy"
+                />
+                {/* Vintage overlay effect */}
+                <div className="absolute inset-0 bg-burnt-brass/5 pointer-events-none" />
+              </div>
+            )}
+            {/* Visit Website Badge */}
+            <div className="absolute bottom-4 right-4 bg-burnt-brass/90 text-deep-charcoal px-3 py-1.5 rounded text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              Visit Website →
+            </div>
         </motion.div>
 
       </div> {/* End Content Area */}

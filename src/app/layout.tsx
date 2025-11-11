@@ -1,8 +1,9 @@
 'use client'; // This layout uses client-side hooks and event listeners
 
-// Include imports for Lenis
+// Include imports for Lenis AND the cursor
 import React, { useEffect, useRef, useState } from 'react';
 import Lenis from '@studio-freight/lenis';
+import { motion, useMotionValue, useSpring } from "framer-motion";
 import Image from "next/image";
 import GooeyNav from "@/blocks/Components/GooeyNav/GooeyNav";
 import { usePathname } from 'next/navigation';
@@ -17,14 +18,16 @@ import { gilroy } from "@/fonts/fonts";
 // Define items for GooeyNav (moved from page.tsx)
 const items = [
   { label: "Home", href: "/" },
-  { label: "Awards", href: "/Hackathons" },
-  { label: "Contact", href: "/Contact" }, // Adjust as needed
+  { label: "About Me", href: "#about" },
+  { label: "Experience", href: "#experience" },
+  { label: "My Projects", href: "#projects" },
+  { label: "Contact", href: "/Contact" },
 ];
 
 // Define social media links and placeholder icon paths
 const socialLinks = [
   { platform: "GitHub", href: "https://github.com/MelgibsonK", iconPath: "/icons/github_icon.svg" },
-  { platform: "LinkedIn", href: "https://linkedin.com/in/melgibson-kennedy", iconPath: "/icons/linkedin_icon.svg" },
+  { platform: "LinkedIn", href: "https://www.linkedin.com/in/melgibson-kennedy", iconPath: "/icons/linkedin_icon.svg" },
   { platform: "Gmail", href: "mailto:melgibsonkennedy@gmail.com", iconPath: "/icons/gmail_icon.svg" },
 ];
 
@@ -101,80 +104,140 @@ export default function RootLayout({
   // --- End Lenis Implementation ---
 
 
-  // Custom cursor removed for desktop
+  // --- Custom Cursor Implementation (Moved from page.tsx) ---
+  // Use MotionValues to track the raw mouse position
+  // Initialize to 0 on both server and client to prevent hydration errors
+  const cursorX = useMotionValue(0);
+  const cursorY = useMotionValue(0);
+
+  // Configure spring physics for the dot (follows closely)
+  const dotSpringConfig = { damping: 25, stiffness: 200 };
+  // Configure spring physics for the outline (trails the dot)
+  const outlineSpringConfig = { damping: 35, stiffness: 400 }; // More damping/less stiffness for trailing
+
+  // Create sprung motion values for the inner dot
+  const dotX = useSpring(cursorX, dotSpringConfig);
+  const dotY = useSpring(cursorY, dotSpringConfig);
+
+  // Create sprung motion values for the outer outline, based on the dot's sprung values
+  const outlineX = useSpring(dotX, outlineSpringConfig);
+  const outlineY = useSpring(dotY, outlineSpringConfig);
+
+  // Effect to update mouse position on mousemove AND set initial position after mount
+  useEffect(() => {
+    const moveCursor = (e: MouseEvent) => {
+      cursorX.set(e.clientX);
+      cursorY.set(e.clientY);
+    };
+
+    // Set initial cursor position to the center of the window after the component mounts
+    // This runs only on the client after hydration
+    // setTimeout is optional, but can help ensure initial positioning after paint
+    setTimeout(() => {
+        cursorX.set(window.innerWidth / 2);
+        cursorY.set(window.innerHeight / 2);
+    }, 0);
+
+
+    // Add event listener for subsequent mouse movements
+    window.addEventListener('mousemove', moveCursor);
+
+    // Clean up event listener on component unmount
+    return () => {
+      window.removeEventListener('mousemove', moveCursor);
+    };
+  }, [cursorX, cursorY]); // Dependencies: update effect if motion values change (they won't here, but good practice)
+  // --- End Custom Cursor Implementation ---
 
 
   return (
     <html lang="en">
       <body
         // Added bg-black class for black background
-        className={`${geistSans.variable} ${geistMono.variable} ${gilroy.variable} antialiased font-gilroy bg-black`}
+        className={`${geistSans.variable} ${geistMono.variable} ${gilroy.variable} antialiased font-gilroy bg-deep-charcoal`}
+        style={{ cursor: 'none' }} // Apply cursor: none globally to the body
         >
-        {/* Header Section */}
-        {/* Adjusted padding for different screen sizes */}
-        <header className="sticky top-0 z-50 flex w-full items-center justify-between px-4 py-2 md:px-8 md:py-3 bg-transparent backdrop-blur-[3px]">
-          {/* Logo */}
-          {/* Using Link for Logo if it navigates to home */}
-          {/* Adjusted margin for different screen sizes */}
-            <Link href="/" passHref>
-             <Image
-                src="/logo/lauv-logo2.svg"
-                alt="Lauv Logo"
-                width={35} // Base size for logo
-                height={35} // Base size for logo
-                // Added responsive sizing for the logo image itself if needed (optional, depends on design)
-                // className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 m-4 md:m-10 transition-all duration-300 hover:scale-150 hover:rotate-10 hover:brightness-125"
-                className="m-4 md:m-10 transition-all duration-300 hover:scale-150 hover:rotate-10 hover:brightness-125" // Adjusted margin
-             />
-            </Link>
-
-
-          {/* Desktop Navigation - hidden on small screens */}
-          {/* Container with fixed dimensions - GooeyNav should handle internal responsiveness */}
-          <div className="hidden md:block font-medium" style={{ height: '70px', width: '400px', position: 'relative' }}>
-            <GooeyNav
-              items={items} // The items array contains { label, href }
-              particleCount={15}
-              particleDistances={[90, 10]}
-              particleR={100}
-              initialActiveIndex={activeIndex !== -1 ? activeIndex : 0} // Set dynamically, default to 0 if not found
-              animationTime={600}
-              timeVariance={300}
-              colors={[1, 2, 3, 1, 2, 3, 1, 4]}
-              // IMPORTANT: The GooeyNav component itself needs to use <Link> internally for its items
-            />
+        {/* Custom Cursor Dot */}
+        <motion.div 
+            style={{
+            x: dotX, // Bind x position to the dot's sprung motion value
+            y: dotY, // Bind y position to the dot's sprung motion value
+            pointerEvents: 'none', // Ensure the cursor doesn't block clicks on elements below it
+            left: 0, // Position relative to the viewport
+            top: 0,
+            position: 'fixed', // Stay in fixed position relative to the viewport
+            zIndex: 9999, // Ensure it's always on top
+            transform: 'translate(-50%, -50%)', // Center the div exactly on the cursor coordinates
+            width: '8px', // Size of the inner dot
+            height: '8px',
+            borderRadius: '50%', // Make it round
+            backgroundColor: '#B08D57', // Burnt Brass
+            boxShadow: '0 0 10px 4px rgba(176, 141, 87, 0.7)', // Glowing effect
+            }}
+            className="hidden md:block" // Hide on mobile (optional, can be removed if you want it on mobile too)
+        />
+        {/* Custom Cursor Outline */}
+        <motion.div
+            style={{
+            x: outlineX, // Bind x position to the outline's sprung motion value
+            y: outlineY, // Bind y position to the outline's sprung motion value
+            pointerEvents: 'none', // Ensure the cursor doesn't block clicks
+            left: 0, // Position relative to the viewport
+            top: 0,
+            position: 'fixed', // Stay in fixed position
+            zIndex: 9998, // Z-index slightly lower than the dot
+            transform: 'translate(-50%, -50%)', // Center the div
+            width: '30px', // Size of the outer circle
+            height: '30px',
+            borderRadius: '50%', // Make it round
+            border: '2px solid #B08D57', // Burnt Brass border
+            // Optional: opacity for transparency
+            opacity: 0.5,
+            }}
+            className="hidden md:block" // Hide on mobile (optional, can be removed if you want it on mobile too)
+        />
+        {/* Header Section - Reduced height, no logo, better menu layout */}
+        <header className="sticky top-0 z-50 flex w-full items-center justify-center px-4 py-2 md:px-6 md:py-2 bg-deep-charcoal/95 backdrop-blur-md border-b border-burnt-brass/30 h-14 md:h-16">
+          {/* Desktop Navigation - Centered, full width */}
+          <div className="hidden md:flex w-full max-w-6xl mx-auto items-center justify-center font-medium">
+            <nav className="flex items-center gap-6 lg:gap-8">
+              {items.map((item, index) => (
+                <Link
+                  key={index}
+                  href={item.href}
+                  className={`text-antique-linen/80 hover:text-burnt-brass px-3 py-2 text-sm lg:text-base font-medium transition-colors duration-200 border-b-2 border-transparent hover:border-burnt-brass ${
+                    activeIndex === index ? 'text-burnt-brass border-burnt-brass' : ''
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
           </div>
 
-          {/* Hamburger button - visible only on small screens */}
+          {/* Hamburger button - visible only on mobile, more visible */}
           <button
-            className="md:hidden text-white p-2 focus:outline-none"
+            className="md:hidden fixed top-3 right-4 z-50 p-2 focus:outline-none bg-deep-charcoal/90 rounded-md border border-burnt-brass/40"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle mobile menu" // Added accessibility label
+            aria-label="Toggle mobile menu"
           >
-            {/* Hamburger icon lines */}
-            {/* Added transition for animation if you want to animate the icon */}
-            <div className="w-6 h-0.5 bg-white mb-1.5 transition-all duration-300 ease-in-out"></div>
-            <div className="w-6 h-0.5 bg-white mb-1.5 transition-all duration-300 ease-in-out"></div>
-            <div className="w-6 h-0.5 bg-white transition-all duration-300 ease-in-out"></div>
+            {/* Hamburger icon lines with animation - more visible */}
+            <div className={`w-6 h-0.5 bg-burnt-brass mb-1.5 transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></div>
+            <div className={`w-6 h-0.5 bg-burnt-brass mb-1.5 transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'opacity-0' : ''}`}></div>
+            <div className={`w-6 h-0.5 bg-burnt-brass transition-all duration-300 ease-in-out ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></div>
           </button>
         </header>
 
         {/* Mobile menu - only visible when mobileMenuOpen is true */}
-        {/* Positioned fixed below the header, covers full width on mobile */}
         {mobileMenuOpen && (
-          // Changed position from absolute to fixed
-          // Adjusted top position to match header height at different breakpoints
-          // Added overflow-y-auto to allow scrolling if the menu content is taller than the viewport
-          <div className="md:hidden bg-transparent backdrop-blur-[10px] pt-10 fixed top-[72px] sm:top-[80px] md:top-[96px] right-0 left-0 z-40 p-4 sm:p-5 overflow-y-auto h-[calc(100vh - 72px)] sm:h-[calc(100vh - 80px)] md:h-[calc(100vh - 96px)]"> {/* Adjusted top position, added overflow-y-auto and height */}
-            <nav className="flex flex-col space-y-4">
+          <div className="md:hidden bg-deep-charcoal/98 backdrop-blur-lg border-t border-burnt-brass/40 fixed top-14 right-0 left-0 z-40 p-4 shadow-lg">
+            <nav className="flex flex-col space-y-1">
               {items.map((item, index) => (
-                // Using <Link> for navigation items
                 <Link
                   key={index}
                   href={item.href}
-                  // Added responsive padding to the links
-                  className="text-white hover:text-gray-300 py-2 px-4 font-medium text-base sm:text-lg" // Adjusted text size
-                  onClick={() => setMobileMenuOpen(false)} // Keep the click handler to close the menu
+                  className="text-antique-linen hover:text-burnt-brass py-3 px-4 font-medium text-base rounded-md hover:bg-burnt-brass/10 border-l-2 border-transparent hover:border-burnt-brass transition-all duration-200"
+                  onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.label}
                 </Link>
@@ -187,9 +250,8 @@ export default function RootLayout({
         {children} {/* This is where your page content (like page.tsx) will be rendered */}
 
         {/* Sticky Social Media Container */}
-        {/* Positioned fixed to the bottom right */}
-        {/* Added responsive padding, rounded corners, border, and background */}
-        <div className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 bg-black/60 border border-white/[.30] border-dashed rounded-full p-2 md:p-4 flex flex-col items-center space-y-7 md:space-y-5">
+        {/* Redesigned with vintage theme */}
+        <div className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 bg-deep-charcoal/80 border border-burnt-brass/40 border-dashed rounded-full p-2 md:p-4 flex flex-col items-center space-y-7 md:space-y-5 backdrop-blur-sm">
           {socialLinks.map((link) => (
             // Link for each social media icon
             <Link

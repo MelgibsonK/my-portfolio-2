@@ -183,7 +183,7 @@ export default function Home() {
         `}</style>
 
         {/* About Me Section - Creative Vintage Design */}
-        <section id="about" className="relative z-10 w-full bg-deep-charcoal py-20 md:py-32 px-4 md:px-8">
+        <section id="about" className="relative z-10 w-full bg-deep-charcoal py-20 md:py-32 px-4 md:px-8 scroll-mt-20 md:scroll-mt-24">
           <div className="max-w-5xl mx-auto">
             {/* Section Title */}
             <div className="mb-12 md:mb-16 text-center">
@@ -351,7 +351,7 @@ export default function Home() {
         </section>
 
         {/* Experience Section */}
-        <div className="flex w-full items-center justify-center p-4 md:mt-25 mt-5" id="experience">
+        <div className="flex w-full items-center justify-center p-4 md:mt-25 mt-5 scroll-mt-20 md:scroll-mt-24" id="experience">
           <Suspense fallback={<h2 className="md:text-7xl text-3xl font-extrabold text-antique-linen">My Experience</h2>}>
           <BlurText
             text=" My Experience"
@@ -367,7 +367,7 @@ export default function Home() {
         <ExperienceTimeline />
         </Suspense>
 
-        <div className="flex w-full items-center justify-center p-4 md:mt-25 mt-5 font-extrabold" id="projects">
+        <div className="flex w-full items-center justify-center p-4 md:mt-25 mt-5 font-extrabold scroll-mt-20 md:scroll-mt-24" id="projects">
           <Suspense fallback={<h2 className="md:text-7xl text-3xl font-extrabold text-antique-linen">My Projects</h2>}>
           <BlurText
             text=" My Projects"

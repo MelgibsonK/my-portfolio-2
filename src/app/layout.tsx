@@ -367,8 +367,8 @@ export default function RootLayout({
           <button
             onClick={() => {
               const link = document.createElement('a');
-              link.href = '/files/Resume- Mlegibson_Kennedy_Odari.pdf';
-              link.download = 'Resume- Mlegibson_Kennedy_Odari.pdf';
+              link.href = '/files/Resume- Melgibson_Kennedy_Odari.pdf';
+              link.download = 'Resume- Melgibson_Kennedy_Odari.pdf';
               document.body.appendChild(link);
               link.click();
               document.body.removeChild(link);

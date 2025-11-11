@@ -8,54 +8,29 @@ import Image from 'next/image';
 
 
 const experiences = [
-  // ... your experiences array - Keep this array as is
   {
     id: 1,
-    title: 'Student Trainee',
-    company: 'Datacom',
-    year: '2015',
-    description: 'Attended a three-month workshop at DATACOM during my younger years, where we were taught about the fundamentals of MS Excel, the proficiency of keyboarding, and the main components of a computer system.',
-    logo: '/exp_logos/datacom.svg',
+    title: 'Chief Technology Officer (CTO)',
+    company: 'Emoh Links Ltd',
+    year: '2024 – Present',
+    description: `• Lead the company's entire technology ecosystem, including infrastructure, product development, and digital strategy.\n• Architected and deployed high-availability systems powering customer and partner platforms.\n• Implemented automation and analytics frameworks, improving operational efficiency by over 40%.\n• Supervised engineering and product teams to align technology with business growth and customer experience goals.\n• Spearheaded innovation in service delivery, system reliability, and product scalability.`,
+    logo: '/logo/emohlinks.png',
   },
   {
     id: 2,
-    title: 'External Scholar',
-    company: 'Security Bank Corporation',
-    year: '2022',
-    description: 'One of the external scholars of the Security Bank Corporation. Inside this, we are tasked with attending related seminars and maintaining grades on our academic standings.',
-    logo: '/exp_logos/sbc.svg',
+    title: 'Founder & Software Lead',
+    company: 'Tayari Careers',
+    year: '2024 – Present',
+    description: `• Founded and manage a mission-driven EdTech platform connecting students and startups through internships and career readiness tools.\n• Designed and oversaw development using Flutter, Supabase, and Next.js, ensuring a seamless user experience.\n• Built and scaled partnerships with universities, SMEs, and youth-focused organizations across Kenya.\n• Defined strategic goals, product vision, and technology roadmap to ensure measurable growth and sustainability.`,
+    logo: '/logo/tayaricareers.png',
   },
   {
     id: 3,
-    title: 'Academe Committee Head',
-    company: 'PLM College of Engineering Student Council',
-    year: '2023',
-    description: `As the head of the committee, I am in charge of developing new plans and events for the student body while collaborating with my members. We ensure that we give the best experience to the students academically. That's why we also receive and assess students' concerns around the campus.`,
-    logo: '/exp_logos/plmce.svg',
-  },
-  {
-    id: 4,
-    title: 'Web Development Lead',
-    company: 'Google Developer Student Clubs - PLM',
-    year: '2024',
-    description: 'As the Web Development Lead for GDSC PLM, I spearheaded initiatives to create impactful technology and web development projects and events, both online and in-person, aimed at benefiting not only PLM students but the wider community.',
-    logo: '/exp_logos/gdscplm.svg',
-  },
-  {
-    id: 5,
-    title: 'Notion Campus Leader',
-    company: 'Notion',
-    year: '2024',
-    description: `Holding the distinction of being one of the few chosen Notion Campus Leaders globally, my role is to drive the adoption and skillful utilization of Notion among users, especially students. This involves creating and leading campaigns, events, and initiatives designed to meet Notion's strategic goals.`,
-    logo: '/exp_logos/notion.svg',
-  },
-  {
-    id: 6,
-    title: 'DataCamp Scholar',
-    company: 'DataCamp',
-    year: '2025',
-    description: 'As a DataCamp Scholar, I am privileged to be part of a select group of students who have been recognized for their outstanding performance and potential in the field of data science. This recognition underscores my commitment to advancing my skills and knowledge in this dynamic field.',
-    logo: '/exp_logos/datacamp.svg',
+    title: 'Freelance Software Developer & Consultant',
+    company: 'Self-Employed',
+    year: '2022 – 2023',
+    description: `• Delivered full-stack mobile and web applications for SMEs, startups, and NGOs.\n• Provided consulting services in digital transformation, product design, and process automation.\n• Managed distributed development teams using Agile and Scrum methodologies.\n• Specialized in Flutter, Node.js, AWS, and modern cloud-native deployments.`,
+    logo: '',
   },
 ];
 
@@ -113,6 +88,7 @@ const ExperienceTimeline: React.FC = () => {
               </span>
 
               {/* Logo */}
+              {exp.logo && (
               <div className="w-10 h-10 relative flex items-center justify-center md:my-0 my-5"> {/* Added flex centering for logos */}
                 <Image
                   src={exp.logo}
@@ -122,11 +98,12 @@ const ExperienceTimeline: React.FC = () => {
                   unoptimized // Keep if necessary for SVGs, but test without if possible
                 />
               </div>
+              )}
             </div>
 
             {/* Side 2: Description - Conditional Alignment */}
             <div className={`text-antique-linen/80 md:text-lg text-md ${index % 2 !== 0 ? 'md:text-right' : 'text-left'} ${index % 2 === 0 ? 'md:order-2' : 'md:order-1'}`}>
-              <p>{exp.description}</p>
+              <p className="whitespace-pre-line">{exp.description}</p>
             </div>
           </div>
         ))}

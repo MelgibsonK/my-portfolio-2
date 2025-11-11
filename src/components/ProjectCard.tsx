@@ -11,7 +11,6 @@ interface ProjectCardProps {
     techstack: string[];
     imageSrc: string; 
     link: string;
-    previewUrl?: string;
   };
   index: number; 
 }
@@ -20,7 +19,6 @@ interface ProjectCardProps {
 // Wrap the component with React.memo. This prevents the component from re-rendering
 // if its props (project and index) have not shallowly changed.
 const ProjectCard: React.FC<ProjectCardProps> = React.memo(({ project, index }) => {
-  const [showPreview, setShowPreview] = useState(false);
   const [imageError, setImageError] = useState(false);
   
   // Determine the layout pattern based on the index (0, 1, 2, 3 repeats)
@@ -69,14 +67,6 @@ const ProjectCard: React.FC<ProjectCardProps> = React.memo(({ project, index }) 
     }
   };
 
-  // Generate screenshot URL using a screenshot service (using api.screenshotone.com as example)
-  const getScreenshotUrl = (url: string) => {
-    if (!url) return project.imageSrc;
-    // Using screenshotone.com API (free tier available)
-    // You can also use other services like api.screenshotmachine.com, etc.
-    const encodedUrl = encodeURIComponent(url);
-    return `https://api.screenshotone.com/take?access_key=YOUR_API_KEY&url=${encodedUrl}&viewport_width=1280&viewport_height=720&device_scale_factor=1&format=png&image_quality=80&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=true&block_trackers=true&delay=2&timeout=10`;
-  };
 
   return (
     // Use motion.div for potential future animations (like fade-in on scroll)
@@ -122,50 +112,28 @@ const ProjectCard: React.FC<ProjectCardProps> = React.memo(({ project, index }) 
             </div>
         </div>
 
-        {/* Project Preview Block - Website Preview with Vintage Theme */}
+        {/* Project Preview Block - Screenshot Image with Vintage Theme */}
         <motion.div
             className={`relative w-full flex-grow rounded-lg overflow-hidden z-10 ${imageOrderClass} border border-burnt-brass/20 group-hover:border-burnt-brass/50 transition-all duration-300`}
             initial={{ opacity: 0.8 }}
             whileHover={{ opacity: 1, scale: 1.02 }}
             transition={{ duration: 0.3 }}
             onClick={handleImageClick}
-            onMouseEnter={() => setShowPreview(true)}
-            onMouseLeave={() => setShowPreview(false)}
         >
-            {/* Website Preview using iframe or screenshot */}
-            {project.previewUrl && !imageError ? (
-              <div className="relative w-full h-full min-h-[300px] bg-deep-charcoal">
-                <iframe
-                  src={project.previewUrl}
-                  className="w-full h-full border-0"
-                  style={{ 
-                    transform: 'scale(0.5)',
-                    transformOrigin: 'top left',
-                    width: '200%',
-                    height: '200%',
-                    pointerEvents: 'none'
-                  }}
-                  loading="lazy"
-                  onError={() => setImageError(true)}
-                />
-                {/* Overlay for better vintage look */}
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-deep-charcoal/20 pointer-events-none" />
-              </div>
-            ) : (
-              <div className="relative w-full h-full min-h-[300px] bg-mist-gray/10 flex items-center justify-center">
-                <Image
-                  src={project.imageSrc}
-                  alt={`${project.title} preview`}
-                  width={600}
-                  height={400}
-                  className="object-cover w-full h-full"
-                  onError={() => setImageError(true)}
-                  loading="lazy"
-                />
-                {/* Vintage overlay effect */}
-                <div className="absolute inset-0 bg-burnt-brass/5 pointer-events-none" />
-              </div>
-            )}
+            {/* Project Screenshot Image */}
+            <div className="relative w-full h-full min-h-[300px] bg-mist-gray/10 flex items-center justify-center">
+              <Image
+                src={project.imageSrc}
+                alt={`${project.title} preview`}
+                width={600}
+                height={400}
+                className="object-cover w-full h-full"
+                onError={() => setImageError(true)}
+                loading="lazy"
+              />
+              {/* Vintage overlay effect */}
+              <div className="absolute inset-0 bg-burnt-brass/5 pointer-events-none" />
+            </div>
             {/* Visit Website Badge */}
             <div className="absolute bottom-4 right-4 bg-burnt-brass/90 text-deep-charcoal px-3 py-1.5 rounded text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               Visit Website →

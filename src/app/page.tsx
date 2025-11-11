@@ -9,7 +9,6 @@ import Image from "next/image";
 const BlurText = lazy(() => import("@/blocks/TextAnimations/BlurText/BlurText"));
 const TrueFocus = lazy(() => import("@/blocks/TextAnimations/TrueFocus/TrueFocus"));
 const Threads = lazy(() => import("@/blocks/Backgrounds/Threads/Threads"));
-const CircularText = lazy(() => import("@/blocks/TextAnimations/CircularText/CircularText"));
 const TiltedCard = lazy(() => import("@/blocks/Components/TiltedCard/TiltedCard"));
 const ExperienceTimeline = lazy(() => import('@/components/ExperienceTimeline'));
 const ProjectCard = lazy(() => import('@/components/ProjectCard'));
@@ -29,9 +28,8 @@ const projects = [
         '/techstack/react.svg',
         '/techstack/tailwind.svg',
     ],
-    imageSrc: '/proj/projectOne.png', 
+    imageSrc: '/proj/emohlinksscreenshot.PNG', 
     link: 'https://emohlinks.co.ke',
-    previewUrl: 'https://emohlinks.co.ke',
   },
   {
     id: 2,
@@ -43,9 +41,8 @@ const projects = [
         '/techstack/react.svg',
         '/techstack/tailwind.svg',
     ],
-    imageSrc: '/proj/projectTwo.png',
+    imageSrc: '/proj/timelydealsscreenshot.PNG',
     link: 'https://timelydealsinvestments.com',
-    previewUrl: 'https://timelydealsinvestments.com',
   },
   {
     id: 3,
@@ -57,9 +54,8 @@ const projects = [
         '/techstack/css.svg',
         '/techstack/javascript.svg',
     ],
-    imageSrc: '/proj/projectThree.png',
+    imageSrc: '/proj/tayaricareersscreenshot.PNG',
     link: 'https://tayaricareers.africa',
-    previewUrl: 'https://tayaricareers.africa',
   },
   {
     id: 4,
@@ -71,9 +67,8 @@ const projects = [
         '/techstack/css.svg',
         '/techstack/javascript.svg',
     ],
-    imageSrc: '/proj/projectFour.png',
-    link: 'https://nairobiaircorncarecare.autos',
-    previewUrl: 'https://nairobiaircorncarecare.autos',
+    imageSrc: '/proj/nairobicarcarescreenshot.PNG',
+    link: 'https://nairobiaircorncarcare.autos/',
   },
 ];
 
@@ -84,19 +79,18 @@ const handleAnimationComplete = () => {
   console.log('Animation completed!');
 };
 
-// Updated tech stack
-const devSkills = [
-  'Java', 'Python', 'JavaScript', 'TypeScript', 'SQL', 'HTML', 'CSS',
-  'React', 'Next.js', 'Framer Motion', 'Redux', 'Node.js', 'Express',
-  'MongoDB', 'PostgreSQL', 'REST APIs', 'Firebase', 'AWS', 'Vercel',
-  'GitHub Actions', 'Git', 'Postman', 'Agile', 'TDD', 'PWA'
-];
+// Updated tech stack - organized by categories
+const techStackCategories = {
+  Languages: ['Java', 'Python', 'JavaScript', 'TypeScript', 'SQL', 'HTML', 'CSS'],
+  Frameworks: ['React', 'Next.js', 'Flutter', 'Framer Motion', 'Redux', 'Node.js', 'Express', 'MongoDB', 'PostgreSQL', 'REST APIs', 'Firebase'],
+  Tools: ['AWS', 'Vercel', 'GitHub Actions', 'Git', 'Postman', 'Agile', 'TDD', 'PWA']
+};
 
 export default function Home() {
   return (
     <>
       {/* Main content area */}
-      <main className="flex-grow flex flex-col items-center h-full relative" id="about">
+      <main className="flex-grow flex flex-col items-center h-full relative">
         {/* Hero Section - Full Viewport Height with Background Image */}
         <div className="w-full relative flex flex-col items-center justify-center overflow-hidden" style={{ height: '100vh', marginTop: '-64px', paddingTop: '64px' }}>
           {/* Background Image - Covers full viewport including behind header */}
@@ -155,17 +149,17 @@ export default function Home() {
         </div>
             </Suspense>
 
-            <Suspense fallback={<div className="font-bold text-center mt-1 md:mt-3 text-burnt-brass">Developer Creator Solopreneur</div>}>
+            <Suspense fallback={<div className="font-bold text-center mt-1 md:mt-3 text-burnt-brass">Chief Technology Officer (CTO) Founder Developer Software & Product Leader Entrepreneur</div>}>
         <div className="font-bold text-center opacity-0 animate-fadeIn mt-1 md:mt-3">
           <TrueFocus
-            sentence="Developer   Creator   Solopreneur"
+            sentence="Chief Technology Officer (CTO)||Founder||Developer||Software & Product Leader||Entrepreneur"
                   manualMode={false}
             blurAmount={5}
                   borderColor="#B08D57"
                   animationDuration={0.5}
                   pauseBetweenAnimations={1.5}
                   />
-              </div>
+        </div>
             </Suspense>
           </div>
           </div>
@@ -189,138 +183,173 @@ export default function Home() {
           }
         `}</style>
 
-        {/* Scroll indicator - positioned at bottom of viewport */}
-        <Suspense fallback={null}>
-          <div className="w-full items-center absolute bottom-10 left-0 right-0 h-[300px] hidden md:block pointer-events-none">
-          <CircularText
-            text="SCROLL-DOWN*SCROLL-DOWN*"
-            onHover="slowDown"
-            spinDuration={5}
-            className="absolute left-45 bottom-10"
-          />
-          <Image
-            src="/logo/lauv-logo.svg"
-              alt="Logo"
-            width={20}
-            height={20}
-            className="m-10 transition-all duration-300 hover:scale-150 hover:rotate-10 hover:brightness-125 absolute left-44 bottom-9"
-              loading="lazy"
-          />
-        </div>
-        </Suspense>
-
-        {/* Content sections below hero - Solid background to cover hero background */}
-        <div className="relative z-10 w-full bg-deep-charcoal">
-        <div className="flex-grow flex flex-col md:flex-row items-center justify-center w-full md:w-9xl md:mt-35 mt-10 md:space-x-50 space-x-0">
-          {/* Tech Stack Section Start */}
-             <div className="flex flex-col w-full max-w-lg px-4 md:px-0 mt-10 mb-20 space-y-8">
-             {/* DEVELOP Card */}
-             {/* custom-corner-border class is kept from previous step */}
-             {/* hover:scale-105 on the card wrapper is kept */}
-             <div className="relative p-6 rounded-lg transition-transform duration-300 ease-in-out hover:scale-105 custom-corner-border bg-mist-gray/10 border border-burnt-brass/20">
-               <h3 className="text-burnt-brass font-bold md:text-2xl text-lg tracking-wide mb-3">
-                 DEVELOP
-               </h3>
-               <p className="text-antique-linen/80 md:text-md text-sm mt-2 leading-relaxed mb-5">
-                 Full-stack developer specializing in modern web technologies. Building scalable applications with React, Next.js, Node.js, and cloud platforms.
-               </p>
-               <h4 className="text-burnt-brass font-semibold mb-3 text-base">
-                 Skillset &amp; tools
-               </h4>
-               <div className="flex flex-wrap gap-2">
-                 {devSkills.map(skill => (
-                   <SkillTag key={skill} skillName={skill} />
-                 ))}
-               </div>
-             </div>
-
-             {/* CONTENTS Card */}
-             {/* custom-corner-border class is kept from previous step */}
-             {/* hover:scale-105 on the card wrapper is kept */}
-             <div className="relative p-6 rounded-lg transition-transform duration-300 ease-in-out hover:scale-105 custom-corner-border bg-mist-gray/10 border border-burnt-brass/20">
-               <h3 className="text-burnt-brass font-bold md:text-2xl text-lg tracking-wide mb-3">
-                 TECH STACK
-               </h3>
-               <p className="text-antique-linen/80 md:text-md text-sm mt-2 leading-relaxed mb-5">
-                 Languages: Java, Python, JavaScript (TypeScript), SQL, HTML, CSS. Frontend: React, Next.js, Framer Motion, Redux. Backend: Node.js, Express, MongoDB, PostgreSQL, REST APIs, Firebase. DevOps: AWS, Vercel, GitHub Actions.
-               </p>
-               <h4 className="text-burnt-brass font-semibold mb-3 text-base">
-                 Skillset &amp; Tools
-               </h4>
-               <div className="flex flex-wrap gap-2">
-                 {devSkills.map(skill => (
-                   <SkillTag key={skill} skillName={skill} />
-                 ))}
-               </div>
-             </div>
-           </div>
-           {/* Tech Stack Section End */}
-
-
-          {/* What I do Section */}
-          <div className="flex flex-col">
-            <Suspense fallback={<h2 className="md:text-7xl text-3xl font-extrabold text-antique-linen">What I do</h2>}>
-            <BlurText
-              text="What I do"
-              delay={150}
-              animateBy="words"
-              direction="top"
-              onAnimationComplete={handleAnimationComplete}
-                className="md:text-7xl text-3xl font-extrabold text-antique-linen"
-            />
-            </Suspense>
-
-            <Suspense fallback={<div className="hidden md:block mt-10 mb-20 w-[500px] h-[600px] bg-mist-gray/10" />}>
-            <div className="hidden md:block mt-10 mb-20">
-              <TiltedCard
-                imageSrc="/photos/tiltedcard.svg"
-                altText="Melgibson Kennedy"
-                captionText="Melgibson Kennedy" 
-                containerHeight="600px"
-                containerWidth="500px"
-                imageHeight="600px"
-                imageWidth="500px"
-                rotateAmplitude={10}
-                scaleOnHover={1.1}
-                showMobileWarning={false}
-                showTooltip={false}
-                displayOverlayContent={true}
-                overlayContent={
-                  <p className="bg-transparent px-4 py-2 border-1 border-dashed border-burnt-brass/50 rounded-lg opacity-70 font-bold m-5 absolute top-5 left-85 text-burnt-brass">
-                    Melgibson
-                  </p>
-                }
-              />
+        {/* About Me Section - Creative Vintage Design */}
+        <section id="about" className="relative z-10 w-full bg-deep-charcoal py-20 md:py-32 px-4 md:px-8">
+          <div className="max-w-5xl mx-auto">
+            {/* Section Title */}
+            <div className="mb-12 md:mb-16 text-center">
+              <Suspense fallback={<h2 className="md:text-6xl text-3xl font-extrabold text-antique-linen">About Me</h2>}>
+                <BlurText
+                  text="About Me"
+                  delay={100}
+                  animateBy="words"
+                  direction="top"
+                  onAnimationComplete={handleAnimationComplete}
+                  className="md:text-6xl text-3xl font-extrabold text-center text-antique-linen"
+                />
+              </Suspense>
             </div>
-            </Suspense>
 
-            <Suspense fallback={<div className="md:hidden mt-10 mb-20 w-[300px] h-[400px] bg-mist-gray/10" />}>
-            <div className="md:hidden mt-10 mb-20">
-              <TiltedCard
-                imageSrc="/photos/tiltedcard.svg"
-                altText="Melgibson Kennedy"
-                captionText="Melgibson Kennedy"
-                containerHeight="400px"
-                containerWidth="300px"
-                imageHeight="400px"
-                imageWidth="300px"
-                rotateAmplitude={10}
-                scaleOnHover={1.1}
-                showMobileWarning={false}
-                showTooltip={false}
-                displayOverlayContent={true}
-                overlayContent={
-                  <p className="bg-transparent px-4 py-2 border-1 border-dashed border-burnt-brass/50 rounded-lg opacity-70 font-bold m-5 absolute text-burnt-brass">
-                    Melgibson
+            {/* Content Container - Creative Layout */}
+            <div className="relative">
+              {/* Decorative Corner Elements */}
+              <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-burnt-brass/40 hidden md:block"></div>
+              <div className="absolute top-0 right-0 w-20 h-20 border-t-2 border-r-2 border-burnt-brass/40 hidden md:block"></div>
+              <div className="absolute bottom-0 left-0 w-20 h-20 border-b-2 border-l-2 border-burnt-brass/40 hidden md:block"></div>
+              <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-burnt-brass/40 hidden md:block"></div>
+
+              {/* Main Content Card */}
+              <div className="relative bg-mist-gray/5 border-2 border-burnt-brass/30 rounded-lg p-8 md:p-12 backdrop-blur-sm">
+                {/* Quote/Highlight Section */}
+                <div className="mb-8 md:mb-10 relative">
+                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-burnt-brass to-burnt-brass/30 hidden md:block"></div>
+                  <p className="text-burnt-brass text-lg md:text-2xl font-semibold italic pl-6 md:pl-8 leading-relaxed">
+                    "technology should empower, not complicate"
                   </p>
-                }
-              />
-            </div>
-            </Suspense>
+                </div>
 
-            
+                {/* Main Paragraph */}
+                <div className="space-y-6 md:space-y-8">
+                  <p className="text-antique-linen/90 text-base md:text-lg leading-relaxed">
+                    As the <span className="text-burnt-brass font-semibold">Chief Technology Officer</span> at <span className="text-burnt-brass font-semibold">Emoh Links Ltd</span> and <span className="text-burnt-brass font-semibold">Founder</span> of <span className="text-burnt-brass font-semibold">Tayari Careers</span>, I combine hands-on engineering with strategic leadership, turning ideas into scalable, people-centered solutions. My work spans software architecture, product innovation, and organizational growth, driven by a simple belief, <span className="text-burnt-brass italic">"technology should empower, not complicate"</span>.
+                  </p>
+
+                  <p className="text-antique-linen/90 text-base md:text-lg leading-relaxed">
+                    Beyond code, I'm deeply interested in how <span className="text-burnt-brass font-semibold">design</span>, <span className="text-burnt-brass font-semibold">data</span>, and <span className="text-burnt-brass font-semibold">empathy</span> shape better digital experiences. I thrive in environments where creativity meets execution whether it's leading a development team, mentoring young innovators, or building something entirely new from the ground up.
+                  </p>
+
+                  <p className="text-antique-linen/90 text-base md:text-lg leading-relaxed">
+                    When I'm not working, I enjoy exploring emerging tech, learning from communities, and pushing the boundaries of what's possible in <span className="text-burnt-brass font-semibold">Africa's growing tech ecosystem</span>.
+                  </p>
+                </div>
+
+                {/* Decorative Bottom Accent */}
+                <div className="mt-10 md:mt-12 pt-8 border-t border-burnt-brass/20">
+                  <div className="flex items-center justify-center space-x-4">
+                    <div className="h-px w-16 bg-burnt-brass/40"></div>
+                    <div className="w-2 h-2 rounded-full bg-burnt-brass/60"></div>
+                    <div className="h-px w-16 bg-burnt-brass/40"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
+
+        {/* Tech Stack & What I Do Section - Fresh Redesign */}
+        <section className="relative z-10 w-full bg-deep-charcoal py-16 md:py-24 px-4 md:px-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col md:flex-row items-start gap-8 md:gap-12">
+              
+              {/* Tech Stack Card - Left Side */}
+              <div className="w-full md:w-1/2">
+                <div className="relative group">
+                  {/* Decorative accent line */}
+                  <div className="absolute -top-4 left-0 w-24 h-0.5 bg-gradient-to-r from-burnt-brass to-transparent"></div>
+                  
+                  {/* Main Card */}
+                  <div className="relative bg-mist-gray/5 border-2 border-burnt-brass/30 rounded-2xl p-8 md:p-10 backdrop-blur-sm transition-all duration-300 hover:border-burnt-brass/50 hover:shadow-xl hover:shadow-burnt-brass/10">
+                    {/* Header */}
+                    <div className="mb-6">
+                      <h3 className="text-burnt-brass font-bold text-2xl md:text-3xl tracking-wide mb-2">
+                        Tech Stack
+                      </h3>
+                      <p className="text-antique-linen/70 text-sm md:text-base">
+                        Technologies & tools I work with
+                      </p>
+                    </div>
+
+                    {/* Skills by Category */}
+                    <div className="space-y-6">
+                      {Object.entries(techStackCategories).map(([category, skills]) => (
+                        <div key={category}>
+                          <h4 className="text-burnt-brass font-semibold text-sm md:text-base mb-3 uppercase tracking-wide">
+                            {category}
+                          </h4>
+                          <div className="flex flex-wrap gap-2.5">
+                            {skills.map(skill => (
+                              <SkillTag key={skill} skillName={skill} />
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* What I Do Section - Right Side */}
+              <div className="w-full md:w-1/2 flex items-start">
+                <div className="w-full">
+                  {/* Title */}
+                  <div className="mb-8 md:mb-10">
+                    <Suspense fallback={<h2 className="md:text-5xl text-3xl font-extrabold text-antique-linen">What I do</h2>}>
+                      <BlurText
+                        text="What I do"
+                        delay={150}
+                        animateBy="words"
+                        direction="top"
+                        onAnimationComplete={handleAnimationComplete}
+                        className="md:text-5xl text-3xl font-extrabold text-antique-linen"
+                      />
+                    </Suspense>
+                  </div>
+
+                  {/* Image - Desktop */}
+                  <Suspense fallback={<div className="hidden md:block w-full h-[500px] bg-mist-gray/10 rounded-lg" />}>
+                    <div className="hidden md:block w-full">
+                      <TiltedCard
+                        imageSrc="/photos/melgibsonkennedy.jpg"
+                        altText="Melgibson Kennedy"
+                        captionText="Melgibson Kennedy" 
+                        containerHeight="500px"
+                        containerWidth="100%"
+                        imageHeight="500px"
+                        imageWidth="100%"
+                        rotateAmplitude={8}
+                        scaleOnHover={1.05}
+                        showMobileWarning={false}
+                        showTooltip={false}
+                        displayOverlayContent={false}
+                      />
+                    </div>
+                  </Suspense>
+
+                  {/* Image - Mobile */}
+                  <Suspense fallback={<div className="md:hidden w-full h-[350px] bg-mist-gray/10 rounded-lg" />}>
+                    <div className="md:hidden w-full">
+                      <TiltedCard
+                        imageSrc="/photos/melgibsonkennedy.jpg"
+                        altText="Melgibson Kennedy"
+                        captionText="Melgibson Kennedy"
+                        containerHeight="350px"
+                        containerWidth="100%"
+                        imageHeight="350px"
+                        imageWidth="100%"
+                        rotateAmplitude={8}
+                        scaleOnHover={1.05}
+                        showMobileWarning={false}
+                        showTooltip={false}
+                        displayOverlayContent={false}
+                      />
+                    </div>
+                  </Suspense>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
 
         {/* Experience Section */}
         <div className="flex w-full items-center justify-center p-4 md:mt-25 mt-5" id="experience">
@@ -361,7 +390,6 @@ export default function Home() {
            </div>
         </Suspense>
         {/* Projects Section End */}
-        </div>
       </main>
 
 

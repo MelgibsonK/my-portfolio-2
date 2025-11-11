@@ -17,6 +17,7 @@ const items = [
   { label: "About Me", href: "#about" },
   { label: "Experience", href: "#experience" },
   { label: "My Projects", href: "#projects" },
+  { label: "Resume", href: "/Resume" },
   { label: "Contact", href: "/Contact" },
 ];
 
@@ -62,6 +63,8 @@ export default function RootLayout({
   // Get current pathname
   const pathname = usePathname();
   const [activeIndex, setActiveIndex] = useState(0);
+  // State for scroll detection (desktop only)
+  const [isScrolled, setIsScrolled] = useState(false);
 
   // Calculate active index based on pathname and hash
   useEffect(() => {
@@ -106,6 +109,11 @@ export default function RootLayout({
     
     // Also check on scroll to update active section (for home page sections)
     const handleScroll = () => {
+      // Check if scrolled (desktop only - for floating pill effect)
+      if (window.innerWidth >= 768) {
+        setIsScrolled(window.scrollY > 50);
+      }
+      
       if (pathname === '/') {
         const sections = ['#about', '#experience', '#projects'];
         const scrollPosition = window.scrollY + 200; // Offset for header
@@ -144,9 +152,19 @@ export default function RootLayout({
 
     window.addEventListener('scroll', throttledScroll, { passive: true });
     
+    // Handle window resize - reset scroll state if switching to mobile
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setIsScrolled(false);
+      }
+    };
+    
+    window.addEventListener('resize', handleResize);
+    
     return () => {
       window.removeEventListener('hashchange', handleHashChange);
       window.removeEventListener('scroll', throttledScroll);
+      window.removeEventListener('resize', handleResize);
     };
   }, [pathname]);
 
@@ -190,10 +208,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${gilroy.variable} antialiased font-gilroy bg-deep-charcoal`}
         >
-        {/* Header Section - Transparent overlay on background image */}
-        <header className="sticky top-0 z-50 flex w-full items-center justify-center px-4 py-2 md:px-6 md:py-2 bg-deep-charcoal/30 backdrop-blur-md h-14 md:h-16">
-          {/* Desktop Navigation - Centered, full width */}
-          <div className="hidden md:flex w-full max-w-6xl mx-auto items-center justify-center font-medium">
+        {/* Header Section - Transparent overlay on background image, floating pill when scrolled (desktop) */}
+        <header 
+          className={`sticky z-50 flex items-center justify-center transition-all duration-300 ${
+            isScrolled 
+              ? 'md:top-4 md:left-16 md:right-16 md:rounded-full md:px-6 md:py-2 md:bg-black/30 md:backdrop-blur-lg md:shadow-2xl md:w-fit md:mx-auto' 
+              : 'top-0 w-full px-4 py-2 md:px-6 md:py-2 bg-deep-charcoal/30 backdrop-blur-md'
+          } h-14 md:h-16`}
+        >
+          {/* Desktop Navigation - Centered, maintains same layout */}
+          <div className="hidden md:flex items-center justify-center font-medium">
             <nav className="flex items-center gap-6 lg:gap-8">
               {items.map((item, index) => {
                 const isActive = activeIndex === index;
@@ -285,8 +309,8 @@ export default function RootLayout({
         {children} {/* This is where your page content (like page.tsx) will be rendered */}
 
         {/* Sticky Social Media Container */}
-        {/* Redesigned with vintage theme */}
-        <div className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 bg-deep-charcoal/80 border border-burnt-brass/40 border-dashed rounded-full p-2 md:p-4 flex flex-col items-center space-y-7 md:space-y-5 backdrop-blur-sm">
+        {/* Redesigned with vintage theme - matching detached header style */}
+        <div className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 bg-black/30 border border-burnt-brass/40 border-dashed rounded-full p-2 md:p-4 flex flex-col items-center space-y-7 md:space-y-5 backdrop-blur-lg">
           {socialLinks.map((link) => (
             // Link for each social media icon
             <Link
@@ -308,6 +332,27 @@ export default function RootLayout({
               />
             </Link>
           ))}
+          {/* Resume Download Icon */}
+          <button
+            onClick={() => {
+              const link = document.createElement('a');
+              link.href = '/files/melgibsone.pdf';
+              link.download = 'Resume-Melgibson_Kennedy_Odari.pdf';
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+            }}
+            className="transition-transform duration-200 hover:scale-110"
+            aria-label="Download Resume"
+          >
+            <Image
+              src="/icons/resume-portfolio-svgrepo-com.svg"
+              alt="Resume icon"
+              width={20}
+              height={20}
+              className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 object-contain filter brightness-0 invert"
+            />
+          </button>
         </div>
         {/* End Sticky Social Media Container */}
 

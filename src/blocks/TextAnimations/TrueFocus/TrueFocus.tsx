@@ -27,8 +27,22 @@ const TrueFocus: React.FC<TrueFocusProps> = ({
     animationDuration = 0.5,
     pauseBetweenAnimations = 1,
 }) => {
-    // Filter out empty strings from multiple spaces
-    const words = sentence.split(" ").filter(word => word.trim().length > 0);
+    // Split by double pipe (||) first to handle phrases that should stay together
+    // Then split by single pipe (|) or multiple spaces for individual words
+    // This allows phrases like "Chief Technology Officer (CTO)" to be treated as one unit
+    const words = sentence
+        .split("||")
+        .map(phrase => phrase.trim())
+        .filter(phrase => phrase.length > 0)
+        .flatMap(phrase => {
+            // If phrase contains single pipe, split by it, otherwise split by multiple spaces
+            if (phrase.includes("|")) {
+                return phrase.split("|").map(w => w.trim()).filter(w => w.length > 0);
+            } else {
+                // Split by multiple spaces (2+ spaces) to separate words, but keep single spaces within phrases
+                return phrase.split(/\s{2,}/).map(w => w.trim()).filter(w => w.length > 0);
+            }
+        });
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const [isHovered, setIsHovered] = useState<boolean>(false);
     const containerRef = useRef<HTMLDivElement | null>(null);

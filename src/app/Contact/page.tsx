@@ -5,7 +5,7 @@
 import React, { Suspense } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import BlurText from '@/blocks/TextAnimations/BlurText/BlurText';
+import BlurText from '@/blocks/TextAnimations/BlurText/BlurText'; 
 import Squares from '@/blocks/Backgrounds/Squares/Squares';
 
 // Define social media links
@@ -367,18 +367,18 @@ export default function Contact() {
         {/* Hero Section */}
         <div className="text-center mb-8 md:mb-10">
           <Suspense fallback={<h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-antique-linen">Get In Touch</h1>}>
-            <BlurText
-              text="Get In Touch"
-              delay={50}
-              animateBy="letters"
-              direction="top"
+        <BlurText
+          text="Get In Touch"
+          delay={50}
+          animateBy="letters"
+          direction="top"
               className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-antique-linen"
-            />
+        />
           </Suspense>
           <p className="mt-3 text-antique-linen/60 text-sm md:text-base max-w-xl mx-auto">
             Let's create something amazing together.
           </p>
-        </div>
+      </div>
 
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-8">
@@ -406,9 +406,9 @@ export default function Contact() {
                       >
                         {contactInfo.email}
                       </a>
-                    </div>
-                  </div>
-                </div>
+            </div>
+            </div>
+            </div>
 
                 {/* Social Media Section */}
                 <div className="pt-2">
@@ -417,22 +417,22 @@ export default function Contact() {
                     Connect
                   </h3>
                   <div className="grid grid-cols-2 md:grid-cols-1 gap-2">
-                    {socialLinks.map((link) => (
-                      <Link
-                        key={link.platform}
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
+              {socialLinks.map((link) => (
+                <Link
+                  key={link.platform}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                         className="social-link group relative px-4 py-1.5 rounded-full bg-mist-gray/5 border border-burnt-brass/10 hover:border-burnt-brass/40 hover:bg-burnt-brass/5 transition-all duration-300 flex items-center overflow-hidden"
-                      >
+                >
                         {/* Animated background on hover */}
                         <div className="absolute inset-0 bg-gradient-to-r from-burnt-brass/10 via-burnt-brass/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         
                         {/* Icon container with rotation */}
                         <div className="icon-container w-5 h-5 rounded-full bg-burnt-brass/20 flex items-center justify-center mr-2 group-hover:bg-burnt-brass/30 group-hover:rotate-12 group-active:rotate-[-12deg] transition-all duration-300 relative z-10">
-                          <Image
+                  <Image
                             src={link.iconPath}
-                            alt={`${link.platform} icon`}
+                    alt={`${link.platform} icon`}
                             width={14}
                             height={14}
                             className="w-3.5 h-3.5 object-contain group-hover:scale-110 transition-transform duration-300"
@@ -451,11 +451,11 @@ export default function Contact() {
                         
                         {/* Ripple effect on click */}
                         <span className="absolute inset-0 rounded-full bg-burnt-brass/20 scale-0 group-active:scale-100 opacity-0 group-active:opacity-100 transition-all duration-200"></span>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
             </div>
           </div>
 
@@ -469,74 +469,74 @@ export default function Contact() {
               
               <form onSubmit={handleSubmit} className="flex flex-col space-y-3">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  <div>
+        <div>
                     <label htmlFor="name" className="block text-antique-linen/70 text-xs font-medium mb-1">
                       Name <span className="text-burnt-brass">*</span>
                     </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
+              <input
+                type="text"
+                id="name"
+                name="name"
                       className="w-full px-3 py-2 text-sm bg-mist-gray/10 border border-burnt-brass/30 rounded-md focus:outline-none focus:ring-1 focus:ring-burnt-brass/50 focus:border-burnt-brass text-antique-linen placeholder-antique-linen/40 transition-all duration-200"
                       placeholder="Your name"
-                      required
-                    />
-                  </div>
-                  <div>
+                required
+              />
+            </div>
+            <div>
                     <label htmlFor="email" className="block text-antique-linen/70 text-xs font-medium mb-1">
                       Email <span className="text-burnt-brass">*</span>
                     </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
+              <input
+                type="email"
+                id="email"
+                name="email"
                       className="w-full px-3 py-2 text-sm bg-mist-gray/10 border border-burnt-brass/30 rounded-md focus:outline-none focus:ring-1 focus:ring-burnt-brass/50 focus:border-burnt-brass text-antique-linen placeholder-antique-linen/40 transition-all duration-200"
                       placeholder="your.email@example.com"
-                      required
-                    />
-                  </div>
+                required
+              />
+            </div>
                 </div>
                 
-                <div>
+            <div>
                   <label htmlFor="subject" className="block text-antique-linen/70 text-xs font-medium mb-1">
                     Subject
                   </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
+              <input
+                type="text"
+                id="subject"
+                name="subject"
                     className="w-full px-3 py-2 text-sm bg-mist-gray/10 border border-burnt-brass/30 rounded-md focus:outline-none focus:ring-1 focus:ring-burnt-brass/50 focus:border-burnt-brass text-antique-linen placeholder-antique-linen/40 transition-all duration-200"
                     placeholder="What's this about?"
-                  />
-                </div>
+              />
+            </div>
                 
-                <div>
+            <div>
                   <label htmlFor="message" className="block text-antique-linen/70 text-xs font-medium mb-1">
                     Message <span className="text-burnt-brass">*</span>
                   </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={4}
+              <textarea
+                id="message"
+                name="message"
+                rows={4}
                     className="w-full px-3 py-2 text-sm bg-mist-gray/10 border border-burnt-brass/30 rounded-md focus:outline-none focus:ring-1 focus:ring-burnt-brass/50 focus:border-burnt-brass text-antique-linen placeholder-antique-linen/40 resize-none transition-all duration-200"
                     placeholder="Tell me about your project..."
-                    required
-                  ></textarea>
-                </div>
+                required
+              ></textarea>
+            </div>
                 
-                <button
-                  type="submit"
+            <button
+              type="submit"
                   className="group relative w-full px-4 py-2.5 bg-burnt-brass text-deep-charcoal font-semibold text-sm rounded-md hover:bg-highlight-gold focus:outline-none focus:ring-2 focus:ring-burnt-brass focus:ring-offset-2 focus:ring-offset-deep-charcoal transition-all duration-300"
-                >
+            >
                   <span className="relative z-10 flex items-center justify-center">
-                    Send Message
+              Send Message
                     <span className="ml-1.5 group-hover:translate-x-0.5 transition-transform text-xs">→</span>
                   </span>
-                </button>
-              </form>
-            </div>
-          </div>
+            </button>
+          </form>
         </div>
+          </div>
+      </div>
       </div>
     </main>
   );

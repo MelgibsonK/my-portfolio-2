@@ -1,5 +1,3 @@
-// src/app/Contact/page.tsx
-
 'use client';
 
 import React, { Suspense } from 'react';
@@ -8,14 +6,12 @@ import Image from 'next/image';
 import BlurText from '@/blocks/TextAnimations/BlurText/BlurText'; 
 import Squares from '@/blocks/Backgrounds/Squares/Squares';
 
-// Define social media links
 const socialLinks = [
   { platform: "GitHub", href: "https://github.com/MelgibsonK", iconPath: "/icons/github_icon.svg", label: "GitHub" },
   { platform: "LinkedIn", href: "https://www.linkedin.com/in/melgibson-kennedy", iconPath: "/icons/linkedin_icon.svg", label: "LinkedIn" },
   { platform: "Gmail", href: "mailto:melgibsonkennedy@gmail.com", iconPath: "/icons/gmail_icon.svg", label: "Email" },
 ];
 
-// Define contact information
 const contactInfo = {
   email: "melgibsonkennedy@gmail.com",
 };
@@ -41,6 +37,32 @@ export default function Contact() {
   };
 
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "mainEntity": {
+              "@type": "Person",
+              "name": "Melgibson Kennedy Odari",
+              "alternateName": "Melgibson Kennedy",
+              "email": "melgibsonkennedy@gmail.com",
+              "url": "https://melgibsonkennedy.com/Contact",
+              "sameAs": [
+                "https://www.linkedin.com/in/melgibson-kennedy",
+                "https://github.com/MelgibsonK"
+              ],
+              "jobTitle": "Chief Technology Officer (CTO)",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Emoh Links Ltd"
+              }
+            }
+          })
+        }}
+      />
     <main className="flex flex-col items-center justify-center min-h-screen py-8 px-4 sm:px-6 lg:px-8 bg-deep-charcoal relative overflow-hidden">
       {/* Background Pattern with Enhanced Breathing Animation */}
       <div className="absolute top-0 left-0 w-full h-full z-0 breathing-animation">
@@ -539,5 +561,6 @@ export default function Contact() {
       </div>
       </div>
     </main>
+    </>
   );
 }

@@ -1,5 +1,3 @@
-// src/app/Resume/page.tsx
-
 'use client';
 
 import React, { Suspense } from 'react';
@@ -16,6 +14,35 @@ export default function Resume() {
   };
 
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Melgibson Kennedy Odari",
+            "alternateName": "Melgibson Kennedy",
+            "jobTitle": "Chief Technology Officer (CTO)",
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Emoh Links Ltd",
+              "url": "https://emohlinks.co.ke"
+            },
+            "founder": {
+              "@type": "Organization",
+              "name": "Tayari Careers",
+              "url": "https://tayaricareers.africa"
+            },
+            "url": "https://melgibsonkennedy.com/Resume",
+            "sameAs": [
+              "https://www.linkedin.com/in/melgibson-kennedy",
+              "https://github.com/MelgibsonK"
+            ],
+            "email": "melgibsonkennedy@gmail.com"
+          })
+        }}
+      />
     <main className="flex flex-col items-center justify-center min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-deep-charcoal relative">
       {/* Vintage Paper Container */}
       <div className="relative w-full max-w-4xl mx-auto">
@@ -240,7 +267,8 @@ export default function Resume() {
           }
         }
       `}</style>
-    </main>
-  );
+        </main>
+      </>
+    );
 }
 

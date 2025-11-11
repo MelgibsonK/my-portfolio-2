@@ -1,10 +1,7 @@
-// app/page.tsx
-
 "use client"
 
 import React, { lazy, Suspense } from "react";
 
-// Lazy load heavy components for better performance
 const BlurText = lazy(() => import("@/blocks/TextAnimations/BlurText/BlurText"));
 const TrueFocus = lazy(() => import("@/blocks/TextAnimations/TrueFocus/TrueFocus"));
 const Threads = lazy(() => import("@/blocks/Backgrounds/Threads/Threads"));
@@ -12,10 +9,8 @@ const TiltedCard = lazy(() => import("@/blocks/Components/TiltedCard/TiltedCard"
 const ExperienceTimeline = lazy(() => import('@/components/ExperienceTimeline'));
 const ProjectCard = lazy(() => import('@/components/ProjectCard'));
 
-// Keep SkillTag as regular import (lightweight)
 import SkillTag from '@/components/SkillTag';
 
-// Updated projects with new links and website previews
 const projects = [
   {
     id: 1,
@@ -88,6 +83,47 @@ const techStackCategories = {
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Melgibson Kennedy Odari",
+            "alternateName": "Melgibson Kennedy",
+            "jobTitle": "Chief Technology Officer (CTO)",
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Emoh Links Ltd",
+              "url": "https://emohlinks.co.ke"
+            },
+            "founder": {
+              "@type": "Organization",
+              "name": "Tayari Careers",
+              "url": "https://tayaricareers.africa"
+            },
+            "url": "https://melgibsonkennedy.com",
+            "sameAs": [
+              "https://www.linkedin.com/in/melgibson-kennedy",
+              "https://github.com/MelgibsonK"
+            ],
+            "email": "melgibsonkennedy@gmail.com",
+            "knowsAbout": [
+              "Software Development",
+              "Full Stack Development",
+              "React",
+              "Next.js",
+              "Flutter",
+              "Node.js",
+              "Cloud Computing",
+              "Software Architecture",
+              "Product Management",
+              "Digital Transformation"
+            ],
+            "description": "Chief Technology Officer (CTO) at Emoh Links Ltd, Founder of Tayari Careers. Full-stack developer specializing in React, Next.js, Flutter, Node.js, and cloud technologies."
+          })
+        }}
+      />
       {/* Main content area */}
       <main className="flex-grow flex flex-col items-center h-full relative">
         {/* Hero Section - Full Viewport Height with Background Image */}

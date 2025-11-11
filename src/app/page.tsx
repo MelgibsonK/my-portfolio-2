@@ -94,56 +94,81 @@ const devSkills = [
 
 export default function Home() {
   return (
-    <React.Fragment>
+    <>
       {/* Main content area */}
-      <main className="flex-grow flex flex-col items-center h-full relative pt-12" id="about">
-        {/* Optimized Threads - reduced opacity and simplified for performance */}
-        <Suspense fallback={<div className="hidden md:block opacity-20" style={{ width: '100%', height: '400px', position: 'absolute', bottom: '50', pointerEvents: 'none'}} />}>
-          <div style={{ width: '100%', height: '400px', position: 'absolute', bottom: '50', pointerEvents: 'none'}} className="hidden md:block opacity-20">
-            <Threads
-              amplitude={1.5}
-              distance={0}
-              enableMouseInteraction={false}
-            />
+      <main className="flex-grow flex flex-col items-center h-full relative" id="about">
+        {/* Hero Section - Full Viewport Height with Background Image */}
+        <div className="w-full relative flex flex-col items-center justify-center overflow-hidden" style={{ height: '100vh', marginTop: '-64px', paddingTop: '64px' }}>
+          {/* Background Image - Covers full viewport including behind header */}
+          <div 
+            className="absolute w-full bg-cover bg-center bg-no-repeat z-0"
+            style={{
+              backgroundImage: 'url(/background/markus-spiske-fFRG_YEaOuE-unsplash.jpg)',
+              top: '-64px', // Extend behind header (header is h-16 = 64px)
+              left: 0,
+              right: 0,
+              bottom: 0,
+              height: 'calc(100vh + 64px)', // Full viewport + header height
+            }}
+          >
+            {/* Darkish grey overlay - on image only, not covering text */}
+            <div 
+              className="absolute inset-0" 
+              style={{ backgroundColor: 'rgba(60, 60, 60, 0.35)' }}
+            ></div>
           </div>
-        </Suspense>
+          {/* Optimized Threads - reduced opacity and simplified for performance - Dark Grey */}
+          <Suspense fallback={null}>
+            <div style={{ width: '100%', height: '600px', position: 'absolute', bottom: '50', pointerEvents: 'none'}} className="hidden md:block opacity-30">
+          <Threads
+                amplitude={1.5}
+            distance={0}
+            enableMouseInteraction={false}
+            color={[0.235, 0.235, 0.235]} // Dark grey (Graphite #3C3C3C)
+          />
+        </div>
+          </Suspense>
 
-        <Suspense fallback={<div className="md:hidden opacity-5" style={{ width: '100%', height: '300px', position: 'absolute', bottom: '50', pointerEvents: 'none'}} />}>
-          <div style={{ width: '100%', height: '300px', position: 'absolute', bottom: '50', pointerEvents: 'none'}} className="md:hidden opacity-5">
-            <Threads
-              amplitude={1.5}
-              distance={0}
-              enableMouseInteraction={false}
-            />
-          </div>
-        </Suspense>
+          <Suspense fallback={null}>
+            <div style={{ width: '100%', height: '450px', position: 'absolute', bottom: '50', pointerEvents: 'none'}} className="md:hidden opacity-20">
+          <Threads
+                amplitude={1.5}
+            distance={0}
+            enableMouseInteraction={false}
+            color={[0.235, 0.235, 0.235]} // Dark grey (Graphite #3C3C3C)
+          />
+        </div>
+          </Suspense>
 
-        {/* Hero Section */}
-        <Suspense fallback={<div className="w-full flex justify-center items-center my-4 md:mt-15 text-center font-bold relative px-4 md:px-0"><h1 className="lg:text-9xl md:text-7xl text-4xl text-center text-antique-linen">Melgibson Kennedy</h1></div>}>
-          <div className="w-full flex justify-center items-center my-4 md:mt-15 text-center font-bold relative px-4 md:px-0">
-            <BlurText
-              text="Melgibson Kennedy"
-              delay={150}
-              animateBy="letters"
-              direction="top"
-              onAnimationComplete={handleAnimationComplete}
-              className="lg:text-9xl md:text-7xl text-4xl text-center text-antique-linen"
-            />
-          </div>
-        </Suspense>
+          {/* Hero Content */}
+          <div className="relative z-10 w-full flex flex-col items-center justify-center px-4 md:px-0">
+            <Suspense fallback={<div className="w-full flex justify-center items-center my-4 md:mt-15 text-center font-bold relative px-4 md:px-0"><h1 className="lg:text-9xl md:text-7xl text-4xl text-center text-antique-linen">Melgibson Kennedy</h1></div>}>
+        <div className="w-full flex justify-center items-center my-4 md:mt-15 text-center font-bold relative px-4 md:px-0">
+          <BlurText
+                  text="Melgibson Kennedy"
+            delay={150}
+            animateBy="letters"
+            direction="top"
+            onAnimationComplete={handleAnimationComplete}
+                  className="lg:text-9xl md:text-7xl text-4xl text-center text-antique-linen drop-shadow-lg"
+          />
+        </div>
+            </Suspense>
 
-        <Suspense fallback={<div className="font-bold text-center mt-1 md:mt-3 text-burnt-brass">Developer Creator Solopreneur</div>}>
-          <div className="font-bold text-center opacity-0 animate-fadeIn mt-1 md:mt-3">
-            <TrueFocus
-              sentence="Developer   Creator   Solopreneur"
-              manualMode={false}
-              blurAmount={5}
-              borderColor="#B08D57"
-              animationDuration={0.5}
-              pauseBetweenAnimations={1.5}
-              />
+            <Suspense fallback={<div className="font-bold text-center mt-1 md:mt-3 text-burnt-brass">Developer Creator Solopreneur</div>}>
+        <div className="font-bold text-center opacity-0 animate-fadeIn mt-1 md:mt-3">
+          <TrueFocus
+            sentence="Developer   Creator   Solopreneur"
+                  manualMode={false}
+            blurAmount={5}
+                  borderColor="#B08D57"
+                  animationDuration={0.5}
+                  pauseBetweenAnimations={1.5}
+                  />
+              </div>
+            </Suspense>
           </div>
-        </Suspense>
+          </div>
 
         {/* style jsx block is fine */}
         <style jsx>{`
@@ -164,25 +189,28 @@ export default function Home() {
           }
         `}</style>
 
+        {/* Scroll indicator - positioned at bottom of viewport */}
         <Suspense fallback={null}>
-          <div className="w-full items-center mt-8 mb-4 relative h-[300px] hidden md:block">
-            <CircularText
-              text="SCROLL-DOWN*SCROLL-DOWN*"
-              onHover="slowDown"
-              spinDuration={5}
-              className="absolute left-45 bottom-10"
-            />
-            <Image
-              src="/logo/lauv-logo.svg"
+          <div className="w-full items-center absolute bottom-10 left-0 right-0 h-[300px] hidden md:block pointer-events-none">
+          <CircularText
+            text="SCROLL-DOWN*SCROLL-DOWN*"
+            onHover="slowDown"
+            spinDuration={5}
+            className="absolute left-45 bottom-10"
+          />
+          <Image
+            src="/logo/lauv-logo.svg"
               alt="Logo"
-              width={20}
-              height={20}
-              className="m-10 transition-all duration-300 hover:scale-150 hover:rotate-10 hover:brightness-125 absolute left-44 bottom-9"
+            width={20}
+            height={20}
+            className="m-10 transition-all duration-300 hover:scale-150 hover:rotate-10 hover:brightness-125 absolute left-44 bottom-9"
               loading="lazy"
-            />
-          </div>
+          />
+        </div>
         </Suspense>
 
+        {/* Content sections below hero - Solid background to cover hero background */}
+        <div className="relative z-10 w-full bg-deep-charcoal">
         <div className="flex-grow flex flex-col md:flex-row items-center justify-center w-full md:w-9xl md:mt-35 mt-10 md:space-x-50 space-x-0">
           {/* Tech Stack Section Start */}
              <div className="flex flex-col w-full max-w-lg px-4 md:px-0 mt-10 mb-20 space-y-8">
@@ -232,19 +260,19 @@ export default function Home() {
           {/* What I do Section */}
           <div className="flex flex-col">
             <Suspense fallback={<h2 className="md:text-7xl text-3xl font-extrabold text-antique-linen">What I do</h2>}>
-              <BlurText
-                text="What I do"
-                delay={150}
-                animateBy="words"
-                direction="top"
-                onAnimationComplete={handleAnimationComplete}
+            <BlurText
+              text="What I do"
+              delay={150}
+              animateBy="words"
+              direction="top"
+              onAnimationComplete={handleAnimationComplete}
                 className="md:text-7xl text-3xl font-extrabold text-antique-linen"
-              />
+            />
             </Suspense>
 
             <Suspense fallback={<div className="hidden md:block mt-10 mb-20 w-[500px] h-[600px] bg-mist-gray/10" />}>
-              <div className="hidden md:block mt-10 mb-20">
-                <TiltedCard
+            <div className="hidden md:block mt-10 mb-20">
+              <TiltedCard
                 imageSrc="/photos/tiltedcard.svg"
                 altText="Melgibson Kennedy"
                 captionText="Melgibson Kennedy" 
@@ -263,12 +291,12 @@ export default function Home() {
                   </p>
                 }
               />
-              </div>
+            </div>
             </Suspense>
 
             <Suspense fallback={<div className="md:hidden mt-10 mb-20 w-[300px] h-[400px] bg-mist-gray/10" />}>
-              <div className="md:hidden mt-10 mb-20">
-                <TiltedCard
+            <div className="md:hidden mt-10 mb-20">
+              <TiltedCard
                 imageSrc="/photos/tiltedcard.svg"
                 altText="Melgibson Kennedy"
                 captionText="Melgibson Kennedy"
@@ -287,7 +315,7 @@ export default function Home() {
                   </p>
                 }
               />
-              </div>
+            </div>
             </Suspense>
 
             
@@ -297,42 +325,43 @@ export default function Home() {
         {/* Experience Section */}
         <div className="flex w-full items-center justify-center p-4 md:mt-25 mt-5" id="experience">
           <Suspense fallback={<h2 className="md:text-7xl text-3xl font-extrabold text-antique-linen">My Experience</h2>}>
-            <BlurText
-              text=" My Experience"
-              delay={150}
-              animateBy="words"
-              direction="top"
-              onAnimationComplete={handleAnimationComplete}
+          <BlurText
+            text=" My Experience"
+            delay={150}
+            animateBy="words"
+            direction="top"
+            onAnimationComplete={handleAnimationComplete}
               className="md:text-7xl text-3xl font-extrabold text-antique-linen"
-            />
+          />
           </Suspense>
         </div>
         <Suspense fallback={<div className="w-full max-w-5xl mx-auto py-16 px-4"><div className="h-96 bg-mist-gray/10 rounded-2xl" /></div>}>
-          <ExperienceTimeline />
+        <ExperienceTimeline />
         </Suspense>
 
         <div className="flex w-full items-center justify-center p-4 md:mt-25 mt-5 font-extrabold" id="projects">
           <Suspense fallback={<h2 className="md:text-7xl text-3xl font-extrabold text-antique-linen">My Projects</h2>}>
-            <BlurText
-              text=" My Projects"
-              delay={150}
-              animateBy="letters"
-              direction="top"
-              onAnimationComplete={handleAnimationComplete}
+          <BlurText
+            text=" My Projects"
+            delay={150}
+            animateBy="letters"
+            direction="top"
+            onAnimationComplete={handleAnimationComplete}
               className="md:text-7xl text-3xl font-extrabold text-antique-linen"
-            />
+          />
           </Suspense>
         </div>
 
         {/* Projects Section Start - Vintage Classy Theme */}
         <Suspense fallback={<div className="grid grid-cols-1 md:grid-cols-2 w-full max-w-[1400px] mx-auto mt-10 gap-6 px-4"><div className="h-96 bg-mist-gray/10 rounded-lg" /><div className="h-96 bg-mist-gray/10 rounded-lg" /></div>}>
           <div className="grid grid-cols-1 md:grid-cols-2 w-full max-w-[1400px] mx-auto mt-10 gap-6 px-4">
-               {projects.map((project, index) => (
-                 <ProjectCard key={project.id} project={project} index={index} />
-               ))}
-             </div>
+             {projects.map((project, index) => (
+               <ProjectCard key={project.id} project={project} index={index} />
+             ))}
+           </div>
         </Suspense>
         {/* Projects Section End */}
+        </div>
       </main>
 
 
@@ -340,6 +369,6 @@ export default function Home() {
       <footer className="flex w-full items-center justify-center p-4 border-t border-burnt-brass/20 text-antique-linen/60 text-sm font-light mt-20">
         <p>&copy; {new Date().getFullYear()} Melgibson Kennedy. All rights reserved.</p>
       </footer>
-    </React.Fragment>
+    </>
   );
 }

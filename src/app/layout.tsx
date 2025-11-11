@@ -1,13 +1,9 @@
-'use client'; // This layout uses client-side hooks and event listeners
+'use client';
 
-// Include imports for Lenis AND the cursor
 import React, { useEffect, useRef, useState } from 'react';
 import Lenis from '@studio-freight/lenis';
-import { motion, useMotionValue, useSpring } from "framer-motion";
 import Image from "next/image";
-import GooeyNav from "@/blocks/Components/GooeyNav/GooeyNav";
 import { usePathname } from 'next/navigation';
-// Import the Link component from next/link
 import Link from 'next/link';
 
 
@@ -65,9 +61,94 @@ export default function RootLayout({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   // Get current pathname
   const pathname = usePathname();
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  // Calculate active index based on pathname
-  const activeIndex = items.findIndex(item => item.href === pathname);
+  // Calculate active index based on pathname and hash
+  useEffect(() => {
+    const updateActiveIndex = () => {
+      if (typeof window === 'undefined') return;
+      
+      const currentHash = window.location.hash;
+      const currentPath = window.location.pathname;
+      
+      // Check for hash links first (for sections on home page)
+      if (currentHash) {
+        const hashIndex = items.findIndex(item => item.href === currentHash);
+        if (hashIndex !== -1) {
+          setActiveIndex(hashIndex);
+          return;
+        }
+      }
+      
+      // Check for exact pathname match (for Contact page)
+      const pathIndex = items.findIndex(item => item.href === currentPath);
+      if (pathIndex !== -1) {
+        setActiveIndex(pathIndex);
+        return;
+      }
+      
+      // Default to Home (index 0) if on root path
+      if (currentPath === '/' || currentPath === '') {
+        setActiveIndex(0);
+        return;
+      }
+    };
+
+    // Initial update
+    updateActiveIndex();
+
+    // Listen for hash changes (when clicking nav links)
+    const handleHashChange = () => {
+      updateActiveIndex();
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    
+    // Also check on scroll to update active section (for home page sections)
+    const handleScroll = () => {
+      if (pathname === '/') {
+        const sections = ['#about', '#experience', '#projects'];
+        const scrollPosition = window.scrollY + 200; // Offset for header
+        
+        for (let i = sections.length - 1; i >= 0; i--) {
+          const element = document.querySelector(sections[i]);
+          if (element) {
+            const elementTop = (element as HTMLElement).offsetTop;
+            if (scrollPosition >= elementTop) {
+              const sectionIndex = items.findIndex(item => item.href === sections[i]);
+              if (sectionIndex !== -1) {
+                setActiveIndex(sectionIndex);
+                return;
+              }
+            }
+          }
+        }
+        // If at top of page, show Home as active
+        if (scrollPosition < 300) {
+          setActiveIndex(0);
+        }
+      }
+    };
+
+    // Throttle scroll events for performance
+    let ticking = false;
+    const throttledScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', throttledScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+      window.removeEventListener('scroll', throttledScroll);
+    };
+  }, [pathname]);
 
   // --- Lenis Smooth Scrolling Implementation ---
   // Use useRef to hold the Lenis instance
@@ -104,127 +185,61 @@ export default function RootLayout({
   // --- End Lenis Implementation ---
 
 
-  // --- Custom Cursor Implementation (Moved from page.tsx) ---
-  // Use MotionValues to track the raw mouse position
-  // Initialize to 0 on both server and client to prevent hydration errors
-  const cursorX = useMotionValue(0);
-  const cursorY = useMotionValue(0);
-
-  // Configure spring physics for the dot (follows closely)
-  const dotSpringConfig = { damping: 25, stiffness: 200 };
-  // Configure spring physics for the outline (trails the dot)
-  const outlineSpringConfig = { damping: 35, stiffness: 400 }; // More damping/less stiffness for trailing
-
-  // Create sprung motion values for the inner dot
-  const dotX = useSpring(cursorX, dotSpringConfig);
-  const dotY = useSpring(cursorY, dotSpringConfig);
-
-  // Create sprung motion values for the outer outline, based on the dot's sprung values
-  const outlineX = useSpring(dotX, outlineSpringConfig);
-  const outlineY = useSpring(dotY, outlineSpringConfig);
-
-  // Effect to update mouse position on mousemove AND set initial position after mount
-  useEffect(() => {
-    const moveCursor = (e: MouseEvent) => {
-      cursorX.set(e.clientX);
-      cursorY.set(e.clientY);
-    };
-
-    // Set initial cursor position to the center of the window after the component mounts
-    // This runs only on the client after hydration
-    // setTimeout is optional, but can help ensure initial positioning after paint
-    setTimeout(() => {
-        cursorX.set(window.innerWidth / 2);
-        cursorY.set(window.innerHeight / 2);
-    }, 0);
-
-
-    // Add event listener for subsequent mouse movements
-    window.addEventListener('mousemove', moveCursor);
-
-    // Clean up event listener on component unmount
-    return () => {
-      window.removeEventListener('mousemove', moveCursor);
-    };
-  }, [cursorX, cursorY]); // Dependencies: update effect if motion values change (they won't here, but good practice)
-  // --- End Custom Cursor Implementation ---
-
-
   return (
     <html lang="en">
       <body
-        // Added bg-black class for black background
         className={`${geistSans.variable} ${geistMono.variable} ${gilroy.variable} antialiased font-gilroy bg-deep-charcoal`}
-        style={{ cursor: 'none' }} // Apply cursor: none globally to the body
         >
-        {/* Custom Cursor Dot */}
-        <motion.div 
-            style={{
-            x: dotX, // Bind x position to the dot's sprung motion value
-            y: dotY, // Bind y position to the dot's sprung motion value
-            pointerEvents: 'none', // Ensure the cursor doesn't block clicks on elements below it
-            left: 0, // Position relative to the viewport
-            top: 0,
-            position: 'fixed', // Stay in fixed position relative to the viewport
-            zIndex: 9999, // Ensure it's always on top
-            transform: 'translate(-50%, -50%)', // Center the div exactly on the cursor coordinates
-            width: '8px', // Size of the inner dot
-            height: '8px',
-            borderRadius: '50%', // Make it round
-            backgroundColor: '#B08D57', // Burnt Brass
-            boxShadow: '0 0 10px 4px rgba(176, 141, 87, 0.7)', // Glowing effect
-            }}
-            className="hidden md:block" // Hide on mobile (optional, can be removed if you want it on mobile too)
-        />
-        {/* Custom Cursor Outline */}
-        <motion.div
-            style={{
-            x: outlineX, // Bind x position to the outline's sprung motion value
-            y: outlineY, // Bind y position to the outline's sprung motion value
-            pointerEvents: 'none', // Ensure the cursor doesn't block clicks
-            left: 0, // Position relative to the viewport
-            top: 0,
-            position: 'fixed', // Stay in fixed position
-            zIndex: 9998, // Z-index slightly lower than the dot
-            transform: 'translate(-50%, -50%)', // Center the div
-            width: '30px', // Size of the outer circle
-            height: '30px',
-            borderRadius: '50%', // Make it round
-            border: '2px solid #B08D57', // Burnt Brass border
-            // Optional: opacity for transparency
-            opacity: 0.5,
-            }}
-            className="hidden md:block" // Hide on mobile (optional, can be removed if you want it on mobile too)
-        />
-        {/* Header Section - Reduced height, no logo, better menu layout */}
-        <header className="sticky top-0 z-50 flex w-full items-center justify-center px-4 py-2 md:px-6 md:py-2 bg-deep-charcoal/95 backdrop-blur-md border-b border-burnt-brass/30 h-14 md:h-16">
+        {/* Header Section - Transparent overlay on background image */}
+        <header className="sticky top-0 z-50 flex w-full items-center justify-center px-4 py-2 md:px-6 md:py-2 bg-deep-charcoal/30 backdrop-blur-md h-14 md:h-16">
           {/* Desktop Navigation - Centered, full width */}
           <div className="hidden md:flex w-full max-w-6xl mx-auto items-center justify-center font-medium">
             <nav className="flex items-center gap-6 lg:gap-8">
-              {items.map((item, index) => (
-                <Link
-                  key={index}
-                  href={item.href}
-                  className={`text-antique-linen/80 hover:text-burnt-brass px-3 py-2 text-sm lg:text-base font-medium transition-colors duration-200 border-b-2 border-transparent hover:border-burnt-brass ${
-                    activeIndex === index ? 'text-burnt-brass border-burnt-brass' : ''
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {items.map((item, index) => {
+                const isActive = activeIndex === index;
+                return (
+                  <Link
+                    key={index}
+                    href={item.href}
+                    className={`relative px-3 py-2 text-base lg:text-lg font-bold transition-all duration-300 ${
+                      isActive 
+                        ? 'text-mist-gray' 
+                        : 'text-antique-linen/80 hover:text-burnt-brass'
+                    }`}
+                  >
+                    {item.label}
+                    {/* Extended circle with rounded corners for active item */}
+                    {isActive && (
+                      <span 
+                        className="absolute bottom-0 left-1/2 -translate-x-1/2 h-1.5 rounded-full"
+            style={{
+                          width: 'calc(100% + 16px)',
+                          backgroundColor: '#D9D9D6',
+                          boxShadow: '0 0 10px rgba(176, 141, 87, 0.8)'
+                        }}
+                      ></span>
+                    )}
+                    {/* Hover underline effect for non-active items */}
+                    {!isActive && (
+                      <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-burnt-brass/50 opacity-0 hover:opacity-100 scale-x-0 hover:scale-x-100 transition-all duration-300 origin-left"></span>
+                    )}
+            </Link>
+                );
+              })}
             </nav>
           </div>
 
           {/* Hamburger button - visible only on mobile, more visible */}
           <button
-            className="md:hidden fixed top-3 right-4 z-50 p-2 focus:outline-none bg-deep-charcoal/90 rounded-md border border-burnt-brass/40"
+            className="md:hidden fixed top-2.5 right-3 z-[60] p-1.5 focus:outline-none bg-soft-white rounded-md border border-deep-charcoal shadow-lg"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle mobile menu"
+            style={{ backgroundColor: '#FAF9F6' }}
           >
-            {/* Hamburger icon lines with animation - more visible */}
-            <div className={`w-6 h-0.5 bg-burnt-brass mb-1.5 transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></div>
-            <div className={`w-6 h-0.5 bg-burnt-brass mb-1.5 transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'opacity-0' : ''}`}></div>
-            <div className={`w-6 h-0.5 bg-burnt-brass transition-all duration-300 ease-in-out ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></div>
+            {/* Hamburger icon lines with animation - dark for visibility */}
+            <div className={`w-5 h-0.5 bg-deep-charcoal mb-1.5 transition-all duration-300 ease-in-out rounded ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} style={{ backgroundColor: '#1F1F1C' }}></div>
+            <div className={`w-5 h-0.5 bg-deep-charcoal mb-1.5 transition-all duration-300 ease-in-out rounded ${mobileMenuOpen ? 'opacity-0' : ''}`} style={{ backgroundColor: '#1F1F1C' }}></div>
+            <div className={`w-5 h-0.5 bg-deep-charcoal transition-all duration-300 ease-in-out rounded ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} style={{ backgroundColor: '#1F1F1C' }}></div>
           </button>
         </header>
 
@@ -232,16 +247,36 @@ export default function RootLayout({
         {mobileMenuOpen && (
           <div className="md:hidden bg-deep-charcoal/98 backdrop-blur-lg border-t border-burnt-brass/40 fixed top-14 right-0 left-0 z-40 p-4 shadow-lg">
             <nav className="flex flex-col space-y-1">
-              {items.map((item, index) => (
+              {items.map((item, index) => {
+                const isActive = activeIndex === index;
+                return (
                 <Link
                   key={index}
                   href={item.href}
-                  className="text-antique-linen hover:text-burnt-brass py-3 px-4 font-medium text-base rounded-md hover:bg-burnt-brass/10 border-l-2 border-transparent hover:border-burnt-brass transition-all duration-200"
-                  onClick={() => setMobileMenuOpen(false)}
+                    className={`relative py-3 px-4 font-bold text-lg rounded-md transition-all duration-300 ${
+                      isActive
+                        ? 'text-mist-gray'
+                        : 'text-antique-linen hover:text-burnt-brass border-transparent hover:border-burnt-brass/50 hover:bg-burnt-brass/10'
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.label}
+                    {/* Extended circle with rounded corners for active item */}
+                    {isActive && (
+                      <span 
+                        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"
+                        style={{
+                          width: 'calc(100% - 16px)',
+                          height: 'calc(100% - 8px)',
+                          backgroundColor: 'rgba(217, 217, 214, 0.15)',
+                          border: '2px solid #D9D9D6',
+                          boxShadow: '0 0 10px rgba(176, 141, 87, 0.8)'
+                        }}
+                      ></span>
+                    )}
                 </Link>
-              ))}
+                );
+              })}
             </nav>
           </div>
         )}

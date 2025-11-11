@@ -27,26 +27,34 @@ const TrueFocus: React.FC<TrueFocusProps> = ({
     animationDuration = 0.5,
     pauseBetweenAnimations = 1,
 }) => {
-    const words = sentence.split(" ");
+    // Filter out empty strings from multiple spaces
+    const words = sentence.split(" ").filter(word => word.trim().length > 0);
     const [currentIndex, setCurrentIndex] = useState<number>(0);
-    const [lastActiveIndex, setLastActiveIndex] = useState<number | null>(null);
+    const [isHovered, setIsHovered] = useState<boolean>(false);
     const containerRef = useRef<HTMLDivElement | null>(null);
     const wordRefs = useRef<(HTMLSpanElement | null)[]>([]);
     const [focusRect, setFocusRect] = useState<FocusRect>({ x: 0, y: 0, width: 0, height: 0 });
+    const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
     useEffect(() => {
-        // Always auto-rotate, but allow hover to override temporarily
-        const interval = setInterval(() => {
-            setCurrentIndex((prev) => (prev + 1) % words.length);
-        }, (animationDuration + pauseBetweenAnimations) * 1000);
+        // Only auto-rotate when not hovered
+        if (!isHovered && !manualMode) {
+            intervalRef.current = setInterval(() => {
+                setCurrentIndex((prev) => (prev + 1) % words.length);
+            }, (animationDuration + pauseBetweenAnimations) * 1000);
+        } else {
+            if (intervalRef.current) {
+                clearInterval(intervalRef.current);
+                intervalRef.current = null;
+            }
+        }
 
         return () => {
-            clearInterval(interval);
-            if (hoverTimeoutRef.current) {
-                clearTimeout(hoverTimeoutRef.current);
+            if (intervalRef.current) {
+                clearInterval(intervalRef.current);
             }
         };
-    }, [animationDuration, pauseBetweenAnimations, words.length]);
+    }, [animationDuration, pauseBetweenAnimations, words.length, isHovered, manualMode]);
 
     useEffect(() => {
         if (currentIndex === null || currentIndex === -1) return;
@@ -63,25 +71,14 @@ const TrueFocus: React.FC<TrueFocusProps> = ({
         });
     }, [currentIndex, words.length]);
 
-    const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-
     const handleMouseEnter = (index: number) => {
-        // Store the current index before hover
-        setLastActiveIndex(currentIndex);
-        setCurrentIndex(index);
-        // Clear any pending auto-rotation
-        if (hoverTimeoutRef.current) {
-            clearTimeout(hoverTimeoutRef.current);
-        }
+        setIsHovered(true);
+            setCurrentIndex(index);
     };
 
     const handleMouseLeave = () => {
-        // Resume auto-rotation after a brief delay
-        hoverTimeoutRef.current = setTimeout(() => {
-            if (lastActiveIndex !== null) {
-                setCurrentIndex(lastActiveIndex);
-            }
-        }, 500);
+        setIsHovered(false);
+        // Auto-rotation will resume via useEffect
     };
 
     return (

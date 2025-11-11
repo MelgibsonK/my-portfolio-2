@@ -163,7 +163,6 @@ export default function RootLayout({
     const getPageMetadata = () => {
       const baseUrl = 'https://melgibsonkennedy.com';
       const baseDescription = 'Melgibson Kennedy Odari - Chief Technology Officer (CTO) at Emoh Links Ltd, Founder of Tayari Careers. Full-stack developer specializing in React, Next.js, Flutter, Node.js, and cloud technologies.';
-      const baseKeywords = 'Melgibson Kennedy, Melgibson Kennedy Odari, CTO, Chief Technology Officer, Software Developer, Full Stack Developer, React Developer, Next.js Developer, Flutter Developer, Node.js Developer, Emoh Links, Tayari Careers, Software Leader, Product Leader, Tech Leader, Kenya Developer, African Tech';
       
       if (pathname === '/Resume') {
         return {

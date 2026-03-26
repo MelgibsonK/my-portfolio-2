@@ -81,19 +81,19 @@ const ProjectCard: React.FC<ProjectCardProps> = React.memo(({ project, index }) 
       transition={{ duration: 0.5 }}
     >
       {/* Large Project Number - Absolutely Positioned with vintage style */}
-      <div className={`absolute md:text-7xl text-4xl p-6 font-bold text-burnt-brass/10 ${numberPositionClasses} font-serif`}>
+      <div className={`absolute md:text-8xl text-5xl font-bold text-burnt-brass/5 ${numberPositionClasses} font-serif pointer-events-none select-none z-0`}>
         {project.number}
       </div>
 
       {/* Content Area (Text Block and Image Block) */}
-      <div className="flex flex-col justify-between h-full">
+      <div className="flex flex-col justify-between h-full relative z-10">
 
         {/* Text Content Block (Title, Category, Description) */}
-        <div className={`flex flex-col ${contentAlignmentClasses} ${textOrderClass} z-10 p-4`}>
+        <div className={`flex flex-col ${contentAlignmentClasses} ${textOrderClass} p-4 w-full`}>
             {/* Title and Category */}
-            <div>
+            <div className="max-w-[70%]"> 
               <h3 className="md:text-2xl text-lg font-bold text-burnt-brass mb-2 group-hover:text-highlight-gold transition-colors">{project.title}</h3>
-              <p className="md:text-sm text-xs text-antique-linen/70 mb-3">{project.description}</p>
+              <p className="md:text-sm text-xs text-antique-linen/70 mb-3 leading-relaxed">{project.description}</p>
             </div>
             {/* Tech Stack Icons */}
             <div className="mt-2 flex flex-wrap gap-2">

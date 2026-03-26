@@ -16,7 +16,7 @@ const projects = [
     id: 1,
     number: '01',
     title: 'EmohLinks',
-    description: 'Full Stack Developer',
+    description: 'A high-speed fiber internet service provider (ISP) delivering reliable connectivity to homes and businesses in Ruaka, Ndenderu, and Kiambu.',
     techstack: [
         '/techstack/nextjs.svg',
         '/techstack/react.svg',
@@ -29,7 +29,7 @@ const projects = [
     id: 2,
     number: '02',
     title: 'Timely Deals Investments',
-    description: 'Full Stack Developer',
+    description: 'An investment platform focused on identifying and showcasing high-yield real estate and business opportunities in the Kenyan market.',
     techstack: [
         '/techstack/nextjs.svg',
         '/techstack/react.svg',
@@ -42,7 +42,7 @@ const projects = [
     id: 3,
     number: '03',
     title: 'Tayari Careers',
-    description: 'Full Stack Developer',
+    description: 'A career readiness platform connecting ambitious students with professional internships and attachment opportunities across Kenya.',
     techstack: [
         '/techstack/react.svg',
         '/techstack/css.svg',
@@ -55,7 +55,7 @@ const projects = [
     id: 4,
     number: '04',
     title: 'Nairobi Aircon Care',
-    description: 'Full Stack Developer',
+    description: 'A specialized automotive service provider focused on expert air conditioning maintenance and comprehensive car care in Nairobi.',
     techstack: [
         '/techstack/react.svg',
         '/techstack/css.svg',
@@ -63,6 +63,45 @@ const projects = [
     ],
     imageSrc: '/proj/nairobicarcarescreenshot.PNG',
     link: 'https://nairobiaircorncarcare.autos/',
+  },
+  {
+    id: 5,
+    number: '05',
+    title: 'ISP Billing System Portal',
+    description: 'An enterprise-focused platform showcasing a complete software suite for ISP operations, highlighting automated MikroTik provisioning and real-time M-Pesa integration.',
+    techstack: [
+        '/techstack/nextjs.svg',
+        '/techstack/react.svg',
+        '/techstack/tailwind.svg',
+    ],
+    imageSrc: '/proj/ispbillingsystemwebsite.png',
+    link: 'https://ispbilling.emohlinks.co.ke/',
+  },
+  {
+    id: 6,
+    number: '06',
+    title: 'ISP Billing System App',
+    description: 'A comprehensive, high-availability management ecosystem deployed across Web, Android (APK), and iOS, providing end-to-end automation of subscriber cycles and analytics.',
+    techstack: [
+        '/techstack/flutter.svg',
+        '/techstack/websockets.svg',
+        '/techstack/react.svg',
+    ],
+    imageSrc: '/proj/ispbillingsystem.png',
+    link: 'https://demo.emohlinks.co.ke/#/login',
+  },
+  {
+    id: 7,
+    number: '07',
+    title: 'ISP Customer Portal',
+    description: 'A secure, high-fidelity customer experience portal empowering internet subscribers with instant account management and frictionless one-tap billing.',
+    techstack: [
+        '/techstack/nextjs.svg',
+        '/techstack/tailwind.svg',
+        '/techstack/websockets.svg',
+    ],
+    imageSrc: '/proj/ispbillingsystemportal.png',
+    link: 'https://customer.emohlinks.co.ke/DEMO/login',
   },
 ];
 

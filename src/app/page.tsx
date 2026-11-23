@@ -169,22 +169,11 @@ export default function Home() {
             ></div>
           </div>
 
-          {/* Optimized Threads */}
+          {/* GPU-Optimized Responsive Threads Background (Auto-pauses when out of view) */}
           <Suspense fallback={null}>
-            <div style={{ width: '100%', height: '600px', position: 'absolute', bottom: '50px', pointerEvents: 'none'}} className="hidden md:block opacity-30">
+            <div style={{ width: '100%', height: '550px', position: 'absolute', bottom: '40px', pointerEvents: 'none'}} className="opacity-25">
               <Threads
-                amplitude={1.5}
-                distance={0}
-                enableMouseInteraction={false}
-                color={[0.69, 0.55, 0.34]}
-              />
-            </div>
-          </Suspense>
-
-          <Suspense fallback={null}>
-            <div style={{ width: '100%', height: '450px', position: 'absolute', bottom: '50px', pointerEvents: 'none'}} className="md:hidden opacity-20">
-              <Threads
-                amplitude={1.5}
+                amplitude={1.2}
                 distance={0}
                 enableMouseInteraction={false}
                 color={[0.69, 0.55, 0.34]}

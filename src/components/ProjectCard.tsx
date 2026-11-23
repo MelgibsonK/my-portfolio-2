@@ -27,28 +27,34 @@ const ProjectCard: React.FC<ProjectCardProps> = React.memo(({ project, index, on
 
   return (
     <motion.div
-      className="relative flex flex-col justify-between p-6 md:p-8 rounded-2xl border border-burnt-brass/25 bg-deep-charcoal/80 backdrop-blur-xl overflow-hidden h-full group hover:border-burnt-brass/60 transition-all duration-300 shadow-xl hover:shadow-2xl"
-      initial={{ opacity: 0, y: 30 }}
+      className="relative flex flex-col justify-between p-6 md:p-8 rounded-2xl border border-burnt-brass/25 bg-[#171715] overflow-hidden h-full group hover:border-burnt-brass/60 transition-all duration-300 shadow-xl hover:shadow-2xl"
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.5, delay: (index % 3) * 0.1 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.4, delay: (index % 2) * 0.08 }}
     >
-      {/* Background Watermark Number */}
-      <div className="absolute top-3 right-5 text-7xl md:text-8xl font-black text-burnt-brass/[0.06] font-serif pointer-events-none select-none z-0">
+      {/* Background Watermark Number (Positioned at bottom-right out of text/badge collision) */}
+      <div className="absolute -bottom-2 -right-1 text-8xl font-black text-burnt-brass/[0.04] font-serif pointer-events-none select-none z-0">
         {project.number}
       </div>
 
       <div className="relative z-10 flex flex-col h-full justify-between">
         {/* Top Header Block */}
         <div>
-          {/* Category Tag & Status */}
+          {/* Category Tag, Project Number & Theme-Matched Status (NO GREEN, NO DOTS) */}
           <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-            <span className="text-[11px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-burnt-brass/15 border border-burnt-brass/35 text-burnt-brass font-semibold">
-              {project.category}
-            </span>
+            <div className="flex items-center gap-2">
+              <span className="font-serif font-bold text-burnt-brass text-xs bg-burnt-brass/15 border border-burnt-brass/35 px-2 py-0.5 rounded-md">
+                #{project.number}
+              </span>
+              <span className="text-[11px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-burnt-brass/15 border border-burnt-brass/35 text-burnt-brass font-semibold">
+                {project.category}
+              </span>
+            </div>
+
             {project.status && (
-              <span className="text-[11px] px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-medium">
-                ● {project.status}
+              <span className="text-[11px] px-2.5 py-0.5 rounded-full bg-burnt-brass/10 border border-burnt-brass/30 text-highlight-gold font-medium tracking-wide">
+                {project.status}
               </span>
             )}
           </div>
@@ -137,7 +143,7 @@ const ProjectCard: React.FC<ProjectCardProps> = React.memo(({ project, index, on
                 initial={{ opacity: 0, scale: 0.98 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.25 }}
+                transition={{ duration: 0.2 }}
                 className="relative w-full h-full flex items-center justify-center p-2"
               >
                 <Image

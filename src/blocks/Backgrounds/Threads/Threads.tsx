@@ -34,9 +34,9 @@ uniform vec2 uMouse;
 
 #define PI 3.1415926538
 
-const int u_line_count = 40;
-const float u_line_width = 7.0;
-const float u_line_blur = 10.0;
+const int u_line_count = 32;
+const float u_line_width = 6.0;
+const float u_line_blur = 8.0;
 
 float Perlin2D(vec2 P) {
     vec2 Pi = floor(P);
@@ -64,46 +64,20 @@ float pixel(float count, vec2 resolution) {
 }
 
 float lineFn(vec2 st, float width, float perc, float offset, vec2 mouse, float time, float amplitude, float distance) {
-    float split_offset = (perc * 0.4);
-    float split_point = 0.1 + split_offset;
+    float split_offset = (perc * 2.0 - 1.0) * distance;
+    float final_y = 0.5 + split_offset;
 
-    float amplitude_normal = smoothstep(split_point, 0.7, st.x);
-    float amplitude_strength = 0.5;
-    float finalAmplitude = amplitude_normal * amplitude_strength
-                           * amplitude * (1.0 + (mouse.y - 0.5) * 0.2);
+    float wave = sin((st.x + offset) * 1.5 + time) * 0.15;
+    float noise = Perlin2D(vec2((st.x + offset) * 1.2, time * 0.2)) * 0.25;
 
-    float time_scaled = time / 10.0 + (mouse.x - 0.5) * 1.0;
-    float blur = smoothstep(split_point, split_point + 0.05, st.x) * perc;
+    final_y += (wave + noise) * amplitude;
 
-    float xnoise = mix(
-        Perlin2D(vec2(time_scaled, st.x + perc) * 2.5),
-        Perlin2D(vec2(time_scaled, st.x + time_scaled) * 3.5) / 1.5,
-        st.x * 0.3
-    );
-
-    float y = 0.5 + (perc - 0.5) * distance + xnoise / 2.0 * finalAmplitude;
-
-    float line_start = smoothstep(
-        y + (width / 2.0) + (u_line_blur * pixel(1.0, iResolution.xy) * blur),
-        y,
-        st.y
-    );
-
-    float line_end = smoothstep(
-        y,
-        y - (width / 2.0) - (u_line_blur * pixel(1.0, iResolution.xy) * blur),
-        st.y
-    );
-
-    return clamp(
-        (line_start - line_end) * (1.0 - smoothstep(0.0, 1.0, pow(perc, 0.3))),
-        0.0,
-        1.0
-    );
+    float d = abs(st.y - final_y);
+    return smoothstep(width * 0.5, width * 0.5 + pixel(u_line_blur, vec2(1.0)), d);
 }
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
-    vec2 uv = fragCoord / iResolution.xy;
+    vec2 uv = fragCoord.xy / iResolution.xy;
 
     float line_strength = 1.0;
     for (int i = 0; i < u_line_count; i++) {
@@ -200,13 +174,14 @@ const Threads: React.FC<ThreadsProps> = ({
 		}
 
 		let lastFrameTime = 0;
-		const targetFPS = 30; // Reduce to 30 FPS for better performance
+		const targetFPS = 30; // 30 FPS for smooth, efficient rendering
 		const frameInterval = 1000 / targetFPS;
+		let isRunning = false;
 
 		function update(t: number) {
+			if (!isRunning) return;
 			const elapsed = t - lastFrameTime;
 			
-			// Throttle to target FPS
 			if (elapsed < frameInterval) {
 				animationFrameId.current = requestAnimationFrame(update);
 				return;
@@ -229,11 +204,38 @@ const Threads: React.FC<ThreadsProps> = ({
 			renderer.render({ scene: mesh });
 			animationFrameId.current = requestAnimationFrame(update);
 		}
-		animationFrameId.current = requestAnimationFrame(update);
+
+		function startLoop() {
+			if (!isRunning) {
+				isRunning = true;
+				lastFrameTime = performance.now();
+				animationFrameId.current = requestAnimationFrame(update);
+			}
+		}
+
+		function stopLoop() {
+			if (isRunning) {
+				isRunning = false;
+				if (animationFrameId.current) {
+					cancelAnimationFrame(animationFrameId.current);
+				}
+			}
+		}
+
+		// Intelligent IntersectionObserver: Pauses WebGL GPU loop whenever hero is scrolled out of view
+		const observer = new IntersectionObserver(([entry]) => {
+			if (entry.isIntersecting) {
+				startLoop();
+			} else {
+				stopLoop();
+			}
+		}, { threshold: 0.01 });
+
+		observer.observe(container);
 
 		return () => {
-			if (animationFrameId.current)
-				cancelAnimationFrame(animationFrameId.current);
+			stopLoop();
+			observer.disconnect();
 			window.removeEventListener("resize", resize);
 
 			if (enableMouseInteraction) {

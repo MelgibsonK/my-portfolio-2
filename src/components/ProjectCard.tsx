@@ -33,11 +33,6 @@ const ProjectCard: React.FC<ProjectCardProps> = React.memo(({ project, index, on
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.4, delay: (index % 2) * 0.08 }}
     >
-      {/* Background Watermark Number (Positioned at bottom-right out of text/badge collision) */}
-      <div className="absolute -bottom-2 -right-1 text-8xl font-black text-burnt-brass/[0.04] font-serif pointer-events-none select-none z-0">
-        {project.number}
-      </div>
-
       <div className="relative z-10 flex flex-col h-full justify-between">
         {/* Top Header Block */}
         <div>

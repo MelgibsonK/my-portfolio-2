@@ -1,149 +1,229 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ExternalLink, Smartphone, Tablet, Layers, Eye } from 'lucide-react';
+import { ProjectItem } from '@/data/projects';
 
 interface ProjectCardProps {
-  project: {
-    id: number;
-    number: string;
-    title: string;
-    description: string;
-    techstack: string[];
-    imageSrc: string; 
-    link: string;
-  };
-  index: number; 
+  project: ProjectItem;
+  index: number;
+  onOpenLightbox?: (imageSrc: string, title: string) => void;
 }
 
-// --- Optimization 1: Use React.memo ---
-// Wrap the component with React.memo. This prevents the component from re-rendering
-// if its props (project and index) have not shallowly changed.
-const ProjectCard: React.FC<ProjectCardProps> = React.memo(({ project, index }) => {
-  
-  // Determine the layout pattern based on the index (0, 1, 2, 3 repeats)
-  const pattern = index % 4;
+const ProjectCard: React.FC<ProjectCardProps> = React.memo(({ project, index, onOpenLightbox }) => {
+  const hasDeviceViews = Boolean(project.screenshots.mobile?.length && project.screenshots.tablet?.length);
+  const [deviceMode, setDeviceMode] = useState<'mobile' | 'tablet'>('mobile');
+  const [activeThumbIndex, setActiveThumbIndex] = useState(0);
 
-  // Define classes for positioning the large project number absolutely
-  let numberPositionClasses = '';
-  // Define classes for text alignment of the content block
-  let contentAlignmentClasses = '';
-  // Define order classes for the image and text blocks
-  let imageOrderClass = '';
-  let textOrderClass = '';
+  const currentScreenshotList = hasDeviceViews
+    ? deviceMode === 'mobile'
+      ? project.screenshots.mobile || []
+      : project.screenshots.tablet || []
+    : project.screenshots.all || [project.imageSrc];
 
-
-  switch (pattern) {
-    case 0: // Pattern 1: Number Top-Left, Text Top-Right, Image Below Text
-      numberPositionClasses = 'top-4 left-4'; // Added padding from edge
-      contentAlignmentClasses = 'text-right items-end'; // Align text to the right
-      textOrderClass = 'order-1'; // Text comes first
-      imageOrderClass = 'order-2'; // Image comes second
-      break;
-    case 1: // Pattern 2: Number Bottom-Left, Text Top-Right, Image Above Text
-      numberPositionClasses = 'bottom-4 left-4'; // Added padding from edge
-      contentAlignmentClasses = 'text-right items-end'; // Align text to the right
-      textOrderClass = 'order-2'; // Text comes second
-      imageOrderClass = 'order-1'; // Image comes first
-      break;
-    case 2: // Pattern 3: Number Top-Right, Text Top-Left, Image Below Text
-      numberPositionClasses = 'top-4 right-4'; // Added padding from edge
-      contentAlignmentClasses = 'text-left items-start'; // Align text to the left
-      textOrderClass = 'order-1'; // Text comes first
-      imageOrderClass = 'order-2'; // Image comes second
-      break;
-    case 3: // Pattern 4: Number Bottom-Right, Text Top-Left, Image Above Text
-      numberPositionClasses = 'bottom-4 right-4'; // Added padding from edge
-      contentAlignmentClasses = 'text-left items-start'; // Align text to the left
-      textOrderClass = 'order-2'; // Text comes second
-      imageOrderClass = 'order-1'; // Image comes first
-      break;
-  }
-
-  // Handle click to redirect
-  const handleImageClick = () => {
-    if (project.link) {
-      window.open(project.link, '_blank');
-    }
-  };
-
+  const currentDisplayImage = currentScreenshotList[activeThumbIndex] || currentScreenshotList[0] || project.imageSrc;
 
   return (
-    // Use motion.div for potential future animations (like fade-in on scroll)
-    // Add a thin white border and transparent background
-    // Use 'relative' for positioning context for the absolute number
-    // Use flex-col to stack content vertically, justify-between to space text and image
-    // Removed aspect-square to allow height to be determined by content
     <motion.div
-      className="relative flex flex-col justify-between py-6 px-6 md:px-8 border border-burnt-brass/30 bg-mist-gray/5 overflow-hidden h-full group hover:border-burnt-brass/60 transition-all duration-300"
+      className="relative flex flex-col justify-between p-6 md:p-8 rounded-2xl border border-burnt-brass/25 bg-deep-charcoal/80 backdrop-blur-xl overflow-hidden h-full group hover:border-burnt-brass/60 transition-all duration-300 shadow-xl hover:shadow-2xl"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.5 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.5, delay: (index % 3) * 0.1 }}
     >
-      {/* Large Project Number - Absolutely Positioned with vintage style */}
-      <div className={`absolute md:text-8xl text-5xl font-bold text-burnt-brass/5 ${numberPositionClasses} font-serif pointer-events-none select-none z-0`}>
+      {/* Background Watermark Number */}
+      <div className="absolute top-3 right-5 text-7xl md:text-8xl font-black text-burnt-brass/[0.06] font-serif pointer-events-none select-none z-0">
         {project.number}
       </div>
 
-      {/* Content Area (Text Block and Image Block) */}
-      <div className="flex flex-col justify-between h-full relative z-10">
+      <div className="relative z-10 flex flex-col h-full justify-between">
+        {/* Top Header Block */}
+        <div>
+          {/* Category Tag & Status */}
+          <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <span className="text-[11px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-burnt-brass/15 border border-burnt-brass/35 text-burnt-brass font-semibold">
+              {project.category}
+            </span>
+            {project.status && (
+              <span className="text-[11px] px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-medium">
+                ● {project.status}
+              </span>
+            )}
+          </div>
 
-        {/* Text Content Block (Title, Category, Description) */}
-        <div className={`flex flex-col ${contentAlignmentClasses} ${textOrderClass} p-4 w-full`}>
-            {/* Title and Category */}
-            <div className="max-w-[70%]"> 
-              <h3 className="md:text-2xl text-lg font-bold text-burnt-brass mb-2 group-hover:text-highlight-gold transition-colors">{project.title}</h3>
-              <p className="md:text-sm text-xs text-antique-linen/70 mb-3 leading-relaxed">{project.description}</p>
+          {/* Ecosystem Tag if bundled */}
+          {project.ecosystem && (
+            <div className="mb-3 px-3 py-1.5 rounded-lg bg-burnt-brass/10 border border-burnt-brass/30 text-xs text-highlight-gold font-medium flex items-center gap-2">
+              <Layers size={13} className="text-burnt-brass" />
+              <span>{project.ecosystem}</span>
             </div>
-            {/* Tech Stack Icons */}
-            <div className="mt-2 flex flex-wrap gap-2">
+          )}
+
+          {/* Project Title & Tagline */}
+          <h3 className="text-xl md:text-2xl font-bold text-antique-linen group-hover:text-highlight-gold transition-colors mb-1.5">
+            {project.title}
+          </h3>
+          <p className="text-xs md:text-sm font-medium text-burnt-brass/90 mb-3 italic">
+            {project.tagline}
+          </p>
+
+          {/* Description */}
+          <p className="text-xs md:text-sm text-antique-linen/75 leading-relaxed mb-4">
+            {project.description}
+          </p>
+
+          {/* Highlights bullet points */}
+          <ul className="mb-4 space-y-1 text-xs text-antique-linen/60">
+            {project.highlights.map((h, i) => (
+              <li key={i} className="flex items-start gap-1.5">
+                <span className="text-burnt-brass font-bold">›</span>
+                <span>{h}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Media / Screenshot Showcase Area */}
+        <div className="mt-auto pt-4 border-t border-burnt-brass/15">
+          {/* Device Switcher Header if both views exist */}
+          {hasDeviceViews && (
+            <div className="flex items-center justify-between mb-3 px-1">
+              <span className="text-xs font-semibold text-antique-linen/60">View Mode:</span>
+              <div className="flex items-center gap-1 bg-deep-charcoal border border-burnt-brass/30 rounded-lg p-0.5">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setDeviceMode('mobile');
+                    setActiveThumbIndex(0);
+                  }}
+                  className={`flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-medium transition-all ${
+                    deviceMode === 'mobile'
+                      ? 'bg-burnt-brass text-deep-charcoal shadow font-semibold'
+                      : 'text-antique-linen/70 hover:text-antique-linen'
+                  }`}
+                >
+                  <Smartphone size={13} />
+                  <span>iPhone 17 Pro</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setDeviceMode('tablet');
+                    setActiveThumbIndex(0);
+                  }}
+                  className={`flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-medium transition-all ${
+                    deviceMode === 'tablet'
+                      ? 'bg-burnt-brass text-deep-charcoal shadow font-semibold'
+                      : 'text-antique-linen/70 hover:text-antique-linen'
+                  }`}
+                >
+                  <Tablet size={13} />
+                  <span>iPad Air</span>
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Main Visual Display */}
+          <div 
+            className="relative w-full h-[260px] md:h-[300px] rounded-xl overflow-hidden border border-burnt-brass/20 bg-black/40 cursor-pointer group/img"
+            onClick={() => onOpenLightbox?.(currentDisplayImage, `${project.title} (${hasDeviceViews ? deviceMode : 'Preview'})`)}
+          >
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentDisplayImage}
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.25 }}
+                className="relative w-full h-full flex items-center justify-center p-2"
+              >
+                <Image
+                  src={currentDisplayImage}
+                  alt={`${project.title} screenshot`}
+                  fill
+                  className="object-contain drop-shadow-md rounded-lg"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
+                />
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Hover Inspect Overlay */}
+            <div className="absolute inset-0 bg-deep-charcoal/60 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center gap-2">
+              <div className="px-3.5 py-1.5 rounded-full bg-burnt-brass text-deep-charcoal text-xs font-bold flex items-center gap-1.5 shadow-lg">
+                <Eye size={14} />
+                <span>Enlarge View</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Thumbnail Selector Strip (if multiple in current view) */}
+          {currentScreenshotList.length > 1 && (
+            <div className="flex items-center gap-2 mt-3 overflow-x-auto pb-1 scrollbar-thin">
+              {currentScreenshotList.map((thumb, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => setActiveThumbIndex(idx)}
+                  className={`relative w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden border transition-all ${
+                    activeThumbIndex === idx
+                      ? 'border-burnt-brass ring-2 ring-burnt-brass/40 scale-105'
+                      : 'border-burnt-brass/20 opacity-60 hover:opacity-100'
+                  }`}
+                >
+                  <Image
+                    src={thumb}
+                    alt={`Thumbnail ${idx + 1}`}
+                    fill
+                    className="object-cover"
+                    sizes="48px"
+                  />
+                </button>
+              ))}
+            </div>
+          )}
+
+          {/* Bottom Controls: Tech Stack & Live Links */}
+          <div className="flex items-center justify-between gap-3 mt-4 pt-3 border-t border-burnt-brass/10">
+            {/* Tech stack icons */}
+            <div className="flex items-center gap-2">
               {project.techstack.map((icon, idx) => (
                 <div key={idx} className="w-6 h-6 relative opacity-70 hover:opacity-100 transition-opacity">
-                  <Image 
-                    src={icon} 
-                    alt={`Tech stack icon ${idx}`} 
-                    width={24} 
-                    height={24}
+                  <Image
+                    src={icon}
+                    alt={`Tech stack ${idx}`}
+                    width={22}
+                    height={22}
                     className="object-contain"
                   />
                 </div>
               ))}
             </div>
+
+            {/* Action Buttons */}
+            <div className="flex items-center gap-2">
+              {project.link && (
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-burnt-brass/20 hover:bg-burnt-brass text-antique-linen hover:text-deep-charcoal text-xs font-semibold border border-burnt-brass/40 transition-all shadow-sm"
+                >
+                  <span>{project.liveUrl ? 'Visit Website' : 'Explore Platform'}</span>
+                  <ExternalLink size={12} />
+                </a>
+              )}
+            </div>
+          </div>
         </div>
-
-        {/* Project Preview Block - Screenshot Image with Vintage Theme */}
-        <motion.div
-            className={`relative w-full flex-grow rounded-lg overflow-hidden z-10 ${imageOrderClass} border border-burnt-brass/20 group-hover:border-burnt-brass/50 transition-all duration-300`}
-            initial={{ opacity: 0.8 }}
-            whileHover={{ opacity: 1, scale: 1.02 }}
-            transition={{ duration: 0.3 }}
-            onClick={handleImageClick}
-        >
-            {/* Project Screenshot Image */}
-            <div className="relative w-full h-full min-h-[300px] bg-mist-gray/10 flex items-center justify-center">
-              <Image
-                src={project.imageSrc}
-                alt={`${project.title} preview`}
-                width={600}
-                height={400}
-                className="object-cover w-full h-full"
-                onError={() => {}}
-                loading="lazy"
-              />
-              {/* Vintage overlay effect */}
-              <div className="absolute inset-0 bg-burnt-brass/5 pointer-events-none" />
-            </div>
-            {/* Visit Website Badge */}
-            <div className="absolute bottom-4 right-4 bg-burnt-brass/90 text-deep-charcoal px-3 py-1.5 rounded text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              Visit Website →
-            </div>
-        </motion.div>
-
-      </div> {/* End Content Area */}
+      </div>
     </motion.div>
   );
-}); // End of React.memo wrap
+});
 
-ProjectCard.displayName = 'ProjectCard'; // Add a display name for better debugging
+ProjectCard.displayName = 'ProjectCard';
 
 export default ProjectCard;

@@ -10,6 +10,14 @@ import Image from 'next/image';
 const experiences = [
   {
     id: 1,
+    title: 'Software Engineer & Systems Architect (Part-Time)',
+    company: 'Angavix Systems Ltd',
+    year: 'Jun 2026 – Present',
+    description: `• Architect and develop autonomous drone fleet intelligence systems, geospatial analytics, and flight telemetry ingest pipelines.\n• Engineered the Angavix Hub Companion native Android app for DJI smart controllers with offline queuing and zero-touch key rotation.\n• Implemented automated aviation compliance reporting and real-time remote operations management.`,
+    logo: '/logo/angavix.png',
+  },
+  {
+    id: 2,
     title: 'Chief Technology Officer (CTO)',
     company: 'Emoh Links Ltd',
     year: '2024 – Present',
@@ -17,7 +25,7 @@ const experiences = [
     logo: '/logo/emohlinks.png',
   },
   {
-    id: 2,
+    id: 3,
     title: 'Founder & Software Lead',
     company: 'Tayari Careers',
     year: '2024 – Present',
@@ -25,7 +33,7 @@ const experiences = [
     logo: '/logo/tayaricareers.png',
   },
   {
-    id: 3,
+    id: 4,
     title: 'Freelance Software Developer & Consultant',
     company: 'Self-Employed',
     year: '2022 – 2023',

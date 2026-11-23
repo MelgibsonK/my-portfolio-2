@@ -115,6 +115,23 @@ export default function Resume() {
             {/* Experience Section */}
             <section className="mb-8">
               <h2 className="text-xl md:text-2xl font-bold mb-4 text-burnt-brass border-b border-burnt-brass/30 pb-2">Experience</h2>
+
+              {/* Angavix Systems Ltd */}
+              <div className="mb-6">
+                <div className="flex flex-wrap items-baseline gap-2 mb-2">
+                  <h3 className="text-lg md:text-xl font-bold" style={{ color: '#1F1F1C' }}>Software Engineer / Systems Architect (Part-Time)</h3>
+                  <span className="text-burnt-brass">|</span>
+                  <a href="https://www.angavix.com/" target="_blank" rel="noopener noreferrer" className="text-burnt-brass hover:underline">Angavix Systems Ltd</a>
+                  <span className="text-burnt-brass">|</span>
+                  <span style={{ color: '#1F1F1C' }}>June 10, 2026 – Present</span>
+                </div>
+                <ul className="list-disc list-inside space-y-1 text-sm md:text-base ml-4" style={{ color: '#1F1F1C' }}>
+                  <li>Architected and developed <strong>Angavix Hub</strong>, a high-throughput enterprise UAV fleet telemetry, mission dispatch, and flight intelligence platform.</li>
+                  <li>Engineered the <strong>Angavix Hub Companion</strong> native Android application for offline-first flight logging, sensor sync, and cockpit field telemetry.</li>
+                  <li>Integrated mission compliance audit pipelines and real-time geospatial telemetry mapping with automated airworthiness tracking.</li>
+                  <li>Designed and deployed the corporate web platform with Apple-inspired liquid-glass design aesthetics and SEO dominance.</li>
+                </ul>
+              </div>
               
               <div className="mb-6">
                 <div className="flex flex-wrap items-baseline gap-2 mb-2">
@@ -125,8 +142,8 @@ export default function Resume() {
                   <span style={{ color: '#1F1F1C' }}>2024 – Present</span>
                 </div>
                 <ul className="list-disc list-inside space-y-1 text-sm md:text-base ml-4" style={{ color: '#1F1F1C' }}>
-                  <li>Lead the company&apos;s entire technology ecosystem, including infrastructure, product development, and digital strategy.</li>
-                  <li>Architected and deployed high-availability systems powering customer and partner platforms.</li>
+                  <li>Lead the company&apos;s entire technology ecosystem, including ISP infrastructure, subscriber billing, and digital growth strategy.</li>
+                  <li>Architected and deployed <strong>Radius One</strong>, a scalable ISP subscriber management and automated billing engine.</li>
                   <li>Implemented automation and analytics frameworks, improving operational efficiency by over 40%.</li>
                   <li>Supervised engineering and product teams to align technology with business growth and customer experience goals.</li>
                   <li>Spearheaded innovation in service delivery, system reliability, and product scalability.</li>
@@ -135,33 +152,33 @@ export default function Resume() {
 
               <div className="mb-6">
                 <div className="flex flex-wrap items-baseline gap-2 mb-2">
-                  <h3 className="text-lg md:text-xl font-bold" style={{ color: '#1F1F1C' }}>Founder & Software Lead</h3>
+                  <h3 className="text-lg md:text-xl font-bold" style={{ color: '#1F1F1C' }}>Founder & Lead Architect</h3>
                   <span className="text-burnt-brass">|</span>
-                  <a href="https://tayaricareers.africa" target="_blank" rel="noopener noreferrer" className="text-burnt-brass hover:underline">Tayari Careers</a>
+                  <a href="https://tayaricareers.africa" target="_blank" rel="noopener noreferrer" className="text-burnt-brass hover:underline">Tayari Careers &amp; Correspond Workspace</a>
                   <span className="text-burnt-brass">|</span>
                   <span style={{ color: '#1F1F1C' }}>2024 – Present</span>
                 </div>
                 <ul className="list-disc list-inside space-y-1 text-sm md:text-base ml-4" style={{ color: '#1F1F1C' }}>
-                  <li>Founded and manage a mission-driven EdTech platform connecting students and startups through internships and career readiness tools.</li>
-                  <li>Designed and oversaw development using <strong>Flutter</strong>, <strong>Supabase</strong>, and <strong>Next.js</strong>, ensuring a seamless user experience.</li>
-                  <li>Built and scaled partnerships with universities, SMEs, and youth-focused organizations across Kenya.</li>
+                  <li>Founded a unified youth empowerment ecosystem combining <strong>Tayari Careers</strong> (talent discovery &amp; career readiness) and <strong>Tayari Correspond</strong> (real-time workspace for student-led startups and entrepreneurship).</li>
+                  <li>Engineered cross-platform mobile apps in <strong>Flutter</strong> alongside a collaborative SaaS workspace with live document sync, Kanban boards, and milestone tracking.</li>
+                  <li>Built and scaled partnerships with universities, incubators, and SMEs across East Africa to foster youth employment.</li>
                   <li>Defined strategic goals, product vision, and technology roadmap to ensure measurable growth and sustainability.</li>
                 </ul>
               </div>
 
               <div className="mb-6">
                 <div className="flex flex-wrap items-baseline gap-2 mb-2">
-                  <h3 className="text-lg md:text-xl font-bold" style={{ color: '#1F1F1C' }}>Freelance Software Developer & Consultant</h3>
+                  <h3 className="text-lg md:text-xl font-bold" style={{ color: '#1F1F1C' }}>Freelance Software Developer & Systems Consultant</h3>
                   <span className="text-burnt-brass">|</span>
                   <a href="https://melgibsonkennedy.vercel.app" target="_blank" rel="noopener noreferrer" className="text-burnt-brass hover:underline">Self-Employed</a>
                   <span className="text-burnt-brass">|</span>
                   <span style={{ color: '#1F1F1C' }}>2022 – 2023</span>
                 </div>
                 <ul className="list-disc list-inside space-y-1 text-sm md:text-base ml-4" style={{ color: '#1F1F1C' }}>
-                  <li>Delivered full-stack mobile and web applications for SMEs, startups, and NGOs.</li>
+                  <li>Delivered full-stack mobile and web applications for SMEs, startups, and international healthcare and legal organizations.</li>
                   <li>Provided consulting services in digital transformation, product design, and process automation.</li>
                   <li>Managed distributed development teams using <strong>Agile</strong> and <strong>Scrum</strong> methodologies.</li>
-                  <li>Specialized in <strong>Flutter</strong>, <strong>Node.js</strong>, <strong>AWS</strong>, and modern cloud-native deployments.</li>
+                  <li>Specialized in <strong>Flutter</strong>, <strong>React/Next.js</strong>, <strong>Node.js</strong>, and modern cloud-native deployments.</li>
                 </ul>
               </div>
             </section>
@@ -196,28 +213,55 @@ export default function Resume() {
 
             {/* Selected Projects Section */}
             <section className="mb-8">
-              <h2 className="text-xl md:text-2xl font-bold mb-4 text-burnt-brass border-b border-burnt-brass/30 pb-2">Selected Projects</h2>
-              
-              <div className="mb-6">
-                <h3 className="text-lg md:text-xl font-bold mb-2" style={{ color: '#1F1F1C' }}>Emoh Links Digital Infrastructure Modernization</h3>
-                <p className="text-sm md:text-base leading-relaxed" style={{ color: '#1F1F1C' }}>
-                  Architected and led modernization of Emoh Links&apos; service management systems — implementing automated billing, monitoring, and real-time reporting dashboards. Resulted in improved scalability, data accuracy, and user experience.
-                </p>
-              </div>
+              <h2 className="text-xl md:text-2xl font-bold mb-4 text-burnt-brass border-b border-burnt-brass/30 pb-2">Selected Key Systems &amp; Platforms</h2>
 
-              <div className="mb-6">
-                <h3 className="text-lg md:text-xl font-bold mb-2" style={{ color: '#1F1F1C' }}>Career Development & Internship Platform — Tayari Careers</h3>
-                <p className="text-sm md:text-base leading-relaxed" style={{ color: '#1F1F1C' }}>
-                  Built a modern cloud-based career development platform connecting students with verified internships and attachments. Designed and implemented end-to-end systems for opportunity matching, progress tracking, and performance analytics to support both students and startup employers.
-                </p>
-              </div>
-
-              <div className="mb-6">
-                <h3 className="text-lg md:text-xl font-bold mb-2" style={{ color: '#1F1F1C' }}>
-                  Personal Portfolio & Tech Ecosystem — <a href="https://melgibsonkennedy.vercel.app" target="_blank" rel="noopener noreferrer" className="text-burnt-brass hover:underline">melgibsonkennedy.vercel.app</a>
+              <div className="mb-5">
+                <h3 className="text-base md:text-lg font-bold mb-1" style={{ color: '#1F1F1C' }}>
+                  Angavix Hub &amp; UAV Flight Companion — <a href="https://www.angavix.com/" target="_blank" rel="noopener noreferrer" className="text-burnt-brass hover:underline">angavix.com</a>
                 </h3>
+                <p className="text-xs md:text-sm text-burnt-brass/80 font-medium mb-1">Next.js 15 · Native Android · Geospatial Maps · Flight Telemetry · High-Availability SaaS</p>
                 <p className="text-sm md:text-base leading-relaxed" style={{ color: '#1F1F1C' }}>
-                  Showcases professional projects, leadership work, and community contributions. Includes web and AI-driven tools demonstrating technical innovation and product strategy insight.
+                  Enterprise uncrewed aerial vehicle (UAV) fleet management and telemetry synchronization engine. Features real-time GPS tracking, automated flight compliance audits, pilot operations dispatch, and a native Android cockpit companion app for offline field logging.
+                </p>
+              </div>
+
+              <div className="mb-5">
+                <h3 className="text-base md:text-lg font-bold mb-1" style={{ color: '#1F1F1C' }}>
+                  Tayari Ecosystem (Careers &amp; Correspond Workspace) — <a href="https://tayaricareers.africa" target="_blank" rel="noopener noreferrer" className="text-burnt-brass hover:underline">tayaricareers.africa</a>
+                </h3>
+                <p className="text-xs md:text-sm text-burnt-brass/80 font-medium mb-1">Flutter Mobile (iOS &amp; Android) · Supabase Realtime · Next.js · Student Startup Hub</p>
+                <p className="text-sm md:text-base leading-relaxed" style={{ color: '#1F1F1C' }}>
+                  Dual-purpose youth empowerment ecosystem combining an AI-assisted talent discovery and internship platform with an entrepreneurial workspace (Tayari Correspond) providing real-time document collaboration, Kanban workflows, and venture milestone management for student-led startups.
+                </p>
+              </div>
+
+              <div className="mb-5">
+                <h3 className="text-base md:text-lg font-bold mb-1" style={{ color: '#1F1F1C' }}>
+                  Radius One ISP Management Engine (Emoh Links) — <a href="https://www.radiusone.site/" target="_blank" rel="noopener noreferrer" className="text-burnt-brass hover:underline">radiusone.site</a>
+                </h3>
+                <p className="text-xs md:text-sm text-burnt-brass/80 font-medium mb-1">Next.js · Node.js · Network RADIUS · M-Pesa Gateway · Realtime Metrics</p>
+                <p className="text-sm md:text-base leading-relaxed" style={{ color: '#1F1F1C' }}>
+                  Next-generation multi-tenant ISP management infrastructure powering subscriber onboarding, automated M-Pesa tariff billing, bandwidth allocation, and live network uptime diagnostics.
+                </p>
+              </div>
+
+              <div className="mb-5">
+                <h3 className="text-base md:text-lg font-bold mb-1" style={{ color: '#1F1F1C' }}>
+                  Moringa Integrated Healthcare System — <a href="https://www.moringaclinic.com/" target="_blank" rel="noopener noreferrer" className="text-burnt-brass hover:underline">moringaclinic.com</a>
+                </h3>
+                <p className="text-xs md:text-sm text-burnt-brass/80 font-medium mb-1">Electronic Health Records (EHR) · Clinical Triage · Pharmacy Inventory · Lab Reporting</p>
+                <p className="text-sm md:text-base leading-relaxed" style={{ color: '#1F1F1C' }}>
+                  Full-stack healthcare facility operating system facilitating encrypted patient records, clinical consultation workflows, diagnostic lab results dispatch, and dispensary inventory tracking.
+                </p>
+              </div>
+
+              <div className="mb-5">
+                <h3 className="text-base md:text-lg font-bold mb-1" style={{ color: '#1F1F1C' }}>
+                  High-Impact Enterprise Web Solutions
+                </h3>
+                <p className="text-xs md:text-sm text-burnt-brass/80 font-medium mb-1">Next.js · Glassmorphism · SEO Architecture · Performance Engineering</p>
+                <p className="text-sm md:text-base leading-relaxed" style={{ color: '#1F1F1C' }}>
+                  Engineered bespoke, high-performance web platforms for international clients including <strong>Excellent Home Health LLC</strong> (US healthcare compliance &amp; client onboarding), <strong>Rashid Law Advocates</strong> (premier legal practice portal), <strong>Terravia Farms</strong> (precision agribusiness export showcase), and <strong>Design Triage</strong> (creative agency digital showcase).
                 </p>
               </div>
             </section>

@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { ExternalLink, Smartphone, Tablet, Layers, Eye } from 'lucide-react';
 import { ProjectItem } from '@/data/projects';
 
@@ -13,20 +13,43 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = React.memo(({ project, index, onOpenLightbox }) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(cardRef, { margin: "100px" });
+
   const hasDeviceViews = Boolean(project.screenshots.mobile?.length && project.screenshots.tablet?.length);
   const [deviceMode, setDeviceMode] = useState<'mobile' | 'tablet'>('mobile');
   const [activeThumbIndex, setActiveThumbIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
-  const currentScreenshotList = hasDeviceViews
-    ? deviceMode === 'mobile'
-      ? project.screenshots.mobile || []
-      : project.screenshots.tablet || []
-    : project.screenshots.all || [project.imageSrc];
+  const currentScreenshotList = useMemo(() => {
+    return hasDeviceViews
+      ? deviceMode === 'mobile'
+        ? project.screenshots.mobile || []
+        : project.screenshots.tablet || []
+      : project.screenshots.all || [project.imageSrc];
+  }, [hasDeviceViews, deviceMode, project.screenshots, project.imageSrc]);
+
+  // Reset active slide when device view changes
+  useEffect(() => {
+    setActiveThumbIndex(0);
+  }, [deviceMode]);
+
+  // Automatic infinite looping screenshot crossfade with smooth blend
+  useEffect(() => {
+    if (!isInView || isHovered || currentScreenshotList.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setActiveThumbIndex((prev) => (prev + 1) % currentScreenshotList.length);
+    }, 3600); // 3.6s per slide
+
+    return () => clearInterval(interval);
+  }, [isInView, isHovered, currentScreenshotList.length]);
 
   const currentDisplayImage = currentScreenshotList[activeThumbIndex] || currentScreenshotList[0] || project.imageSrc;
 
   return (
     <motion.div
+      ref={cardRef}
       className="relative flex flex-col justify-between p-6 md:p-8 rounded-2xl border border-burnt-brass/25 bg-[#171715] overflow-hidden h-full group hover:border-burnt-brass/60 transition-all duration-300 shadow-xl hover:shadow-2xl"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -127,19 +150,21 @@ const ProjectCard: React.FC<ProjectCardProps> = React.memo(({ project, index, on
             </div>
           )}
 
-          {/* Main Visual Display */}
+          {/* Main Visual Display (Smooth Crossfade Slideshow with Infinite Loop) */}
           <div 
             className="relative w-full h-[260px] md:h-[300px] rounded-xl overflow-hidden border border-burnt-brass/20 bg-black/40 cursor-pointer group/img"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
             onClick={() => onOpenLightbox?.(currentDisplayImage, `${project.title} (${hasDeviceViews ? deviceMode : 'Preview'})`)}
           >
-            <AnimatePresence mode="wait">
+            <AnimatePresence initial={false}>
               <motion.div
                 key={currentDisplayImage}
-                initial={{ opacity: 0, scale: 0.98 }}
+                initial={{ opacity: 0, scale: 1.01 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                className="relative w-full h-full flex items-center justify-center p-2"
+                transition={{ duration: 0.85, ease: [0.25, 0.1, 0.25, 1.0] }}
+                className="absolute inset-0 flex items-center justify-center p-2"
               >
                 <Image
                   src={currentDisplayImage}
@@ -152,8 +177,17 @@ const ProjectCard: React.FC<ProjectCardProps> = React.memo(({ project, index, on
               </motion.div>
             </AnimatePresence>
 
+            {/* Subtle Counter Pill for Multiple Screenshots */}
+            {currentScreenshotList.length > 1 && (
+              <div className="absolute top-2.5 right-2.5 z-20 flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-md border border-burnt-brass/20 text-[10px] text-antique-linen/80 select-none">
+                <span className="font-semibold text-highlight-gold">{activeThumbIndex + 1}</span>
+                <span className="text-burnt-brass/60">/</span>
+                <span>{currentScreenshotList.length}</span>
+              </div>
+            )}
+
             {/* Hover Inspect Overlay */}
-            <div className="absolute inset-0 bg-deep-charcoal/60 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center gap-2">
+            <div className="absolute inset-0 bg-deep-charcoal/60 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center gap-2 z-20">
               <div className="px-3.5 py-1.5 rounded-full bg-burnt-brass text-deep-charcoal text-xs font-bold flex items-center gap-1.5 shadow-lg">
                 <Eye size={14} />
                 <span>Enlarge View</span>
@@ -161,7 +195,7 @@ const ProjectCard: React.FC<ProjectCardProps> = React.memo(({ project, index, on
             </div>
           </div>
 
-          {/* Thumbnail Selector Strip (if multiple in current view) */}
+          {/* Thumbnail Selector Strip (Synchronized with auto-advance) */}
           {currentScreenshotList.length > 1 && (
             <div className="flex items-center gap-2 mt-3 overflow-x-auto pb-1 scrollbar-thin">
               {currentScreenshotList.map((thumb, idx) => (
@@ -169,11 +203,12 @@ const ProjectCard: React.FC<ProjectCardProps> = React.memo(({ project, index, on
                   key={idx}
                   type="button"
                   onClick={() => setActiveThumbIndex(idx)}
-                  className={`relative w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden border transition-all ${
+                  className={`relative w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden border transition-all duration-300 ${
                     activeThumbIndex === idx
-                      ? 'border-burnt-brass ring-2 ring-burnt-brass/40 scale-105'
-                      : 'border-burnt-brass/20 opacity-60 hover:opacity-100'
+                      ? 'border-burnt-brass ring-2 ring-burnt-brass/50 scale-105 shadow-md shadow-burnt-brass/20'
+                      : 'border-burnt-brass/20 opacity-50 hover:opacity-100'
                   }`}
+                  aria-label={`View screenshot ${idx + 1}`}
                 >
                   <Image
                     src={thumb}

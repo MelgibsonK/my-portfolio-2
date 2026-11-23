@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/', '/_next/'],
       },
     ],
-    sitemap: 'https://melgibsonkennedy.com/sitemap.xml',
+    sitemap: 'https://melgibsonkennedy.vercel.app/sitemap.xml',
   };
 }
 

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const defaultMetadata: Metadata = {
-  metadataBase: new URL('https://melgibsonkennedy.com'),
+  metadataBase: new URL('https://melgibsonkennedy.vercel.app'),
   title: {
     default: 'Melgibson Kennedy Odari | CTO, Systems Architect & Tech Entrepreneur',
     template: '%s | Melgibson Kennedy Odari'
@@ -44,7 +44,7 @@ export const defaultMetadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://melgibsonkennedy.com',
+    url: 'https://melgibsonkennedy.vercel.app',
     siteName: 'Melgibson Kennedy Odari',
     title: 'Melgibson Kennedy Odari | CTO, Systems Architect & Tech Entrepreneur',
     description: 'CTO at Emoh Links, Founder of Tayari Careers & Correspond, Systems Architect at Angavix Systems Ltd. Enterprise SaaS, Flutter Mobile Apps & Modern Web Architectures.',
@@ -76,7 +76,7 @@ export const defaultMetadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://melgibsonkennedy.com',
+    canonical: 'https://melgibsonkennedy.vercel.app',
   },
   verification: {
     google: 'your-google-verification-code',

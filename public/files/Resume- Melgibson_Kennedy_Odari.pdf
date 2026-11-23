@@ -1,99 +1,465 @@
 %PDF-1.4
-%“Œ‹ž ReportLab Generated PDF document (opensource)
+%âãÏÓ
 1 0 obj
 <<
-/F1 2 0 R /F2 3 0 R /F3 5 0 R
+/Producer (pypdf)
 >>
 endobj
 2 0 obj
 <<
-/BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font
+/Type /Pages
+/Count 2
+/Kids [ 4 0 R 10 0 R ]
 >>
 endobj
 3 0 obj
 <<
-/BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font
+/Type /Catalog
+/Pages 2 0 R
 >>
 endobj
 4 0 obj
 <<
-/Contents 10 0 R /MediaBox [ 0 0 612 792 ] /Parent 9 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 /Trans <<
+/Contents <<
+/Length 9455
+>>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 42 727 cm
+q
+.101961 .101961 .094118 rg
+BT 1 0 0 1 0 3 Tm /F2 20 Tf 23 TL 116.77 0 Td (MELGIBSON KENNEDY ODARI) Tj T* -116.77 0 Td ET
+Q
+Q
+q
+1 0 0 1 42 712.5 cm
+q
+BT 1 0 0 1 0 3 Tm 59.978 0 Td 12.5 TL /F2 9.5 Tf .588235 .45098 .196078 rg (CHIEF TECHNOLOGY OFFICER \(CTO\)  ) Tj (|) Tj (  SYSTEMS ARCHITECT  ) Tj (|) Tj (  TECH ENTREPRENEUR) Tj T* -59.978 0 Td ET
+Q
+Q
+q
+1 0 0 1 42 685.5 cm
+q
+BT 1 0 0 1 0 14.5 Tm 126.912 0 Td 11.5 TL /F1 8.5 Tf .101961 .101961 .094118 rg (\(+254\) 701-178-353  ) Tj (\177) Tj (  melgibsonkennedy@gmail.com  ) Tj (\177) Tj (  Nairobi, Kenya) Tj  T* -87.18875 0 Td /F2 8.5 Tf (Portfolio:) Tj /F1 8.5 Tf ( melgibsonkennedy.vercel.app  ) Tj (\177) Tj (  ) Tj /F2 8.5 Tf (GitHub:) Tj /F1 8.5 Tf ( github.com/MelgibsonK  ) Tj (\177) Tj (  ) Tj /F2 8.5 Tf (LinkedIn:) Tj /F1 8.5 Tf ( linkedin.com/in/melgibson-kennedy) Tj T* -39.72325 0 Td ET
+Q
+Q
+q
+1 0 0 1 42 678.5 cm
+q
+1 w
+1 J
+.8 .662745 .388235 RG
+n 0 0 m 528 0 l S
+Q
+Q
+q
+1 0 0 1 42 660 cm
+q
+.588235 .45098 .196078 rg
+BT 1 0 0 1 0 3 Tm /F2 10.5 Tf 13.5 TL (EXECUTIVE PROFILE) Tj T* ET
+Q
+Q
+q
+1 0 0 1 42 657.5 cm
+q
+.5 w
+1 J
+.8 .662745 .388235 RG
+n 0 0 m 528 0 l S
+Q
+Q
+q
+1 0 0 1 42 595.5 cm
+q
+BT 1 0 0 1 0 50.5 Tm 11.8 TL /F1 8.5 Tf .101961 .101961 .094118 rg (Visionary, metrics-driven Technology Leader and Systems Architect with a distinguished record of engineering mission-critical cloud) Tj T* (backends, distributed mobile applications, and high-throughput enterprise SaaS. Currently serving as ) Tj /F2 8.5 Tf (Chief Technology Officer \(CTO\) of) Tj T* (Emoh Links Ltd) Tj /F1 8.5 Tf (, ) Tj /F2 8.5 Tf (Founder & Lead Systems Architect of Tayari Careers & Correspond Workspace) Tj /F1 8.5 Tf (, and ) Tj /F2 8.5 Tf (Software Engineer / Systems) Tj T* (Architect \(Part-Time\) at Angavix Systems Ltd) Tj /F1 8.5 Tf (. Blends hands-on full-stack mastery across React/Next.js, Flutter, and native Android with) Tj T* (strategic leadership in digital transformation, technical roadmaps, and youth venture incubation.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 42 577 cm
+q
+.588235 .45098 .196078 rg
+BT 1 0 0 1 0 3 Tm /F2 10.5 Tf 13.5 TL (PROFESSIONAL EXPERIENCE) Tj T* ET
+Q
+Q
+q
+1 0 0 1 42 574.5 cm
+q
+.5 w
+1 J
+.8 .662745 .388235 RG
+n 0 0 m 528 0 l S
+Q
+Q
+q
+1 0 0 1 36 557.5 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 0 1 cm
+q
+BT 1 0 0 1 0 2.8 Tm 12 TL /F2 9.2 Tf .101961 .101961 .094118 rg (Software Engineer / Systems Architect \(Part-Time\)  ) Tj (|) Tj (  ) Tj .588235 .45098 .196078 rg (Angavix Systems Ltd) Tj T* ET
+Q
+Q
+q
+1 0 0 1 410 1.25 cm
+q
+.588235 .45098 .196078 rg
+BT 1 0 0 1 0 2.7 Tm /F2 8.8 Tf 11.5 TL 45.3792 0 Td (June 2026 \226 Present) Tj T* -45.3792 0 Td ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 42 546.3 cm
+q
+BT 1 0 0 1 12 2.9 Tm -8 0 Td 11.2 TL /F1 8.3 Tf .101961 .101961 .094118 rg (\177 Architected ) Tj /F2 8.3 Tf (Angavix Hub) Tj /F1 8.3 Tf (, an enterprise UAV fleet telemetry, mission dispatch, and flight intelligence system.) Tj T* 8 0 Td ET
+Q
+Q
+q
+1 0 0 1 42 533.1 cm
+q
+BT 1 0 0 1 12 2.9 Tm -8 0 Td 11.2 TL /F1 8.3 Tf .101961 .101961 .094118 rg (\177 Engineered ) Tj /F2 8.3 Tf (Angavix Hub Companion) Tj /F1 8.3 Tf ( native Android application for offline flight logging, sensor sync, and cockpit telemetry.) Tj T* 8 0 Td ET
+Q
+Q
+q
+1 0 0 1 42 519.9 cm
+q
+.101961 .101961 .094118 rg
+BT 1 0 0 1 12 2.9 Tm /F1 8.3 Tf 11.2 TL -8 0 Td (\177 Implemented automated flight compliance pipelines, geospatial tracking, and maintenance logs meeting strict aviation standards.) Tj T* 8 0 Td ET
+Q
+Q
+q
+1 0 0 1 42 506.7 cm
+q
+.101961 .101961 .094118 rg
+BT 1 0 0 1 12 2.9 Tm /F1 8.3 Tf 11.2 TL -8 0 Td (\177 Built and deployed corporate web platform \(angavix.com\) with bespoke liquid-glass aesthetics and full SEO indexation.) Tj T* 8 0 Td ET
+Q
+Q
+q
+1 0 0 1 42 502.7 cm
+Q
+q
+1 0 0 1 36 488.7 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 0 1 cm
+q
+BT 1 0 0 1 0 2.8 Tm 12 TL /F2 9.2 Tf .101961 .101961 .094118 rg (Chief Technology Officer \(CTO\)  ) Tj (|) Tj (  ) Tj .588235 .45098 .196078 rg (Emoh Links Ltd) Tj T* ET
+Q
+Q
+q
+1 0 0 1 410 1.25 cm
+q
+.588235 .45098 .196078 rg
+BT 1 0 0 1 0 2.7 Tm /F2 8.8 Tf 11.5 TL 68.3648 0 Td (2024 \226 Present) Tj T* -68.3648 0 Td ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 42 477.5 cm
+q
+.101961 .101961 .094118 rg
+BT 1 0 0 1 12 2.9 Tm /F1 8.3 Tf 11.2 TL -8 0 Td (\177 Direct enterprise technology roadmap, ISP core network architectures, subscriber billing, and digital service scalability.) Tj T* 8 0 Td ET
+Q
+Q
+q
+1 0 0 1 42 464.3 cm
+q
+BT 1 0 0 1 12 2.9 Tm -8 0 Td 11.2 TL /F1 8.3 Tf .101961 .101961 .094118 rg (\177 Architected ) Tj /F2 8.3 Tf (Radius One) Tj /F1 8.3 Tf ( \(radiusone.site\), an automated ISP subscriber management system with live bandwidth & M-Pesa billing.) Tj T* 8 0 Td ET
+Q
+Q
+q
+1 0 0 1 42 451.1 cm
+q
+BT 1 0 0 1 12 2.9 Tm -8 0 Td 11.2 TL /F1 8.3 Tf .101961 .101961 .094118 rg (\177 Deployed automated monitoring, alerting, and telemetry dashboards, elevating operational efficiency and uptime by >) Tj (40%.) Tj T* 8 0 Td ET
+Q
+Q
+q
+1 0 0 1 42 437.9 cm
+q
+.101961 .101961 .094118 rg
+BT 1 0 0 1 12 2.9 Tm /F1 8.3 Tf 11.2 TL -8 0 Td (\177 Supervise engineering and product teams, aligning technical delivery with rapid enterprise subscriber growth.) Tj T* 8 0 Td ET
+Q
+Q
+q
+1 0 0 1 42 433.9 cm
+Q
+q
+1 0 0 1 36 419.9 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 0 1 cm
+q
+BT 1 0 0 1 0 2.8 Tm 12 TL /F2 9.2 Tf .101961 .101961 .094118 rg (Founder & Lead Systems Architect  ) Tj (|) Tj (  ) Tj .588235 .45098 .196078 rg (Tayari Careers & Correspond Workspace) Tj T* ET
+Q
+Q
+q
+1 0 0 1 410 1.25 cm
+q
+.588235 .45098 .196078 rg
+BT 1 0 0 1 0 2.7 Tm /F2 8.8 Tf 11.5 TL 68.3648 0 Td (2024 \226 Present) Tj T* -68.3648 0 Td ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 42 408.7 cm
+q
+.101961 .101961 .094118 rg
+BT 1 0 0 1 12 2.9 Tm /F1 8.3 Tf 11.2 TL -8 0 Td (\177 Founded dual-pillar youth empowerment ecosystem connecting students to career opportunities while providing startup incubation tools.) Tj T* 8 0 Td ET
+Q
+Q
+q
+1 0 0 1 42 395.5 cm
+q
+BT 1 0 0 1 12 2.9 Tm -8 0 Td 11.2 TL /F1 8.3 Tf .101961 .101961 .094118 rg (\177 Built ) Tj /F2 8.3 Tf (Tayari Careers App) Tj /F1 8.3 Tf ( \(Flutter cross-platform iOS/Android\) for skill profiling, internship matching, and talent placement.) Tj T* 8 0 Td ET
+Q
+Q
+q
+1 0 0 1 42 371.1 cm
+q
+BT 1 0 0 1 12 14.1 Tm -8 0 Td 11.2 TL /F1 8.3 Tf .101961 .101961 .094118 rg (\177 Developed ) Tj /F2 8.3 Tf (Tayari Correspond Workspace) Tj /F1 8.3 Tf (, providing student ventures with live document sync, Kanban task boards, and venture) Tj T* 8 0 Td (milestones.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 42 357.9 cm
+q
+.101961 .101961 .094118 rg
+BT 1 0 0 1 12 2.9 Tm /F1 8.3 Tf 11.2 TL -8 0 Td (\177 Scaled active partnerships across East African universities, technical incubators, and high-growth SME employers.) Tj T* 8 0 Td ET
+Q
+Q
+q
+1 0 0 1 42 353.9 cm
+Q
+q
+1 0 0 1 36 339.9 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 0 1 cm
+q
+BT 1 0 0 1 0 2.8 Tm 12 TL /F2 9.2 Tf .101961 .101961 .094118 rg (Consulting Systems Architect & Software Engineer  ) Tj (|) Tj (  ) Tj .588235 .45098 .196078 rg (Self-Employed / Independent) Tj T* ET
+Q
+Q
+q
+1 0 0 1 410 1.25 cm
+q
+.588235 .45098 .196078 rg
+BT 1 0 0 1 0 2.7 Tm /F2 8.8 Tf 11.5 TL 81.072 0 Td (2022 \226 2023) Tj T* -81.072 0 Td ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 42 328.7 cm
+q
+.101961 .101961 .094118 rg
+BT 1 0 0 1 12 2.9 Tm /F1 8.3 Tf 11.2 TL -8 0 Td (\177 Delivered custom full-stack web platforms and mobile applications for international clients in US healthcare, legal, and agribusiness.) Tj T* 8 0 Td ET
+Q
+Q
+q
+1 0 0 1 42 315.5 cm
+q
+.101961 .101961 .094118 rg
+BT 1 0 0 1 12 2.9 Tm /F1 8.3 Tf 11.2 TL -8 0 Td (\177 Spearheaded digital transformation consultancies, code refactoring, database design, and cloud migrations \(AWS / Vercel / Supabase\).) Tj T* 8 0 Td ET
+Q
+Q
+q
+1 0 0 1 42 310.5 cm
+Q
+q
+1 0 0 1 42 292 cm
+q
+BT 1 0 0 1 0 3 Tm 13.5 TL /F2 10.5 Tf .588235 .45098 .196078 rg (CORE COMPETENCIES & TECHNICAL PROFICIENCIES) Tj T* ET
+Q
+Q
+q
+1 0 0 1 42 289.5 cm
+q
+.5 w
+1 J
+.8 .662745 .388235 RG
+n 0 0 m 528 0 l S
+Q
+Q
+q
+1 0 0 1 36 180.1 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 0 93.1 cm
+q
+BT 1 0 0 1 0 3.8 Tm 11.8 TL /F2 8 Tf .101961 .101961 .094118 rg (Leadership & Architecture:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 130 81.3 cm
+q
+.101961 .101961 .094118 rg
+BT 1 0 0 1 0 15.6 Tm /F1 8 Tf 11.8 TL (Systems Architecture, Team Mentorship, Agile/Scrum, Product Roadmaps, Stakeholder Management, Strategic) Tj T* (Scaling) Tj T* ET
+Q
+Q
+q
+1 0 0 1 0 66.5 cm
+q
+BT 1 0 0 1 0 3.8 Tm 11.8 TL /F2 8 Tf .101961 .101961 .094118 rg (Mobile & Frontend:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 130 54.7 cm
+q
+.101961 .101961 .094118 rg
+BT 1 0 0 1 0 15.6 Tm /F1 8 Tf 11.8 TL (Flutter \(iOS/Android\), React, Next.js 14/15, TypeScript, Tailwind CSS, Native Android \(Kotlin\), Framer Motion,) Tj T* (Liquid Glass UI) Tj T* ET
+Q
+Q
+q
+1 0 0 1 0 39.9 cm
+q
+BT 1 0 0 1 0 3.8 Tm 11.8 TL /F2 8 Tf .101961 .101961 .094118 rg (Backend & Cloud:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 130 28.1 cm
+q
+BT 1 0 0 1 0 15.6 Tm 11.8 TL /F1 8 Tf .101961 .101961 .094118 rg (Node.js, Express, Python, Supabase, PostgreSQL, MongoDB, RESTful & GraphQL APIs, Docker, AWS, Vercel,) Tj T* (Microservices) Tj T* ET
+Q
+Q
+q
+1 0 0 1 0 13.3 cm
+q
+.101961 .101961 .094118 rg
+BT 1 0 0 1 0 3.8 Tm /F2 8 Tf 11.8 TL (Specialized Domains:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 130 1.5 cm
+q
+BT 1 0 0 1 0 15.6 Tm 11.8 TL /F1 8 Tf .101961 .101961 .094118 rg (ISP RADIUS Network Billing, UAV Telemetry & Flight Compliance, HealthTech EHR Systems, AgroTech Logistics,) Tj T* (SEO Engineering) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+ 
 
->> 
-  /Type /Page
+endstream
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font 6 0 R
+/ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>>
+/Rotate 0
+/Trans <<
+>>
+/Type /Page
+/Parent 2 0 R
 >>
 endobj
 5 0 obj
 <<
-/BaseFont /Helvetica-BoldOblique /Encoding /WinAnsiEncoding /Name /F3 /Subtype /Type1 /Type /Font
+/Filter [ /ASCII85Decode /FlateDecode ]
+/Length 3416
 >>
+stream
+Gb!;ehfId:&q8/6d4^h1GMlk]1$lg.&`QL:+XD].g"e,aK\[J^AB?@Da`)BPr0@0f&dX]VAp3G\ntSI9]0CFf?`Vq92RL<GItn?G`>m1,Cp4qIYJBR0?'nF'T:c%$;QR-sl[\/C&1/cSS60sh*qX9Is0`/<g[9]Q:G1ekY3'p5jp@Pb3T.9h^.u`8C>1npo:QQa#T>Z$jMUa:\=LK,Ild6UItQM!iG<lGoA=!UGA-@rp?*fq:-Lfsa`]5E0P^X4m_B`crSld`h0bAi1GJj3^iK=#VrNBZFk_O4=SAE>p5B[3(gW4$/"$4/lfmftp;:ffHZ_1eq(l,07e>BR)*i(Jj$1L)JDdnEmb\.$S;j\lF+6%(>@BDlIla4tG;Fa6J"G1Sm[AFBa'RXdkbHrkIO&;_4_nFeV4VqmV[`UQcPK@b)N2U"*4NO>"0ZRNCp2a]\=Le7L$a/Noa.pk/sYAha>l_ZJ&M_fbR-dZB_@Td.@.=I+-CJ4rb:e7hm;ZuhfB0(bu']P2XZ7J/&A1Z.:9buI:Ma%0>4c@EkCQ@WirbjJK87#f@eU=F+.&)rp`um:+3ltBZq!'b4;_acaTbK]JdB%g0GeFB4-![a)R.[\_"$FgkNi_)h'uUqI&uBNn8Eil4ee2qf'FDB+f/('0ltX"+0^pA_+R0mk5rgh(Ds=4%2[tr*TEMkP=n2%sPA7X7=-34?D\XlW#Q>m[s0g*?7fT2`EHG;;Zjje:40L$;TZZ#mk?<6e.&>I6\9`%+e`<&T;'/,XMfj7hBL$`^IX>L23eDeF6$%)@/`1C!,IpW\m6g0bcAEYl`u@jbT)j(_WjmgKL;HRYHJ]a@$eDco%+7]LO$BB"j\/b=lCKM-*Z15gknEOD$,RC?DCpBtS?J[1lcV:,<@#29JlrKb+e.=>7mn7'>2I'ZpYj!)`W54BbZgm<X,k>1!mm9lOQA>NdGD%4:QZ9Q[WXps&cnY=-A>G,I?V#N-7GR$.uA'LkJ78d2+H&lPGr"cqRX+n&E'69O`m"2`n&"0p:86mDCPn8M^I[<?'Wp-n#%8DT``";b]91^nY'*pD50cpM\SE5BaY_4'ja[027b``PlJ'&GuBPX`1a&k\i3b`IMSI#;:=ot+tU(!EsR=kM#VV@Nr"*_AYm4HO:kQ'OgJ9LE35n>S9>JT?Q[9Jp7O-/iSbA<KGN'=9d74Jnns;*r\d82_[@CNr+I1PnABQn@nWXCDS&HJUaRKOG*M#fa@&i<9'cn,1kkT8nr;L$Nm=M(LbOE4=>,5&6L^k64UeLmTs\=a=M+pA)Z^Zsj_m><4b$,*sOZ#VX0To3rmCH_`iN.:<[\CU_-g*;<0_lW@J9]R>FKW\,j6Y1<%HA[Tq\3TCB?gZcPkEI)RO;'FQ!dQL`<>P@<sq0.0dBC>h:#97Me$u&^QS8Ab/,5TSDb8]4-[\2Xok/\XIOhAu*4"4NaB9Htq?p>1:^ks:Md)aQ^LCoW"h@4h07#1(P"':H$CCQMDA;nOL6NiYr<h4k5.R(>jZ0^q47MV3G!!>\78I;;Hn%nRb_KJ<S<^MC?XVg/%@DG8N;][k`+]h!^g@2<H.2:`h8pAX0'fPd$)SG/MZA!/9M$gd#aT@rOOr@!'M%l+eOV%+kksm.bPYkmb18QE<(KD,X'^"1b_9V"fm\t1Y+m/9>^7L0`6%Wcb"Y_,BC*4%oJ4s[o,9eB*.du+TbPP&k?Y#Dch"D"P-8oO48>a7;&j5.d;F\#j+':?j&LjU.?(;Y[d*daE4T_C.A2J&?N$ni4Q!U5_TdnJ7@giG=(+>75lVgM=lF#TG0R6Fch1!+*is-.o2f#A$ZMK,=lRsCQ?Jk&?\lC"8D5V`JbFbjt`oUKE>PZ$XN*]Cre8pD0obRS5#\q49\20h:^em<'Gn6^6J4uE-<S:9(OtKVKOtp)$CfP-0Q*XocO>*u9N9XJA;n(BW0d8M#&^;$FEni&.7764p$BCFH)Ad%sXDR4HJ@,JM69'gC&hF3eaDPT,In=nW80bg&;n-PtTct5#YCag&^RM6/<fFHZ.hS:d@BO!4+:P*LO1Eg\Lko4fKd#>#+N"GI1UK\Mk1i?ATZLo*4P]"YAuVX6_K#bY/@)kArnFK$ms*_a[=TqenZ)*#[F86I8eGX.&Qk3`Wr\tM2rAK@%2#%]Q(-cp,tVgXRp8$p&PMYmf<=eR;u$3ZXgcIO"5*I>GLEt+p$498s-G"fY,1gI"1C1H#bm9^<_=5SZFmJPP);bo3W!248cf>'k89N(;\gP.$FG=;7ik'e$E5gV2+7\0CXY46V0JY1nGn\496W#)TS6dW.^hAC]2%f^=@KL&a5kQuC7(lR(qj`65i-?keR]W3%F3.kHuYI=ip**jB$aZ-6KLm8.XBlP8Bbp^bDClicr3ENSGZ`JO7r^LgKi#%o8N[!9VdI)Xodj4_l1/amD_I64B5lZm3l0a_Q;6LF$'1gpl]UC7,:5,%gJm$a_06_'$=$b_/UDp#OuiLUBlO+)>O[3X'&&jk!f;@<D=p7-k4(ZU`n]YEC9UQc^ETQ;OJjum^=&BlA+<;2[O5@<k^29gquJ*l24'q(^[?#QF"]I#b8b\qrY#t&0P2bquWf&c=+pA9TbgkqlAeNDd.(^lHqS.a!oNRBfhkh$?k#@;hC&$rKQ6G-pPpM1K.I&]04^#)eX/;4O=eg=frmTWaZ>RbnYhNp`.'f$.EZ7'hr'Q'3<%/M+smRR61?46J8N<i;HS573^?\i>]JWkqrf]@[?L;cdtu]#SL2aX:!a=BX/lj+[SV-?M7IETE,ZD(Y,U=7:Z*c!9`hTAVeS&-*oFXCiT/0&59"r=[%$ME!FT\,M9"D]\=et2Kuj*q(TCn\b#"`F>W[n3%_#3j3_gD9V"YMQTXto@moYT#Og8=[eoGajkddRK0pZl2KVR.Wom@loY3gs`?6Y^m*dOdAJ0K=&HfYo2B:(hgUQ*`X^3$QA\@/;2YMq^1\ijtP/%NI,8Y-a2IRG$L?CiNZ_RnOjlKuQO!Xp&mVshG.Dp)hCSpp?*.-1f&>Nj%a"R;@L0j?<h#Dl>pSOUK;n/"-[-XOI\@UM*dGZfbX$U^OGZ).2M[<8paq59=h/h=f_L.PV&5&DV-Hld-O-E-g$A'TuT=/8HNK6C^b0<sgOsC6NOjAu$LaRJ;%R/rj]$KC]:iFn\:IBP-$p2^Fa`,^KTUl(u'WTN-1@tIqMl.c9Hktmp9dM:>KY*4MRi,BuJPEWf9#hQs:Qm-\#TeoIM^H[G@(sc#SAGM&de0LE%.D39$'ujK2^?#p00ur*dk/!ee<F3,'1j31f'^1.78)!CYdYL=@Rpg#s2G<sKkW`Oj62q(iLRbA*MhBXEr7qJC"[I;W7kuuAhpRe/Z3Pf1t0]kTkL;^iB!<=dmjTAH<(blL/"Jb5FmV_bh5@k7G.6oWrhZ";&"-]SGX1In?<3~>
+endstream
 endobj
 6 0 obj
 <<
-/Contents 11 0 R /MediaBox [ 0 0 612 792 ] /Parent 9 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 /Trans <<
-
->> 
-  /Type /Page
+/F1 7 0 R
+/F2 8 0 R
+/F3 9 0 R
 >>
 endobj
 7 0 obj
 <<
-/PageMode /UseNone /Pages 9 0 R /Type /Catalog
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
 >>
 endobj
 8 0 obj
 <<
-/Author (\(anonymous\)) /CreationDate (D:20261123183323+03'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20261123183323+03'00') /Producer (ReportLab PDF Library - \(opensource\)) 
-  /Subject (\(unspecified\)) /Title (\(anonymous\)) /Trapped /False
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+/Name /F2
+/Subtype /Type1
+/Type /Font
 >>
 endobj
 9 0 obj
 <<
-/Count 2 /Kids [ 4 0 R 6 0 R ] /Type /Pages
+/BaseFont /Helvetica-BoldOblique
+/Encoding /WinAnsiEncoding
+/Name /F3
+/Subtype /Type1
+/Type /Font
 >>
 endobj
 10 0 obj
 <<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 3416
+/Contents 11 0 R
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font 6 0 R
+/ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
 >>
-stream
-Gb!;ehfId:&q8/6d4^h1GMlk]1$lg.&`QL:+XD].g"e,aK\[J^AB?@Da`)BPr0@0f&dX]VAp3G\ntSI9]0CFf?`Vq92RL<GItn?G`>m1,Cp4qIYJBR0?'nF'T:c%$;QR-sl[\/C&1/cSS60sh*qX9Is0`/<g[9]Q:G1ekY3'p5jp@Pb3T.9h^.u`8C>1npo:QQa#T>Z$jMUa:\=LK,Ild6UItQM!iG<lGoA=!UGA-@rp?*fq:-Lfsa`]5E0P^X4m_B`crSld`h0bAi1GJj3^iK=#VrNBZFk_O4=SAE>p5B[3(gW4$/"$4/lfmftp;:ffHZ_1eq(l,07e>BR)*i(Jj$1L)JDdnEmb\.$S;j\lF+6%(>@BDlIla4tG;Fa6J"G1Sm[AFBa'RXdkbHrkIO&;_4_nFeV4VqmV[`UQcPK@b)N2U"*4NO>"0ZRNCp2a]\=Le7L$a/Noa.pk/sYAha>l_ZJ&M_fbR-dZB_@Td.@.=I+-CJ4rb:e7hm;ZuhfB0(bu']P2XZ7J/&A1Z.:9buI:Ma%0>4c@EkCQ@WirbjJK87#f@eU=F+.&)rp`um:+3ltBZq!'b4;_acaTbK]JdB%g0GeFB4-![a)R.[\_"$FgkNi_)h'uUqI&uBNn8Eil4ee2qf'FDB+f/('0ltX"+0^pA_+R0mk5rgh(Ds=4%2[tr*TEMkP=n2%sPA7X7=-34?D\XlW#Q>m[s0g*?7fT2`EHG;;Zjje:40L$;TZZ#mk?<6e.&>I6\9`%+e`<&T;'/,XMfj7hBL$`^IX>L23eDeF6$%)@/`1C!,IpW\m6g0bcAEYl`u@jbT)j(_WjmgKL;HRYHJ]a@$eDco%+7]LO$BB"j\/b=lCKM-*Z15gknEOD$,RC?DCpBtS?J[1lcV:,<@#29JlrKb+e.=>7mn7'>2I'ZpYj!)`W54BbZgm<X,k>1!mm9lOQA>NdGD%4:QZ9Q[WXps&cnY=-A>G,I?V#N-7GR$.uA'LkJ78d2+H&lPGr"cqRX+n&E'69O`m"2`n&"0p:86mDCPn8M^I[<?'Wp-n#%8DT``";b]91^nY'*pD50cpM\SE5BaY_4'ja[027b``PlJ'&GuBPX`1a&k\i3b`IMSI#;:=ot+tU(!EsR=kM#VV@Nr"*_AYm4HO:kQ'OgJ9LE35n>S9>JT?Q[9Jp7O-/iSbA<KGN'=9d74Jnns;*r\d82_[@CNr+I1PnABQn@nWXCDS&HJUaRKOG*M#fa@&i<9'cn,1kkT8nr;L$Nm=M(LbOE4=>,5&6L^k64UeLmTs\=a=M+pA)Z^Zsj_m><4b$,*sOZ#VX0To3rmCH_`iN.:<[\CU_-g*;<0_lW@J9]R>FKW\,j6Y1<%HA[Tq\3TCB?gZcPkEI)RO;'FQ!dQL`<>P@<sq0.0dBC>h:#97Me$u&^QS8Ab/,5TSDb8]4-[\2Xok/\XIOhAu*4"4NaB9Htq?p>1:^ks:Md)aQ^LCoW"h@4h07#1(P"':H$CCQMDA;nOL6NiYr<h4k5.R(>jZ0^q47MV3G!!>\78I;;Hn%nRb_KJ<S<^MC?XVg/%@DG8N;][k`+]h!^g@2<H.2:`h8pAX0'fPd$)SG/MZA!/9M$gd#aT@rOOr@!'M%l+eOV%+kksm.bPYkmb18QE<(KD,X'^"1b_9V"fm\t1Y+m/9>^7L0`6%Wcb"Y_,BC*4%oJ4s[o,9eB*.du+TbPP&k?Y#Dch"D"P-8oO48>a7;&j5.d;F\#j+':?j&LjU.?(;Y[d*daE4T_C.A2J&?N$ni4Q!U5_TdnJ7@giG=(+>75lVgM=lF#TG0R6Fch1!+*is-.o2f#A$ZMK,=lRsCQ?Jk&?\lC"8D5V`JbFbjt`oUKE>PZ$XN*]Cre8pD0obRS5#\q49\20h:^em<'Gn6^6J4uE-<S:9(OtKVKOtp)$CfP-0Q*XocO>*u9N9XJA;n(BW0d8M#&^;$FEni&.7764p$BCFH)Ad%sXDR4HJ@,JM69'gC&hF3eaDPT,In=nW80bg&;n-PtTct5#YCag&^RM6/<fFHZ.hS:d@BO!4+:P*LO1Eg\Lko4fKd#>#+N"GI1UK\Mk1i?ATZLo*4P]"YAuVX6_K#bY/@)kArnFK$ms*_a[=TqenZ)*#[F86I8eGX.&Qk3`Wr\tM2rAK@%2#%]Q(-cp,tVgXRp8$p&PMYmf<=eR;u$3ZXgcIO"5*I>GLEt+p$498s-G"fY,1gI"1C1H#bm9^<_=5SZFmJPP);bo3W!248cf>'k89N(;\gP.$FG=;7ik'e$E5gV2+7\0CXY46V0JY1nGn\496W#)TS6dW.^hAC]2%f^=@KL&a5kQuC7(lR(qj`65i-?keR]W3%F3.kHuYI=ip**jB$aZ-6KLm8.XBlP8Bbp^bDClicr3ENSGZ`JO7r^LgKi#%o8N[!9VdI)Xodj4_l1/amD_I64B5lZm3l0a_Q;6LF$'1gpl]UC7,:5,%gJm$a_06_'$=$b_/UDp#OuiLUBlO+)>O[3X'&&jk!f;@<D=p7-k4(ZU`n]YEC9UQc^ETQ;OJjum^=&BlA+<;2[O5@<k^29gquJ*l24'q(^[?#QF"]I#b8b\qrY#t&0P2bquWf&c=+pA9TbgkqlAeNDd.(^lHqS.a!oNRBfhkh$?k#@;hC&$rKQ6G-pPpM1K.I&]04^#)eX/;4O=eg=frmTWaZ>RbnYhNp`.'f$.EZ7'hr'Q'3<%/M+smRR61?46J8N<i;HS573^?\i>]JWkqrf]@[?L;cdtu]#SL2aX:!a=BX/lj+[SV-?M7IETE,ZD(Y,U=7:Z*c!9`hTAVeS&-*oFXCiT/0&59"r=[%$ME!FT\,M9"D]\=et2Kuj*q(TCn\b#"`F>W[n3%_#3j3_gD9V"YMQTXto@moYT#Og8=[eoGajkddRK0pZl2KVR.Wom@loY3gs`?6Y^m*dOdAJ0K=&HfYo2B:(hgUQ*`X^3$QA\@/;2YMq^1\ijtP/%NI,8Y-a2IRG$L?CiNZ_RnOjlKuQO!Xp&mVshG.Dp)hCSpp?*.-1f&>Nj%a"R;@L0j?<h#Dl>pSOUK;n/"-[-XOI\@UM*dGZfbX$U^OGZ).2M[<8paq59=h/h=f_L.PV&5&DV-Hld-O-E-g$A'TuT=/8HNK6C^b0<sgOsC6NOjAu$LaRJ;%R/rj]$KC]:iFn\:IBP-$p2^Fa`,^KTUl(u'WTN-1@tIqMl.c9Hktmp9dM:>KY*4MRi,BuJPEWf9#hQs:Qm-\#TeoIM^H[G@(sc#SAGM&de0LE%.D39$'ujK2^?#p00ur*dk/!ee<F3,'1j31f'^1.78)!CYdYL=@Rpg#s2G<sKkW`Oj62q(iLRbA*MhBXEr7qJC"[I;W7kuuAhpRe/Z3Pf1t0]kTkL;^iB!<=dmjTAH<(blL/"Jb5FmV_bh5@k7G.6oWrhZ";&"-]SGX1In?<3~>endstream
+/Rotate 0
+/Trans <<
+>>
+/Type /Page
+/Parent 2 0 R
+>>
 endobj
 11 0 obj
 <<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 3470
+/Filter [ /ASCII85Decode /FlateDecode ]
+/Length 3470
 >>
 stream
-Gau`VbAu@I'&EF8HBkdSac&d(B;[.uX;epo;J,2pB`io<&n;J\!)SR8lYeXO9!YO<S=8)5`3p?m":i"=T0?Wg9kZlWJ+=$+_[PC/KFgU,>=-sPg+^-jna,?&8U4#9m0J$?DU8EUSU<Tr0WT)gT.QFA&@R0#h=U[jK!7gr0-TQOqbaBr6+bScoH=JFh.Ei$-@sX(X5Tu@jl?ok2m`&Qh>LkFL?\`8Zgm]&hSJ]1F?,bK8$alC_^i6g>`GYfgRIa*$tb"*lp!>5hbS\cS6`as>L7ro8I5>Z$2P3T]2>cfJY6#gjSmVbo!`/VM>GR%$.FO#>$^?GgP+("9ea[\NDS(K'Ks9fr]Pr^+s8WH_]:]=O%e17#Mj@n]/aP[@0t1T-#=mA_.Bm%GOT2=#@'f^U^fjTbF&uH!I,aD?aQL#?)6Y]2u(W$Ip!%=0TWe.poL##$AL#g>/]NHT2=:43PctGZeWjPSq24"e:2l2+UC44JJR,RqB!BYO)?o?p'4l:_CUF?<\?Mm3iem%rof7,>^eoCrQS*aWi#HMi9noAN$&H3jhsLL#H_`MIV[:,eXYc1Y6Q/'F[dnhLU#`tV*oF`:h#1)Ck/K%QK91P*"?sU.grmuDQ->7),i'u.Y4[_:7T?o.tea\WAb\EB0dq"a<Wa-@8JVjR_c7*mgc'7I&462<?`-O_&-F7TU6BCgr9]Qr#ljdpbighSc^INOL2g"5T)pAUimND#-!dn(^kZ#PX;&KM\T!ZgPt3s(,#7jii&AU'"HF[$u)tk&J2X)0R+ld4qp>L$T4<GZ318XP(G-C^ku5R^Ss7H,[,/AnH\o"_43m!!P[M*D$+gRF-I:HA5"D,b27,_MZ1VM8&Se58EM`tP;$ch>UgFkq_Ajh,mjl6f'PAJp+N2G);?hi@*H%7=GId<:IiVO)@P/C+XFoYcf#n'ZnZ68X^_'(Rg5E=Nq9S!Uppe8&Erf.T$jK)c5+W)T.1J$,@YEtJuIRD=7P?6'YI\!^m=WeQJiljqAdCqgOgVpeR20AP+LiMLp_VlEhfa"h[s"J/uAI]o(a/BXV>fJ$ng(aALaR!#D^;*Ai=%&&UU6n)HQ'X7O\q.ZDkpIO+7$LV"@5(PYfJ[_EM]>r?oE"7\jBX>'7NsHHCL^4;YLKOGS"F(e.H+!\p_DXX!^Fi)\HIT6'iJ0Ejj]QlB",(ojfF9?@s\//6$F3sMg[Ju()!9Y'.>`.fia/.1\\Ja/+:f!&1#l2[a2(o:?.@1/eTXl)!6$`7=*R>EGonO*O2<3@n\M:$+*67*s]V\SV:k:#J$(j'+6"t*PK"]Z/sgYAX:GYWAnW*H,f/+L*(XT97d#g5PS?Z%A4eIp3m`Y`_QRBY8/ih\P0-j%Bq-a4">Y"_Z<J:JNf@`lr^KO(og6?'`KSO';/b.iIDmo_1K$b$IO1;/<UOrPN:\>ur[IQGbr$<KPWfH2Hm>!nT\Wajh45e#>,!Ub^b-XWb4GLu#%BGh6I->t1URmF)TlU^'@cjBk**:BW`hDNXLCo8AhR]%&ASdL7C@_>Zm?4XQ'&(,qsZP"6L2693)Au@&F"SC[^EkOs&fqMSNDT'D-MsZO'E%dT9f-5AeZ*Q5i^*L'Ih1!^tXmFmVl7Su+#A3tIS9Z[p#.[c>85XEf8hg%]%/YtM`De9)KsH`#j"0p;2:oi&$&iq2pjj9+@c`AjdFp[Q]'&tdr<![4QW:4#I^ZlN+_EVako!O=(/0V#BkrRF5ukJW;PT-qbmW-r"o9^AKlW9A21rGKX!:]E$<#PNDOfW<U9m[N)YPD?f'<2h6G(e_iG:_r/s/_lP)P"Ikn!@:R.;ad_BOplmn8rb8YH9"&nXV;Usb*D.5Mk%)n==QY_:pR;-5meU38&ei[-1Bci"P"Fi9?DH^;^H:9BR`+ei$dFcJ1-$RsDga@K"CORBPjO-$dOdQ3"3UG]"RaDR[N(!<cdCd>O3-6X-U;;-mWUer=[<;8K7#)Veh?h%J;fjXMfH=aT4Y=d#9oB+C\cmJJag]2u8O:ILu@OZP9%$[g8b;dDVq)&OKK$99PpQ;'/UgBZtVtgEKM8m5BdI"cCme_J0U.82gm)nRT0>\aJbV@1u=Ae)=7Q\l&/7hnrb@P47:qjIg'qF`daWr!QjGADF20[ce=,!pS^4K![#:kAk(ZI\Lk#5H!pR?;Vrrp>!1-/@N_TX]FWFum3]n<"u^'_[*'sZ+MgAb%d:)sZ</T4L)D6WYNVMn5XlML([ij6oQkjS;JH8\HTI7a.rRch2^h<?#dSpsYApS>Ve[RIqoC$g:#m(=LN]bn5E8'4e9)IqVYN!4L.4Dhl#CS0XtaH9^^gXoFn.ng,5\7G`6)2F4.^3$Xr<DmQsYsc4E&kCEF7@:b'Q3VDX'ZOuK9GX,ls#<q-Amo!>ePK9`Jo$-/$e,lo4b?.6?;`q<O;GoOj*ScM8@CedWBe?lITMii'0rZg#PbFV68,^\K4?_dEBL%`YZ'/D?U-92jP`e<S8ed\U?><W^bjSWc7I\!e,*F-YD%ekP@W7]QUtbrNGmdNc31\s>.kNaoV/!=M!FB>p>+4h;R+pGbG._%j-S>i<I8M"O;$YmS.&ifi)42ikutU.)BHq[]fk-a=&lR_5K.rI<+f<>+=.Q*8`jYsM1."^W$Z/c!LK"^iGd,h50O5rXl>maZst&$HpUS#m9oCpFiVq+eYR\@.qnC>9goIlC^n:,V)`U1O.^f30GA-X1TCm_+>I;F-WB3+`Xa<IRam#n.l85W_")l%[RWiuTg"YM":R%f(kG>R'&*E/1r'ii74%i&&<?LX'FD^`fr^.Ko;pDU=/+hOi1-JqN105DB!Po3?63:i/>895b,VPqF;q?b)K&-A;-,P<"'`'/BkLPg"BhG[34t?UTL5F/WEKB:W>A5LJlt7Yk/\'up4qi6HnD]m&F+$SN;*md\"`#SiEJ>F<<IOMhCm:pG+Rq8N<3Fe3L6>tRi4;?q.]39EIO8^=.fC`8S"@uDY1KKQmc'"18T,!.[Nl4'>sB_F0mW=n#K-JV3XG8_WXPV]3'e`"F*"[B[HQh0+s4.IMiT-PM7%$#C#pO(ZXb%EdKUTK$jPlj7m4E).#K'g-@K.rN+TTU/na8\fW?u;?)FjCI6Z&_^u:rlBQ=M#6%AbI:,0+W=>E59Y!F-YlU%odfhPgWR=ZlS%WM,_\,:%1nZStIeVQed#\*M1k[NiLV@K<%222a7&/g>Qq%a2LT3JWooB^mVL%LX<3YXtAP2Q<Nt0[?cJY>h-u;5^\NTcb#q'ebB![NbW#<!Vl<P6Vb=c%tC.>o8_n"UR:Su\G)YBrph+0%D<1s[-G=F75+'pX(Rk80Ilr/QZmhA5t0Q2q^3n'Lh%f`'5s2,YSq,mfS#p%dV)''OK_8l,&BX99]Vo*aJg`>"eVu)sk4'R,7^BNPN>ZD8Nq1d%V/^\G!&\dqqg&sKGEHGR*f%-DffBm/e7%IY4"Rl]3)>-k=SoaqK"&0%Krs.cGnui~>endstream
+Gau`VbAu@I'&EF8HBkdSac&d(B;[.uX;epo;J,2pB`io<&n;J\!)SR8lYeXO9!YO<S=8)5`3p?m":i"=T0?Wg9kZlWJ+=$+_[PC/KFgU,>=-sPg+^-jna,?&8U4#9m0J$?DU8EUSU<Tr0WT)gT.QFA&@R0#h=U[jK!7gr0-TQOqbaBr6+bScoH=JFh.Ei$-@sX(X5Tu@jl?ok2m`&Qh>LkFL?\`8Zgm]&hSJ]1F?,bK8$alC_^i6g>`GYfgRIa*$tb"*lp!>5hbS\cS6`as>L7ro8I5>Z$2P3T]2>cfJY6#gjSmVbo!`/VM>GR%$.FO#>$^?GgP+("9ea[\NDS(K'Ks9fr]Pr^+s8WH_]:]=O%e17#Mj@n]/aP[@0t1T-#=mA_.Bm%GOT2=#@'f^U^fjTbF&uH!I,aD?aQL#?)6Y]2u(W$Ip!%=0TWe.poL##$AL#g>/]NHT2=:43PctGZeWjPSq24"e:2l2+UC44JJR,RqB!BYO)?o?p'4l:_CUF?<\?Mm3iem%rof7,>^eoCrQS*aWi#HMi9noAN$&H3jhsLL#H_`MIV[:,eXYc1Y6Q/'F[dnhLU#`tV*oF`:h#1)Ck/K%QK91P*"?sU.grmuDQ->7),i'u.Y4[_:7T?o.tea\WAb\EB0dq"a<Wa-@8JVjR_c7*mgc'7I&462<?`-O_&-F7TU6BCgr9]Qr#ljdpbighSc^INOL2g"5T)pAUimND#-!dn(^kZ#PX;&KM\T!ZgPt3s(,#7jii&AU'"HF[$u)tk&J2X)0R+ld4qp>L$T4<GZ318XP(G-C^ku5R^Ss7H,[,/AnH\o"_43m!!P[M*D$+gRF-I:HA5"D,b27,_MZ1VM8&Se58EM`tP;$ch>UgFkq_Ajh,mjl6f'PAJp+N2G);?hi@*H%7=GId<:IiVO)@P/C+XFoYcf#n'ZnZ68X^_'(Rg5E=Nq9S!Uppe8&Erf.T$jK)c5+W)T.1J$,@YEtJuIRD=7P?6'YI\!^m=WeQJiljqAdCqgOgVpeR20AP+LiMLp_VlEhfa"h[s"J/uAI]o(a/BXV>fJ$ng(aALaR!#D^;*Ai=%&&UU6n)HQ'X7O\q.ZDkpIO+7$LV"@5(PYfJ[_EM]>r?oE"7\jBX>'7NsHHCL^4;YLKOGS"F(e.H+!\p_DXX!^Fi)\HIT6'iJ0Ejj]QlB",(ojfF9?@s\//6$F3sMg[Ju()!9Y'.>`.fia/.1\\Ja/+:f!&1#l2[a2(o:?.@1/eTXl)!6$`7=*R>EGonO*O2<3@n\M:$+*67*s]V\SV:k:#J$(j'+6"t*PK"]Z/sgYAX:GYWAnW*H,f/+L*(XT97d#g5PS?Z%A4eIp3m`Y`_QRBY8/ih\P0-j%Bq-a4">Y"_Z<J:JNf@`lr^KO(og6?'`KSO';/b.iIDmo_1K$b$IO1;/<UOrPN:\>ur[IQGbr$<KPWfH2Hm>!nT\Wajh45e#>,!Ub^b-XWb4GLu#%BGh6I->t1URmF)TlU^'@cjBk**:BW`hDNXLCo8AhR]%&ASdL7C@_>Zm?4XQ'&(,qsZP"6L2693)Au@&F"SC[^EkOs&fqMSNDT'D-MsZO'E%dT9f-5AeZ*Q5i^*L'Ih1!^tXmFmVl7Su+#A3tIS9Z[p#.[c>85XEf8hg%]%/YtM`De9)KsH`#j"0p;2:oi&$&iq2pjj9+@c`AjdFp[Q]'&tdr<![4QW:4#I^ZlN+_EVako!O=(/0V#BkrRF5ukJW;PT-qbmW-r"o9^AKlW9A21rGKX!:]E$<#PNDOfW<U9m[N)YPD?f'<2h6G(e_iG:_r/s/_lP)P"Ikn!@:R.;ad_BOplmn8rb8YH9"&nXV;Usb*D.5Mk%)n==QY_:pR;-5meU38&ei[-1Bci"P"Fi9?DH^;^H:9BR`+ei$dFcJ1-$RsDga@K"CORBPjO-$dOdQ3"3UG]"RaDR[N(!<cdCd>O3-6X-U;;-mWUer=[<;8K7#)Veh?h%J;fjXMfH=aT4Y=d#9oB+C\cmJJag]2u8O:ILu@OZP9%$[g8b;dDVq)&OKK$99PpQ;'/UgBZtVtgEKM8m5BdI"cCme_J0U.82gm)nRT0>\aJbV@1u=Ae)=7Q\l&/7hnrb@P47:qjIg'qF`daWr!QjGADF20[ce=,!pS^4K![#:kAk(ZI\Lk#5H!pR?;Vrrp>!1-/@N_TX]FWFum3]n<"u^'_[*'sZ+MgAb%d:)sZ</T4L)D6WYNVMn5XlML([ij6oQkjS;JH8\HTI7a.rRch2^h<?#dSpsYApS>Ve[RIqoC$g:#m(=LN]bn5E8'4e9)IqVYN!4L.4Dhl#CS0XtaH9^^gXoFn.ng,5\7G`6)2F4.^3$Xr<DmQsYsc4E&kCEF7@:b'Q3VDX'ZOuK9GX,ls#<q-Amo!>ePK9`Jo$-/$e,lo4b?.6?;`q<O;GoOj*ScM8@CedWBe?lITMii'0rZg#PbFV68,^\K4?_dEBL%`YZ'/D?U-92jP`e<S8ed\U?><W^bjSWc7I\!e,*F-YD%ekP@W7]QUtbrNGmdNc31\s>.kNaoV/!=M!FB>p>+4h;R+pGbG._%j-S>i<I8M"O;$YmS.&ifi)42ikutU.)BHq[]fk-a=&lR_5K.rI<+f<>+=.Q*8`jYsM1."^W$Z/c!LK"^iGd,h50O5rXl>maZst&$HpUS#m9oCpFiVq+eYR\@.qnC>9goIlC^n:,V)`U1O.^f30GA-X1TCm_+>I;F-WB3+`Xa<IRam#n.l85W_")l%[RWiuTg"YM":R%f(kG>R'&*E/1r'ii74%i&&<?LX'FD^`fr^.Ko;pDU=/+hOi1-JqN105DB!Po3?63:i/>895b,VPqF;q?b)K&-A;-,P<"'`'/BkLPg"BhG[34t?UTL5F/WEKB:W>A5LJlt7Yk/\'up4qi6HnD]m&F+$SN;*md\"`#SiEJ>F<<IOMhCm:pG+Rq8N<3Fe3L6>tRi4;?q.]39EIO8^=.fC`8S"@uDY1KKQmc'"18T,!.[Nl4'>sB_F0mW=n#K-JV3XG8_WXPV]3'e`"F*"[B[HQh0+s4.IMiT-PM7%$#C#pO(ZXb%EdKUTK$jPlj7m4E).#K'g-@K.rN+TTU/na8\fW?u;?)FjCI6Z&_^u:rlBQ=M#6%AbI:,0+W=>E59Y!F-YlU%odfhPgWR=ZlS%WM,_\,:%1nZStIeVQed#\*M1k[NiLV@K<%222a7&/g>Qq%a2LT3JWooB^mVL%LX<3YXtAP2Q<Nt0[?cJY>h-u;5^\NTcb#q'ebB![NbW#<!Vl<P6Vb=c%tC.>o8_n"UR:Su\G)YBrph+0%D<1s[-G=F75+'pX(Rk80Ilr/QZmhA5t0Q2q^3n'Lh%f`'5s2,YSq,mfS#p%dV)''OK_8l,&BX99]Vo*aJg`>"eVu)sk4'R,7^BNPN>ZD8Nq1d%V/^\G!&\dqqg&sKGEHGR*f%-DffBm/e7%IY4"Rl]3)>-k=SoaqK"&0%Krs.cGnui~>
+endstream
 endobj
 xref
 0 12
 0000000000 65535 f 
-0000000061 00000 n 
-0000000112 00000 n 
-0000000219 00000 n 
-0000000331 00000 n 
-0000000525 00000 n 
-0000000644 00000 n 
-0000000838 00000 n 
-0000000906 00000 n 
-0000001186 00000 n 
-0000001251 00000 n 
-0000004759 00000 n 
+0000000015 00000 n 
+0000000054 00000 n 
+0000000120 00000 n 
+0000000169 00000 n 
+0000009844 00000 n 
+0000013352 00000 n 
+0000013403 00000 n 
+0000013510 00000 n 
+0000013622 00000 n 
+0000013741 00000 n 
+0000013932 00000 n 
 trailer
 <<
-/ID 
-[<7205bd1ed3fa72faee445abfac20d7fc><7205bd1ed3fa72faee445abfac20d7fc>]
-% ReportLab generated PDF document -- digest (opensource)
-
-/Info 8 0 R
-/Root 7 0 R
 /Size 12
+/Root 3 0 R
+/Info 1 0 R
 >>
 startxref
-8321
+17495
 %%EOF

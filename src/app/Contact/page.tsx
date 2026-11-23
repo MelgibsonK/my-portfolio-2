@@ -49,7 +49,7 @@ export default function Contact() {
               "name": "Melgibson Kennedy Odari",
               "alternateName": "Melgibson Kennedy",
               "email": "melgibsonkennedy@gmail.com",
-              "url": "https://melgibsonkennedy.com/Contact",
+              "url": "https://melgibsonkennedy.vercel.app/Contact",
               "sameAs": [
                 "https://www.linkedin.com/in/melgibson-kennedy",
                 "https://github.com/MelgibsonK"

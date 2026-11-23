@@ -124,7 +124,7 @@ export default function Home() {
               "name": "Tayari Careers",
               "url": "https://tayaricareers.africa"
             },
-            "url": "https://melgibsonkennedy.com",
+            "url": "https://melgibsonkennedy.vercel.app",
             "sameAs": [
               "https://www.linkedin.com/in/melgibson-kennedy",
               "https://github.com/MelgibsonK"
